@@ -12,7 +12,8 @@ the article drafts and the code and data behind every number in the article.
 
 | Path | What it is |
 |---|---|
-| `article-final.md` | The article as it stands now. It may still be updated with the Bedrock evaluation results. |
+| `article-final.md` | The article as it stands now, with the Bedrock evaluation results. |
+| `editor-notes.md` | Editing notes for `article-final.md`: headline options, method notes, and verification status. Not part of the article. |
 | `article.md` | An earlier draft (Step 1–7 structure). Kept for reference. |
 | `review.md` | Review notes on the draft (Japanese). |
 | `demo/faq.md` | The shared system prompt and FAQ that every stage and every eval uses. |
@@ -20,6 +21,7 @@ the article drafts and the code and data behind every number in the article.
 | `demo/stage5/` | Stage 5: a static WebLLM page that runs the model in the browser, plus a smoke-test log. |
 | `demo/cost/` | The cost calculator that recomputes every dollar figure in the article. |
 | `demo/eval/` | The 30-question "floor" eval, its results, and live Bedrock behaviour checks. |
+| `figures/` | Figures for the article: the eval chart and the generated header image. |
 | `demo/pricing/` | Raw AWS Price List API dumps (us-east-1) that `demo/cost/prices.json` was checked against. |
 
 ## Requirements
@@ -108,3 +110,7 @@ produced an answer.
   you rely on them.
 - The eval grades were made by an AI assistant, as `grades.md` explains. Spot-check them
   before you reuse the numbers.
+
+## License
+
+MIT. See `LICENSE`.
