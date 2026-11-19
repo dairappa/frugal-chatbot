@@ -27,6 +27,9 @@ for n in (100_000, 1_000_000):
     for m in M:
         put(f"scale{n}.{M[m]['name']}", per_chat(m) * n)
 
+for k, label in (("anthropic.claude-opus-4-6-v1", "opus46"), ("anthropic.claude-sonnet-4-6", "sonnet46"), ("anthropic.claude-haiku-4-5-20251001-v1:0", "haiku45")):
+    pp = P["proxies"][k]
+    put(f"proxy.{label}", (IN * pp["in"] + OUT * pp["out"]) / 1e6 * CHATS, "stand-in model at the same workload")
 put("ladder.saved_first_two_rungs", (per_chat(OPUS) - per_chat(HAIKU)) * CHATS)
 print("\n== Thinking tokens (hidden output) on Opus ==")
 for extra in (200, 1000):
@@ -48,6 +51,9 @@ for m, label in ((OPUS, "opus"), (HAIKU, "haiku"), (LITE, "nova_lite")):
     put(f"bigprefix.{label}.cache_flat", per_chat(m, tin=BIG, cached=PREFIX, hit=hit_flat) * CHATS)
     put(f"bigprefix.{label}.cache_12h", per_chat(m, tin=BIG, cached=PREFIX, hit=hit_day) * CHATS)
 put("cache.opus_600_at_100pct", per_chat(OPUS, cached=600) * CHATS, "Claude 5.5 min on Bedrock: 512")
+for m, label in ((LITE, "nova_lite"), (MICRO, "nova_micro")):
+    put(f"cache.{label}_600_100pct", per_chat(m, cached=600) * CHATS, "measured: Nova caches a ~540-token prefix in-region")
+    put(f"cache.{label}_600_flat_upper", per_chat(m, cached=600, hit=hit_flat) * CHATS, "writes billed at input price = upper bound")
 put("cache.opus_600_flat", per_chat(OPUS, cached=600, hit=hit_flat) * CHATS)
 put("cache.opus_600_12h", per_chat(OPUS, cached=600, hit=hit_day) * CHATS)
 

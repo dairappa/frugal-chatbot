@@ -1,5 +1,5 @@
 {
- "total_usd": 0.000915,
+ "total_usd": 0.253033,
  "entries": [
   {
    "usd": 0.000163,
@@ -12,6 +12,2414 @@
   {
    "usd": 0.000399,
    "note": "access probes (Haiku 4.5 x2, Sonnet 4.6, Opus 4.6, gpt-oss-20b)"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 0.00217,
+   "note": "cache experiments 2 + Haiku 4.5 assistant-first/temperature (upper bound)"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.5e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 5.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 5.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000104,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 5.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000103,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000116,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.0001,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000824,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000804,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000816,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000848,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000858,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000942,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000839,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.00085,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000851,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000805,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000802,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000793,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000818,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000818,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000784,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.00072,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000711,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000841,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000839,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000876,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000888,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000921,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000837,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.00083,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000778,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000756,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000735,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000859,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.001021,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.000971,
+   "note": "eval global.anthropic.claude-haiku-4-5-20251001-v1:0"
+  },
+  {
+   "usd": 0.002505,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.00234,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002556,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002412,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002457,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002844,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002505,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002478,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002376,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002313,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002694,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002487,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002487,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002472,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002205,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002133,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002511,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002451,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002745,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002721,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002682,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002556,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002559,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002493,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002397,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002496,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002223,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.00258,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.002691,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.003306,
+   "note": "eval global.anthropic.claude-sonnet-4-6"
+  },
+  {
+   "usd": 0.004325,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00395,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004635,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004245,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004345,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00494,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.0041,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.003905,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.003835,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00388,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004115,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00402,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00357,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004145,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.0036,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00353,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00351,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.003835,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004325,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00446,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004645,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00481,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004115,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00433,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.003895,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00396,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00383,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.00445,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.004935,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 0.005685,
+   "note": "eval global.anthropic.claude-opus-4-6-v1"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.8e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.1e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.2e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.3e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.4e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval amazon.nova-micro-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.7e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.9e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 3.8e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval amazon.nova-lite-v1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.00013,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 6.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 9.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 0.003,
+   "note": "live handler.py calls: Nova Micro, Haiku 4.5 x2 (upper bound at Haiku 4.5 prices)"
   }
  ]
 }

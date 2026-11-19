@@ -111,5 +111,100 @@
   "ok": false,
   "error": "AccessDeniedException",
   "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "cache_experiments_2": {
+  "us-profile-micro-spaced3s": [
+   [
+    543,
+    0
+   ],
+   [
+    543,
+    0
+   ],
+   [
+    0,
+    543
+   ],
+   [
+    0,
+    543
+   ],
+   [
+    543,
+    0
+   ]
+  ],
+  "inregion-micro-backtoback": [
+   [
+    545,
+    0
+   ],
+   [
+    0,
+    545
+   ],
+   [
+    0,
+    545
+   ],
+   [
+    0,
+    545
+   ],
+   [
+    0,
+    545
+   ]
+  ],
+  "inregion-lite-small": [
+   [
+    543,
+    0
+   ],
+   [
+    0,
+    543
+   ],
+   [
+    0,
+    543
+   ]
+  ],
+  "us-profile-lite-small": [
+   [
+    542,
+    0
+   ],
+   [
+    542,
+    0
+   ],
+   [
+    542,
+    0
+   ],
+   [
+    0,
+    542
+   ],
+   [
+    0,
+    542
+   ]
+  ],
+  "assistant_first.haiku45": {
+   "ok": true,
+   "usage": {
+    "inputTokens": 626,
+    "outputTokens": 31,
+    "totalTokens": 657,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0
+   }
+  },
+  "temperature.haiku45": {
+   "ok": true
+  }
  }
 }

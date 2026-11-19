@@ -12,7 +12,9 @@ Usage:
 import json, sys, time, pathlib, re, urllib.request
 
 HERE = pathlib.Path(__file__).parent
-SYSTEM = (HERE.parent / "faq.md").read_text()
+_SYS = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--system=")), None)
+SYSTEM = pathlib.Path(_SYS).read_text() if _SYS else (HERE.parent / "faq.md").read_text()
+TAG = ("-" + pathlib.Path(_SYS).stem) if _SYS else ""
 QUESTIONS = json.loads((HERE / "questions.json").read_text())
 REFUSAL_MARKERS = ["don't know", "do not know", "not sure", "don't have", "do not have",
                    "no information", "not in the faq", "not covered", "ticket", "unable to",
@@ -86,7 +88,7 @@ def call_bedrock(model, msgs):
 
 
 def grade(item, answer):
-    a = answer.lower()
+    a = answer.lower().replace("\u202f", " ").replace("\u2011", "-")
     if item.get("refuse"):
         ok = any(m in a for m in REFUSAL_MARKERS)
         return ok, "refused" if ok else "did not refuse"
@@ -114,7 +116,7 @@ def main():
             print(f"estimated cost <= ${tin/1e6*p['in'] + tout/1e6*p['out']:.4f}")
         return
     call = {"ollama": call_ollama, "bedrock": call_bedrock}[backend]
-    out = HERE / "results" / f"{backend}-{re.sub(r'[^A-Za-z0-9.-]', '_', model)}-seed{SEED}.jsonl"
+    out = HERE / "results" / f"{backend}-{re.sub(r'[^A-Za-z0-9.-]', '_', model)}-seed{SEED}{TAG}.jsonl"
     out.parent.mkdir(exist_ok=True)
     passed, tin, tout = 0, 0, 0
     with out.open("w") as f:

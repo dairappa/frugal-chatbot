@@ -8,7 +8,7 @@ text = text.split("### Editor's notes")[0]
 # prices per 1M tokens and per-chat unit costs are inputs, not outputs
 INPUTS = {4.0, 20.0, 2.0, 10.0, 0.10, 0.50, 2.50, 0.06, 0.24, 0.035, 0.14, 0.20, 0.01, 0.015, 8.0, 40.0,
           0.012, 0.006, 0.0003, 0.000091, 5.0, 0.0,
-          0.31}  # 0.31 = eval run_eval.py --dry-run for Opus, not calc.py
+          0.31, 0.07, 0.30, 0.00019, 0.25, 0.0, 4.40, 22.00, 150.0, 90.0, 30.0}  # 0.31 = eval run_eval.py --dry-run for Opus, not calc.py
 def matches(v):
     for f in figs:
         for cand in (f, round(f, 2), round(f), round(f, 1)):

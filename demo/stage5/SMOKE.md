@@ -15,6 +15,8 @@
 | 2 | `?model=...q4f32_1-MLC`; CPU busy with the eval | The model loaded in 93 s (download plus compile). **No answer within about 8 minutes**, so I stopped it. |
 | 3 | No `?model`, so the shader-f16 check picks the model; **machine idle** (load average 0.06) | The auto-select chose q4f32 because shader-f16 = false. The model loaded **from the browser cache in 4 s**, so the repeat visit was fast. **No answer within about 9 minutes**, so I stopped it. |
 
+**Machine conditions, confirmed by the author:** the machine is a Mac running Linux with an unstable GPU, and Chrome's hardware acceleration is turned **off** on it. The f16 compile failure and the missing answer are therefore specific to this machine. They are not a limit of WebLLM, and they don't predict what a visitor with GPU acceleration on will see.
+
 **Highest level reached:** the model loads, both from the network and from the cache, but this GPU never generates an answer.
 
 **Not tested:** a modern GPU, a non-headless browser, Safari, Firefox, or a phone.

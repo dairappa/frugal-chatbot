@@ -22,18 +22,22 @@ We will build the same chatbot five times, walking down a ladder:
 
 ### What I ran, and what I didn't
 
-The prices are **desk calculations**. My AWS session had expired while I wrote this, so I made no Bedrock calls and there is no Bedrock bill behind these numbers. Everything else I could run, I ran. The code is in the companion repository (`demo/`):
+The monthly prices are **calculations** from list prices, and every list price was checked against the AWS Price List API. The floor checks are **measurements**. The code is in the companion repository (`demo/`):
 
 - **A cost script** (`demo/cost/calc.py`) that produces every dollar figure in this article from one price file. If you change the prices or the traffic, the article's tables change with them.
 - **Offline tests for the Stage 1 handler** (`demo/stage1/`). They use botocore's `Stubber`, which validates each request against the real Converse and DynamoDB API schemas without calling AWS.
-- **A 30-question floor test** (`demo/eval/`) with the same system prompt and FAQ on every rung. I ran it on the last rung's model, locally, and graded every answer by reading it. The harness has a Bedrock backend that I could not run. Its `--dry-run` mode estimates the cost: under $0.01 per rung on Nova and Haiku, about $0.31 on Opus 5.5 at 400 output tokens per answer.
+- **A 30-question floor test** (`demo/eval/`) with the same system prompt and FAQ on every rung. It ran on Amazon Bedrock against Nova Lite, Nova Micro, and gpt-oss-20b, and against Claude models (see the caveat below). It also ran on the last rung's model. Every answer was graded by reading it against a written rubric. All the Bedrock calls behind this article, including the experiments, cost **$0.25**, computed from the logged token counts at list prices.
+- **Live checks of the Converse behaviors the code relies on:** history that starts with an assistant turn, `temperature`, `outputConfig`, and prompt caching.
+
+**One caveat.** The Claude 5.5 models were not enabled on my AWS account (its Marketplace agreement status was `NOT_AVAILABLE`). So the Claude rungs were measured with older-generation stand-ins: **Opus 4.6, Sonnet 4.6, and Haiku 4.5**. The prices in this article are the 5.5 prices. The floor results for those rungs come from older models that cost more at this workload ($150, $90, and $30 a month); they are not measurements of the 5.5 models.
 - **A minimal implementation of the last rung** (`demo/stage5/`), served locally and smoke-tested.
 
 ### The unit of comparison
 
 - **10,000 chats per month.**
 - **Each chat is 1,000 input tokens and 400 output tokens.** The input is the system prompt with the FAQ, a trimmed slice of history, and the user's question. The demo FAQ is 515 tokens with Llama's tokenizer. Other tokenizers count differently; Anthropic says Claude Haiku 5.5's tokenizer counts about 30% more tokens for the same text. Use one fixed budget for comparison, and measure your own.
-- **List prices.** For Claude models, Anthropic's published list prices, which Bedrock's global endpoints are said to match; regional endpoints are said to cost 10% more. Amazon Nova prices are US East (N. Virginia) on-demand rates. Check the [Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) for your Region before you budget.
+- **List prices, US East (N. Virginia), on demand**, checked against the AWS Price List API on 2026-11-19. For Claude, these are the *global* endpoint rates. Regional endpoints (`us.*` profiles) cost 10% more; the Price List shows $4.40/$22.00 for Opus 5.5.
+- **The budget is conservative.** In the measured runs, a single-turn FAQ answer used 550 to 610 input tokens. Output was 22 to 47 tokens on Nova and the Claude stand-ins, and 111 on gpt-oss-20b, whose count includes its reasoning. Real answers came in far under 400 output tokens; thinking on the 5.5 models is the unknown.
 - **Thinking tokens are not included.** The Claude 5.5 models think by default, and thinking is billed as output. Stage 1 shows what that does to the bill.
 - The master formula, per chat: `input_tokens/1M × input_price + output_tokens/1M × output_price`, times 10,000.
 
@@ -54,7 +58,7 @@ The 30 questions in `demo/eval/questions.json` map to this list:
 - 1 question in Japanese
 - 1 angry customer
 
-Every rung below gets the same question: *what do we give up here, and does the floor still hold?* For the Bedrock rungs, the answer is my judgment, not a measurement. Run the harness against your own FAQ before you trust it. For the last rung, I measured.
+Every rung below gets the same question: *what do we give up here, and does the floor still hold?* Each rung now has a measured answer, from a stand-in model on the Claude rungs. Thirty questions is a smoke test, not a benchmark, so run the harness against your own FAQ before you trust mine.
 
 ## Stage 1: Start at the top, Claude Opus 5.5 behind Lambda
 
@@ -110,16 +114,16 @@ def handler(event, context):
 
 Four details in this snippet do quiet financial or correctness work:
 
-- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question. So from the fourth turn on, that slice *starts with an assistant message*. Chat models are trained on conversations that open with a user turn, and I could not confirm live how Bedrock treats one that doesn't, so the handler simply never sends one. A unit test in `demo/stage1/` reproduces the bad slice for turns 4, 5, and 10.
+- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question. So from the fourth turn on, that slice *starts with an assistant message*. What happens next depends on the model. Nova Micro rejects the call with `ValidationException: A conversation must start with a user message`. Haiku 4.5 accepted it. A chatbot that breaks on turn four for some models and not others is the worst kind of bug, so the handler never sends one. A unit test in `demo/stage1/` reproduces the bad slice.
 - **Size is checked before any token is spent.** The 3 a.m. wiki paste now gets a 413 and costs nothing.
-- **No `temperature`.** On Anthropic's API, the Claude 5.5 models reject non-default sampling parameters, and a FAQ bot gains nothing from them anyway. Whether Bedrock rejects them too is something only a live call shows; the offline schema check accepts both versions.
-- **`outputConfig.effort` is `low` and `maxTokens` is 1,024, not 400.** Opus 5.5 always thinks, and thinking tokens count toward `maxTokens`. A tight cap can cut off the visible answer.
+- **No `temperature`.** On Anthropic's API, the Claude 5.5 models reject non-default sampling parameters. Nova Micro and Haiku 4.5 accepted `temperature: 0.7` on Bedrock. I couldn't test the 5.5 models. A FAQ bot gains nothing from it anyway.
+- **`outputConfig.effort` is `low` and `maxTokens` is 1,024, not 400.** Opus 5.5 always thinks, and thinking tokens count toward `maxTokens`, so a tight cap can cut off the visible answer. Send `effort` only to the Claude 5.5 models. Nova rejects the whole request with `This model doesn't support the outputConfig field`, and Haiku 4.5 rejects it with `This model does not support the effort parameter`. I ran this handler live against Nova Micro and Haiku 4.5 with `EFFORT=""`, and both answered a five-message conversation correctly.
 
 That last point changes the bill. The $120 assumes 400 output tokens per chat. If each chat also thinks for 200 tokens, the bill becomes **$160**; at 1,000 thinking tokens it becomes **$320**. Log `usage.outputTokens` from day one, because it is the only number that tells you which of these you are paying.
 
-The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds, because a flagship answer can take several seconds.
+The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds. In the test runs, the slowest Opus 4.6 answer took 5.5 seconds, and a thinking model will be slower.
 
-What does $120/month buy? Excellent answers. Opus handles the ambiguous question, the question that needs three facts combined, and the annoyed customer who needs calming before instructions. If your chatbot does legal triage or complex troubleshooting, stop here: this is your stage, and $120/month for it is not much.
+What does $120/month buy? Excellent answers. The Opus stand-in passed **30 of 30**. It calmed the angry customer before it told them where Trash is, and it declined all six out-of-scope questions without inventing anything. Opus handles the ambiguous question, the question that needs three facts combined, and the annoyed customer who needs calming before instructions. If your chatbot does legal triage or complex troubleshooting, stop here: this is your stage, and $120/month for it is not much.
 
 But watch a flagship model answer "How do I reset my password?" a few hundred times and a suspicion forms: you are paying for reasoning depth that FAQ traffic never touches. Let's walk down.
 
@@ -127,30 +131,54 @@ But watch a flagship model answer "How do I reset my password?" a few hundred ti
 
 ## Stage 2: Walk down the model shelf
 
-Same code, same architecture. The only thing that changes is configuration (`MODEL_ID`, plus `EFFORT=""` once we leave the Claude models), and the question we ask at each rung.
+Same code, same architecture. The only thing that changes is configuration (`MODEL_ID`, plus `EFFORT=""` for any model outside the Claude 5.5 family), and the question we ask at each rung.
 
 ### Rung 1: Claude Sonnet 5.5 ($60/month)
 
 **$2.00 per 1M input tokens, $10.00 per 1M output tokens** → `0.001 × $2.00 + 0.0004 × $10.00 = $0.006` per chat → **$60/month**. The first step down halves the bill.
 
-What you give up: the deepest reasoning, the multi-step edge cases, the subtlest reading of a convoluted question. What you keep: fluent, accurate, well-judged answers to almost everything a support queue contains. For most chatbots this rung is *still* overkill, just less flamboyantly so.
+What you give up: the deepest reasoning, the multi-step edge cases, the subtlest reading of a convoluted question. None of that showed up in a FAQ test. The Sonnet stand-in also passed **30 of 30**. For most chatbots this rung is *still* overkill, just less flamboyantly so.
 
 ### Rung 2: Claude Haiku 5.5 ($3/month)
 
 **$0.10 per 1M input tokens, $0.50 per 1M output tokens** for prompts up to 100K tokens; above that, $0.50/$2.50. Ours are 1,000. → `0.001 × $0.10 + 0.0004 × $0.50 = $0.0003` per chat → **$3/month**. This is the rung where the character of the exercise changes: we are no longer trimming a bill, we have divided it by forty.
 
-What you give up: nuance. Haiku answers the question you asked, quickly and usually correctly, but it is less likely to notice the question you *meant*, less graceful when the FAQ is contradictory, and more literal with a frustrated user. What you keep, in my judgment: the floor. For FAQ traffic this is the first rung that feels *designed* for the job, and $3/month is close to the point where further savings stop mattering in dollars and start mattering as a design exercise. We continue anyway.
+What you give up: nuance, and it shows up as the first wrong answers. The Haiku stand-in (Haiku 4.5, which costs ten times as much at this workload) passed **28 of 30**. Both failures were the dangerous kind. To a customer who bought three weeks ago, it opened with "Yes, you can!", then explained that the 14-day refund window had passed. And it promised that support would "help you with the import process" for an Evernote import feature the FAQ never mentions. The floor holds, with cracks you would want a human to review. For FAQ traffic this is the first rung that feels *designed* for the job, and $3/month is close to the point where further savings stop mattering in dollars and start mattering as a design exercise. We continue anyway.
+
+### Rung 2½: an open-weight model, gpt-oss-20b ($1.90/month)
+
+Bedrock also serves open-weight models on demand. OpenAI's gpt-oss-20b costs **$0.07/$0.30 per 1M tokens** → **$1.90/month**. Its list price is above Nova Lite's, and it also reasons before it answers. In my runs it averaged about 111 output tokens per answer, against Nova's 22 to 29, and the extra tokens appear to be its reasoning. So its real bill per answer runs higher than Nova's too. It passed **29 of 30**, in the right language every time across three runs. Its only failure was the angry customer: it escalated without mentioning Trash.
 
 ### Rung 3: Amazon Nova Lite and Nova Micro ($1.56 and $0.91/month)
 
-The last step on the shelf crosses vendors. Nova Lite costs **$0.06/$0.24 per 1M tokens** → **$1.56/month**. Nova Micro costs **$0.035/$0.14** → `0.001 × $0.035 + 0.0004 × $0.14 = $0.000091` per chat → **$0.91/month**.
+The last step on the shelf is Amazon's own Nova family. Nova Lite costs **$0.06/$0.24 per 1M tokens** → **$1.56/month**. Nova Micro costs **$0.035/$0.14** → `0.001 × $0.035 + 0.0004 × $0.14 = $0.000091` per chat → **$0.91/month**.
 
-What you give up: some instruction-following polish, especially with long, conditional instructions and with declining questions outside the context. This is the rung where I would most want the harness's numbers before shipping, because "declines what it doesn't know" is the floor item small models lose first. Stage 5 shows how fast that item falls apart once a model is small enough.
+I expected Nova to fail by inventing answers. Mostly it didn't. In the hand-graded runs, neither model invented a policy, and both declined all six out-of-scope questions in all three runs. One repeat run did invent a help-page URL. Nova Lite passed **28 of 30**, but one refund answer came back in Spanish.
+
+Nova Micro failed differently. It answered **10 of 30 English questions in another language**, nine in German and one in Dutch, and passed **20 of 30**. Nine of those ten were factually right, just in the wrong language. Across three runs, Micro switched language on 10, 8, and 6 questions. The trigger was the prompt line "Reply in the same language as the user." Micro apparently read that as an invitation to pick a language.
+
+The fixes taught me more than the failure did:
+
+- "Reply in English. If the user writes in another language, reply in that language." This stopped the German, and it also made Micro answer the Japanese question in English, three runs out of three.
+- "Detect the language of the user's latest message and reply in exactly that language (English questions get English answers)." This fixed Micro: **29 of 30**, with English for English and Japanese for Japanese. The same line then made **Nova Lite** answer the Japanese question in English.
+
+A prompt fix is model-specific. Whenever you change the prompt or the model, rerun the floor test. (The demo's `faq.md` keeps the original line, so every rung in the table below saw the same prompt.)
 
 At this altitude, **routing** becomes attractive: send the easy majority to Micro, and escalate to Haiku when the question is complex. How you route matters:
 
 - **A router decides first** (a cheap classifier or rules), and 20% of chats go to Haiku: **$1.33/month**.
 - **Micro answers first**, and 20% are re-asked to Haiku when the answer looks unsure: **$1.51/month**, because escalated chats pay for both models.
+
+Here is the whole shelf, measured with the same 30 questions:
+
+| Rung | $/month | Model tested | Floor test | Confidently wrong | What went wrong |
+|---|---|---|---|---|---|
+| Opus 5.5 | $120 | Opus 4.6 ($150 at this workload) | 30/30 | 0 | nothing |
+| Sonnet 5.5 | $60 | Sonnet 4.6 ($90) | 30/30 | 0 | nothing (one mild hint that Team allows more devices) |
+| Haiku 5.5 | $3.00 | Haiku 4.5 ($30) | 28/30 | 2 | a contradictory refund answer; an implied import feature |
+| gpt-oss-20b | $1.90 | same | 29/30 | 0 | escalated the angry customer without mentioning Trash |
+| Nova Lite | $1.56 | same | 28/30 | 0 | one answer in Spanish; the angry customer again |
+| Nova Micro | $0.91 | same | 20/30 → **29/30** after a one-line prompt fix | 0 → 1 | German answers, then one invented "we don't offer student discounts" |
 
 **Stage 2 total: $120 → $60 → $3 → $1.56 → $0.91/month**, depending on where you stop. Notice the shape: the first two rungs saved $117 of the $120. Model selection is not one lever among many; it is *the* lever.
 
@@ -179,11 +207,12 @@ system=[
 
 Three things a price table does not show:
 
-1. **Minimum prefix size.** A cache checkpoint needs at least **1K tokens** in front of it on Nova models. Our ~600-token FAQ prompt is *not cacheable on Nova at all*. The cachePoint is silently skipped. For the Claude 5.5 models, Bedrock's minimum is 512 tokens, so the same prompt is *probably* cacheable there. The demo prompt is 515 tokens by Llama's count, and Claude's tokenizer will count it differently, so check `cacheWriteInputTokens`. If it caches, an Opus chat with a cached 600-token prefix drops from $120 to **$97.20/month** at a perfect hit rate, or **$100 to $106** at the realistic hit rates below.
-2. **Writes cost extra, and entries expire.** On Claude, a cache write costs 1.25× the input price, and an entry lives 5 minutes after its last use. 10,000 chats a month is one every **4.3 minutes** on average. If arrivals are random, the next chat arrives within 5 minutes only **69%** of the time. If all traffic falls in 12 waking hours, that rises to **90%**. A 100% hit rate is not a free assumption.
-3. **Check that it works.** After each call, read `usage.cacheReadInputTokens`. If it stays at zero, your prefix isn't stable or isn't long enough.
+1. **Measure the minimum; don't trust it.** AWS documents a minimum of 1K tokens per cache checkpoint for Nova. In my runs, Nova Micro and Nova Lite both cached our **~540-token** prefix: the first call reported it in `cacheWriteInputTokens` and the next calls in `cacheReadInputTokens`. If that holds for you, Nova Lite with a cached 600-token prefix drops from $1.56 to **$1.29/month** at a perfect hit rate. For the Claude 5.5 models, the documented minimum is 512 tokens. If the prompt caches there too, Opus drops from $120 to **$97.20/month** at a perfect hit rate, or **$100 to $106** at the realistic hit rates below.
+2. **Cross-region profiles split the cache.** A `us.*` inference profile can route consecutive calls to different Regions, and each Region keeps its own cache. Called through `us.amazon.nova-micro-v1:0`, only 2 of 4 repeat calls read the cache; the others wrote it again. With the in-Region model ID, 4 of 4 hit. (That is a handful of calls, not a study, but it is easy to check in your own `usage` logs.)
+3. **Writes may cost extra, and entries expire.** On Claude, a cache write costs 1.25× the input price; the Price List shows $5.00 per 1M for Opus 5.5. For Nova, it lists cache writes at $0.00. An entry lives 5 minutes after its last use. 10,000 chats a month is one every **4.3 minutes** on average. If arrivals are random, the next chat arrives within 5 minutes only **69%** of the time. If all traffic falls in 12 waking hours, that rises to **90%**. A 100% hit rate is not a free assumption.
+4. **Check that it works.** After each call, read `usage.cacheReadInputTokens`. If it stays at zero, your prefix isn't stable, isn't long enough, or is landing in a different Region each time.
 
-With a bigger FAQ (a 2,000-token cached prefix plus 400 tokens of question and history), caching earns its keep. The table uses the hit rates above and the write premium; Nova's write price is assumed to equal its input price:
+With a bigger FAQ (a 2,000-token cached prefix plus 400 tokens of question and history), caching earns its keep. The table uses the hit rates above and the write premium. For Nova, the table bills writes at the input price, which makes its Nova figures an upper bound:
 
 | 2,400 input / 400 output | No cache | 69% hits | 90% hits |
 |---|---|---|---|
@@ -201,7 +230,7 @@ Lever 2 is Stage 1's `trim_history` taken seriously. A chat that replays a 40-me
 
 Output tokens cost 4 to 5 times as much as input tokens on every model on the shelf, so a chatbot that writes essays when a paragraph would do pays essay prices. Ask for concision in the system prompt ("3 sentences or fewer"), and on the Claude 5.5 models set `effort` to `low`. Keep `maxTokens` as a safety net, not as the main control. On a thinking model, a tight cap truncates answers instead of shortening them.
 
-**Stage 3 total: ≈ $0.91 to $1.51/month** at the bottom rungs, depending on how you route. Caching does nothing on Nova with a prompt this small. The levers matter more at the top: Opus can drop from $120 to about $100 to $106 with caching alone.
+**Stage 3 total: ≈ $0.75 to $1.51/month** at the bottom rungs, depending on how you route and whether the cache holds. Nova Micro with a cached prefix comes to $0.75 to $0.80. The levers matter more at the top: Opus can drop from $120 to about $100 to $106 with caching alone.
 
 ## Stage 4: Fit the whole thing inside the free tier
 
@@ -306,13 +335,15 @@ For a support bot, the middle column is the one that matters. A wrong answer del
 
 The 1B model **does not hold the floor**. It fails the floor item small models lose first: knowing what it doesn't know. The 3B model comes much closer: 23 of 30, with three confidently wrong answers. One of them is a mistranslation in Japanese. It costs 2.6 times the download.
 
+Put that next to the Bedrock rungs. The cheapest model on the shelf, Nova Micro at $0.91 a month, gave one invented answer in 30 once its prompt was fixed. The 1B model gave 11, and its AWS bill is zero. At this traffic, the gap between them is less than a dollar a month.
+
 An automatic keyword grader, by the way, scored the 1B model at 19 to 22 out of 30 across three runs. It passed five answers that put the right keyword next to an invented claim. Read your outputs.
 
 ### Will it even run?
 
-I loaded the page in headless Chrome on a Linux PC with an Intel integrated GPU (the adapter reports "gen-7"). WebGPU had to be forced on with `--enable-unsafe-webgpu` and Vulkan flags, so this is not a normal user's setup. The page loaded and found an adapter. The default 1B build then failed to compile, because this GPU lacks the `shader-f16` feature that the q4f16 build needs. With the feature check above, the page picked the q4f32 build instead. The first load took 93 seconds, and a repeat load from the browser cache took 4 seconds. On an otherwise idle machine, it still produced **no answer within nine minutes**.
+I loaded the page in headless Chrome on a Linux PC with an Intel integrated GPU (the adapter reports "gen-7"). Read what follows with that machine in mind. It is a Mac running Linux, its GPU driver is unstable, and Chrome's hardware acceleration is turned off on it for that reason. WebGPU had to be forced on with `--enable-unsafe-webgpu` and Vulkan flags. This is not a normal user's setup. The page loaded and found an adapter. The default 1B build then failed to compile, because this GPU lacks the `shader-f16` feature that the q4f16 build needs. With the feature check above, the page picked the q4f32 build instead. The first load took 93 seconds, and a repeat load from the browser cache took 4 seconds. On an otherwise idle machine, it still produced **no answer within nine minutes**.
 
-One weak GPU proves nothing about yours. It does prove that "WebGPU is available" is not the same as "the model answers," so the fallback needs a timeout, not only a feature check. I did not test a modern GPU, Safari, Firefox, or a phone.
+**The compile failure and the missing answer are this machine's problem, not a limit of WebLLM.** With hardware acceleration off, the browser was not really using the GPU. Most readers will run Chrome, Edge, or Safari with GPU acceleration on. That is the default, and it is the setup WebLLM targets. I couldn't measure that setup here, so I have no speed numbers for it, good or bad. What the test does show is the shape of the failure on a machine like mine: "WebGPU is available" is not the same as "the model answers." Visitors with machines like that exist, so the fallback needs a timeout, not only a feature check. I did not test a machine with GPU acceleration on, Safari, Firefox, or a phone.
 
 ### What's left on the bill
 
@@ -338,7 +369,7 @@ The trick behind that number deserves to be stated out loud. WebLLM fetches the 
 A ladder you only climb down in the sales brochure is marketing, so here is what Stage 5 costs in the currencies that aren't dollars:
 
 - **The first visit is heavy.** 705 MB for the 1B model, 1.8 GB for the 3B model that actually held the floor. It's cached afterwards, but a drive-by visitor may never finish loading. Load on intent, show progress, and prefer small models.
-- **Browser support is broad, not universal.** WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows. Older devices, many phones, and GPUs without `shader-f16` will fail or crawl. The best escape hatch is a **hybrid**: try the local model, and if WebGPU is missing or too slow, quietly fall back to your Stage 4 endpoint. The expensive path then serves only the visitors the free path can't.
+- **Browser support is broad, not universal.** WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows. Older devices, many phones, GPUs without `shader-f16`, and browsers with hardware acceleration turned off will fail or crawl. My own test machine was in that last group (see "Will it even run?"), so its result says little about a typical visitor with GPU acceleration on. The best escape hatch is a **hybrid**: try the local model, and if WebGPU is missing or too slow, quietly fall back to your Stage 4 endpoint. The expensive path then serves only the visitors the free path can't.
 - **Small models are confidently wrong.** The measurement above is the whole argument. For support triage with a human behind it, a 3B model may be acceptable. For refunds, billing, medical, legal, or financial answers, a 1B model is not.
 - **You lose the server-side view.** You get no central logs of what users asked (unless you add analytics, carefully and with consent), no instant model upgrades, and no server-side guardrails. Anyone who opens DevTools can read your system prompt.
 - **The user's battery is now your compute budget.** Inference is free to *you* because the visitor's GPU does the work. On a plugged-in laptop that's a fine trade. On a phone at 12% battery, be polite: small models, short answers, and no warm GPU when the tab is idle.
@@ -348,7 +379,7 @@ A ladder you only climb down in the sales brochure is marketing, so here is what
 Notice what we did *not* do. We didn't start with the last rung, and we didn't start with the cheapest model either. The ladder has an order, and the order is the frugal part:
 
 1. **Start at the top** (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request.
-2. **Walk down one rung at a time** (Stage 2), with a fixed question set, and stop at the first rung where the floor cracks for *your* questions; then step back up one. For most FAQ bots, that lands in Haiku or Nova territory: single-digit dollars a month.
+2. **Walk down one rung at a time** (Stage 2), with a fixed question set, and stop at the first rung where the floor cracks for *your* questions; then step back up one. In my test, the floor held all the way down the Bedrock shelf, with cracks. The Haiku stand-in gave a contradictory refund answer, Nova Lite replied once in Spanish, and Nova Micro switched languages until a one-line prompt change fixed it. Nova Lite and gpt-oss-20b passed 28 and 29 of 30 for under $2 a month. Rerun the test every time you change the prompt, because the fix for one model broke another.
 3. **Pull the free levers, and price the worst case** (Stages 3 and 4). Cache what is static, trim what grows, cap what is long, and put a quota in front of the token meter.
 
 Most products should stop at Stage 2 or 3. A few dollars a month for a correct, logged, upgradeable chatbot is one of the great bargains in modern infrastructure. Stage 5 is for cases where something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, my measurement says to choose the model by the floor, not by the download size.
@@ -368,21 +399,29 @@ Your homework, in the spirit of The Frugal Architect: take the formula from the 
 
 The title, subtitle, intro list, and section headings intentionally don't reveal the Stage 5 approach.
 
-**Method note (2026-11-19):** No Bedrock calls; the AWS SSO session had expired. To measure the Bedrock rungs, run `aws sso login`, then `python3 demo/eval/run_eval.py bedrock <model-id>` for each rung. Estimated spend for the whole ladder is about $0.47 at 400 output tokens per answer, and at most about $1.05 if every answer used the full 1,024-token cap including thinking; check `--dry-run` first. The following were run on 2026-11-19:
+**Method note (2026-11-19):** Bedrock calls ran in us-east-1. The Claude 5.5 models (and Opus 5 / 4.7 / 4.8) returned `AccessDeniedException`; `get-foundation-model-availability` shows `agreementAvailability: NOT_AVAILABLE`. I did not accept any Marketplace agreement on the account. Claude rungs were measured with Opus 4.6, Sonnet 4.6, and Haiku 4.5. **Total Bedrock spend: $0.25**, computed as logged usage × Price List rates; this is not a billed figure (see `demo/eval/cost_summary.json` and `ledger.json`). The following were run on 2026-11-19:
 
 - `demo/cost/calc.py`, which produces every dollar figure; `figures.json` is its output.
 - `demo/stage1/test_handler.py`: 20 offline tests, all passing.
-- `demo/eval/`: the 30-question floor test on Llama 3.2 1B (three seeds plus a pilot) and 3B, local Ollama, Q4_K_M. Grades in `grades.md` were assigned by the AI assistant, not by the author. **Spot-check them before publishing**, because the article reports them in the author's voice.
-- `demo/stage5/`: served locally and smoke-tested three times in headless Chrome with forced WebGPU on an Intel integrated GPU; see `SMOKE.md`.
+- `demo/eval/`: the 30-question floor test.
+  - Bedrock: Opus 4.6, Sonnet 4.6, and Haiku 4.5 ×1 each; gpt-oss-20b, Nova Lite, and Nova Micro ×3 each; two prompt variants on Micro ×3 and on Lite and gpt-oss ×1.
+  - Local Ollama: Llama 3.2 1B and 3B.
+  - Grades in `grades.md` were assigned by the AI assistant, not by the author. **Spot-check them before publishing**, because the article reports them in the author's voice. Only the first run of each Bedrock model was hand-graded; the language counts for the repeat runs come from a word-list check.
+- `demo/eval/behavior_checks.py` and `behavior_results.json` record the live checks: assistant-first history, `temperature`, `outputConfig`, and caching in-Region versus through the `us.*` profile.
+- `demo/stage5/`: served locally and smoke-tested three times in headless Chrome with forced WebGPU on an Intel integrated GPU; see `SMOKE.md`. Per the author, this machine is a Mac running Linux with an unstable GPU, and Chrome's hardware acceleration is turned off on it, so the failures there are machine-specific. Retesting on a machine with GPU acceleration on would replace the "no answer" result with real speed numbers.
 
 **Verification status:**
 
-- **Claude prices** ($4/$20, $2/$10, $0.10/$0.50 with the >100K tier; cache reads $0.20/$0.10): match Anthropic's first-party list (Claude API skill reference, cached 2026-11-03). Haiku cache read $0.01 = 0.1× input, inferred. **Bedrock parity and the +10% regional premium are not verified on the AWS pricing page.**
-- **Nova prices and Nova Lite cache read:** secondary sources only. Nova cache-write price is assumed equal to input. Verify on the AWS page.
-- **Cache minimums (Nova 1K, Claude 5.5 512) and the default 5-minute TTL:** AWS Bedrock prompt-caching page, read 2026-11-19. That page lists Claude Fable 5.2 on Bedrock, which supports the "more expensive tier" sentence; Fable's $8/$40 is Anthropic's list price.
-- **1.25× Claude write premium, thinking billed as output, sampling-parameter rejection:** Anthropic's documentation for its own API. AWS says only that writes are billed at "the model's cache-write rate", and its Claude parameter pages don't cover the 5.5 models. Not verified for Bedrock.
+- **All model prices: verified against the AWS Price List API, 2026-11-19** (raw dumps in `demo/pricing/`).
+  - Claude 5.5, global endpoints: Opus $4/$20, Sonnet $2/$10, Haiku $0.10/$0.50 ($0.50 input above 100K). Cache reads $0.20/$0.10/$0.01; cache writes $5.00/$2.50/$0.125.
+  - Regional endpoints cost +10%. Fable 5.2 is $8/$40.
+  - Nova Lite $0.06/$0.24, cache read $0.015. Nova Micro $0.035/$0.14, cache read $0.00875. Nova cache writes are listed at $0.00; it isn't clear whether written tokens are then billed as regular input, so calc.py bills them at the input price as an upper bound.
+  - gpt-oss-20b $0.07/$0.30.
+- **Cache minimums (Nova 1K, Claude 5.5 512) and the default 5-minute TTL:** AWS Bedrock prompt-caching page, read 2026-11-19. **Measured contradiction:** Nova Micro and Lite cached a ~540-token prefix. The usage fields reported it; billing was not observed. That page lists Claude Fable 5.2 on Bedrock, which supports the "more expensive tier" sentence; Fable's $8/$40 is Anthropic's list price.
+- **1.25× Claude write premium:** confirmed by the Price List.
+- **Thinking billed as output, and the sampling-parameter rejection on Claude 5.5:** from Anthropic's documentation for its own API. Not testable here (no 5.5 access). Haiku 4.5 accepted `temperature`.
 - **Converse `outputConfig.effort` and `cachePoint`:** present in the botocore 1.44.6 Bedrock Runtime API model (schema only).
-- **Converse first-message rule:** the slicing bug is reproduced offline. The Converse user-guide page does not state a user-first rule, and I have not observed Bedrock's behavior live; the article does not claim a rejection.
+- **Converse first-message rule:** measured. Nova Micro rejects it with `ValidationException: A conversation must start with a user message`; Haiku 4.5 accepted it. `outputConfig` on Nova is rejected with "This model doesn't support the outputConfig field".
 - **WebLLM sizes and VRAM:** web-llm 0.2.89 `prebuiltAppConfig` and Hugging Face file listings, 2026-11-19.
 - **Safari 26 WebGPU:** secondary coverage; check Apple's release notes. Firefox 141 on Windows and Chrome/Edge 113+ are not re-verified.
 - **CORS on function URLs and the OAC `x-amz-content-sha256` requirement for POST:** from memory of AWS docs, not re-checked this session.
