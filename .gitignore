@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets / credentials (never commit)
+.env
+.env.*
+*.pem
+*.key
+credentials
+credentials.json
+.aws/
+
+# Scratch output
+demo/pricing/err*.txt
+*.swp
+.DS_Store

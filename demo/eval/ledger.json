@@ -1,0 +1,17 @@
+{
+ "total_usd": 0.000915,
+ "entries": [
+  {
+   "usd": 0.000163,
+   "note": "behavior_checks.py (Nova Micro calls; Claude 5.5 calls denied, $0)"
+  },
+  {
+   "usd": 0.000353,
+   "note": "Nova in-region cache retest (upper bound)"
+  },
+  {
+   "usd": 0.000399,
+   "note": "access probes (Haiku 4.5 x2, Sonnet 4.6, Opus 4.6, gpt-oss-20b)"
+  }
+ ]
+}

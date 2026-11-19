@@ -1,0 +1,74 @@
+{
+ "_note": "USD per 1M tokens, us-east-1 on-demand. VERIFIED 2026-11-19 against the AWS Price List API (service codes AmazonBedrock and AmazonBedrockFoundationModels; raw dumps in demo/pricing/). Claude = global endpoint rates (regional = +10%). cw = cache write (5-minute).",
+ "models": {
+  "anthropic.claude-opus-5-5": {
+   "name": "Claude Opus 5.5",
+   "in": 4.0,
+   "out": 20.0,
+   "cr": 0.2,
+   "cw": 5.0
+  },
+  "anthropic.claude-sonnet-5-5": {
+   "name": "Claude Sonnet 5.5",
+   "in": 2.0,
+   "out": 10.0,
+   "cr": 0.1,
+   "cw": 2.5
+  },
+  "anthropic.claude-haiku-5-5": {
+   "name": "Claude Haiku 5.5",
+   "in": 0.1,
+   "out": 0.5,
+   "cr": 0.01,
+   "cw": 0.125
+  },
+  "amazon.nova-lite-v1:0": {
+   "name": "Amazon Nova Lite",
+   "in": 0.06,
+   "out": 0.24,
+   "cr": 0.015,
+   "cw": 0.06
+  },
+  "amazon.nova-micro-v1:0": {
+   "name": "Amazon Nova Micro",
+   "in": 0.035,
+   "out": 0.14,
+   "cr": 0.00875,
+   "cw": 0.035
+  },
+  "openai.gpt-oss-20b-1:0": {
+   "name": "gpt-oss-20b",
+   "in": 0.07,
+   "out": 0.3,
+   "cr": null,
+   "cw": null
+  }
+ },
+ "aws": {
+  "lambda_gb_s": 1.66667e-05,
+  "lambda_req_per_m": 0.2,
+  "lambda_free_gb_s": 400000,
+  "lambda_free_req": 1000000,
+  "cloudfront_free_gb": 1024,
+  "cloudfront_per_gb_after": 0.085
+ },
+ "_nova_cw_note": "Price List shows cache-write $0.00/1K for Nova Lite and Micro. Whether a write is free or the written tokens are billed as regular input is not clear from the list; calc.py conservatively bills writes at the input price.",
+ "proxies": {
+  "_note": "Previous-generation Claude models used as stand-ins because the account has no agreement for the 5.5 models. Global-endpoint list prices from the AWS Price List API (AmazonBedrockFoundationModels, us-east-1).",
+  "anthropic.claude-opus-4-6-v1": {
+   "name": "Claude Opus 4.6 (proxy)",
+   "in": 5.0,
+   "out": 25.0
+  },
+  "anthropic.claude-sonnet-4-6": {
+   "name": "Claude Sonnet 4.6 (proxy)",
+   "in": 3.0,
+   "out": 15.0
+  },
+  "anthropic.claude-haiku-4-5-20251001-v1:0": {
+   "name": "Claude Haiku 4.5 (proxy)",
+   "in": 1.0,
+   "out": 5.0
+  }
+ }
+}

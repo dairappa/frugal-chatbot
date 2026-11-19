@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Notes support</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; }
+  #log p { margin: .5rem 0; } .user { font-weight: 600; }
+  #status { color: #555; font-size: .9rem; min-height: 1.5em; }
+</style>
+<h1>Example Notes support</h1>
+<button id="start">Start chat</button>
+<p id="status"></p>
+<div id="log"></div>
+<form id="form" hidden><input id="input" size="40" autocomplete="off"> <button>Send</button></form>
+<script type="module" src="./app.js"></script>
+</html>

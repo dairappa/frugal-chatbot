@@ -1,0 +1,3 @@
+{"at": "12:17:26", "stage": "module-loaded", "detail": "navigator.gpu present", "t": 290}
+{"at": "12:17:26", "stage": "adapter", "detail": "intel gen-7  shader-f16=false", "t": 349}
+{"at": "12:17:30", "stage": "model-loaded", "detail": "", "t": 4131}

@@ -1,0 +1,60 @@
+{
+ "Claude Haiku 5.5 (Amazon Bedrock Edition)": {
+  "output_tokens_long_ctx_global_standard": 2.5,
+  "cache_read_tokens_global_standard": 0.01,
+  "output_tokens_global_standard": 0.5,
+  "cache_write_tokens_1h_standard": 0.22,
+  "input_tokens_global_standard": 0.1,
+  "cache_write_tokens_global_standard": 0.125,
+  "input_tokens_long_ctx_global_standard": 0.5,
+  "cache_write_tokens_long_ctx_global_standard": 0.625,
+  "cache_write_tokens_1h_long_ctx_global_standard": 1.0,
+  "input_tokens_standard": 0.11,
+  "input_tokens_long_ctx_standard": 0.55,
+  "output_tokens_standard": 0.55,
+  "cache_write_tokens_1h_long_ctx_standard": 1.1,
+  "cache_read_tokens_long_ctx_global_standard": 0.05,
+  "cache_write_tokens_long_ctx_standard": 0.6875,
+  "cache_write_tokens_1h_global_standard": 0.2,
+  "output_tokens_long_ctx_standard": 2.75,
+  "cache_write_tokens_standard": 0.1375,
+  "cache_read_tokens_standard": 0.011,
+  "cache_read_tokens_long_ctx_standard": 0.055
+ },
+ "Claude Sonnet 5.5 (Amazon Bedrock Edition)": {
+  "cache_read_tokens_global_standard": 0.1,
+  "input_tokens_standard": 2.2,
+  "cache_write_tokens_standard": 2.75,
+  "cache_write_tokens_global_standard": 2.5,
+  "cache_read_tokens_standard": 0.11,
+  "output_tokens_global_standard": 10.0,
+  "input_tokens_global_standard": 2.0,
+  "cache_write_tokens_1h_global_standard": 4.0,
+  "cache_write_tokens_1h_standard": 4.4,
+  "output_tokens_standard": 11.0
+ },
+ "Claude Fable 5.2 (Amazon Bedrock Edition)": {
+  "cache_read_tokens_standard": 0.22,
+  "output_tokens_standard": 44.0,
+  "input_tokens_standard": 8.8,
+  "cache_read_tokens_global_standard": 0.2,
+  "cache_write_tokens_1h_global_standard": 16.0,
+  "output_tokens_global_standard": 40.0,
+  "cache_write_tokens_standard": 11.0,
+  "cache_write_tokens_1h_standard": 17.6,
+  "cache_write_tokens_global_standard": 10.0,
+  "input_tokens_global_standard": 8.0
+ },
+ "Claude Opus 5.5 (Amazon Bedrock Edition)": {
+  "cache_read_tokens_standard": 0.22,
+  "cache_write_tokens_1h_global_standard": 8.0,
+  "output_tokens_standard": 22.0,
+  "input_tokens_standard": 4.4,
+  "input_tokens_global_standard": 4.0,
+  "output_tokens_global_standard": 20.0,
+  "cache_read_tokens_global_standard": 0.2,
+  "cache_write_tokens_global_standard": 5.0,
+  "cache_write_tokens_1h_standard": 8.8,
+  "cache_write_tokens_standard": 5.5
+ }
+}

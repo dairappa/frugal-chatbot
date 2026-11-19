@@ -1,0 +1,115 @@
+{
+ "temperature0.7.haiku": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "temperature0.7.opus": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-opus-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "temperature0.7.nova-micro": {
+  "ok": true,
+  "usage": {
+   "inputTokens": 3,
+   "outputTokens": 30,
+   "totalTokens": 33
+  },
+  "stop": "end_turn",
+  "text": "OK! How can I assist you today? Whether you need information, advice, or just want to chat, I'm here to help."
+ },
+ "assistant_first.haiku": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "assistant_first.nova-micro": {
+  "ok": false,
+  "error": "ValidationException",
+  "message": "A conversation must start with a user message. Try again with a conversation that starts with a user message."
+ },
+ "effort_low.haiku": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "effort_default.haiku": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "effort_low.nova-micro": {
+  "ok": false,
+  "error": "ValidationException",
+  "message": "This model doesn't support the outputConfig field. Remove outputConfig and try again."
+ },
+ "cache.small.nova-micro.1": {
+  "ok": true,
+  "usage": {
+   "inputTokens": 7,
+   "outputTokens": 32,
+   "totalTokens": 576,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 537
+  },
+  "stop": "end_turn",
+  "text": "Auf der Anmeldeseite klicken Sie auf \"Passwort vergessen\". Wir senden Ihnen eine Reset-E-Mail, die nach 30 Minuten abläuft."
+ },
+ "cache.small.nova-micro.2": {
+  "ok": true,
+  "usage": {
+   "inputTokens": 7,
+   "outputTokens": 36,
+   "totalTokens": 580,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 537
+  },
+  "stop": "end_turn",
+  "text": "Um Passwort zurückzusetzen, klicke auf der Anmeldeseite auf \"Passwort vergessen\". Wir senden dir eine Reset-Mail, die nach 30 Minuten abläuft."
+ },
+ "cache.small.haiku.1": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "cache.small.haiku.2": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "cache.big.nova-micro.1": {
+  "ok": true,
+  "usage": {
+   "inputTokens": 6,
+   "outputTokens": 31,
+   "totalTokens": 1475,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 1438
+  },
+  "stop": "end_turn",
+  "text": "Auf der Anmeldeseite klicken Sie auf „Passwort vergessen“. Wir senden Ihnen einen Link zur Passwortänderung, der nach 30 Minuten abläuft."
+ },
+ "cache.big.nova-micro.2": {
+  "ok": true,
+  "usage": {
+   "inputTokens": 6,
+   "outputTokens": 43,
+   "totalTokens": 1487,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 1438
+  },
+  "stop": "end_turn",
+  "text": "Um Passwort zurückzusetzen, klicke auf der Anmeldeseite auf \"Passwort vergessen\". Du erhältst eine E-Mail mit einem Link zum Zurücksetzen, der 30 Minuten lang g"
+ },
+ "cache.big.haiku.1": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ },
+ "cache.big.haiku.2": {
+  "ok": false,
+  "error": "AccessDeniedException",
+  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ }
+}
