@@ -22,7 +22,7 @@ I started at the most expensive open-weight model on the shelf, because I wanted
 
 ### What I ran, and what I didn't
 
-Every price in this article is a list price, and every monthly figure is calculated from list prices. No free tier is subtracted anywhere. The floor results are measurements. The code is in the companion repository (`demo/`):
+Every price in this article is a list price, and every monthly figure is calculated from list prices. No free tier is subtracted anywhere. The floor results are measurements. The code is in the [companion repository](https://github.com/dairappa/frugal-chatbot) (`demo/`):
 
 - A cost script (`demo/cost/calc.py`) that produces every dollar figure here from one price file. The Bedrock prices in that file were read from the AWS Price List API on 2026-11-19 and 2026-11-20.
 - Offline tests for the Stage 1 handler (`demo/stage1/`). They use botocore's `Stubber`, which validates each request against the real Converse and DynamoDB API schemas without calling AWS.
