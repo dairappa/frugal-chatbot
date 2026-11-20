@@ -3,7 +3,8 @@
 
 1. Every $ amount is either a list price from prices.json or a figure calc.py produced.
 2. Every "N/30" and "N of 30" is a score in ../eval/scores.json.
-3. Every table row whose first cell names a graded model shows that model's score.
+3. Every table row whose first cell names a graded model shows that model's score in the score columns,
+   and every generated table matches render_tables.py.
 4. A sentence that announces a count ("Three things ...:", "four details ...:") is followed by
    exactly that many list items, and no paragraph interrupts a list it belongs to.
 """
@@ -11,7 +12,7 @@ import json, pathlib, re, sys
 
 HERE = pathlib.Path(__file__).parent
 ROOT = HERE.parent.parent
-figs = list(json.loads((HERE / "figures.json").read_text()).values())
+figs = list(json.loads((HERE / "figures.json").read_text())["usd"].values())
 prices = json.loads((HERE / "prices.json").read_text())
 scores = json.loads((HERE.parent / "eval" / "scores.json").read_text())
 text = (ROOT / "article-final.md").read_text()
@@ -28,8 +29,12 @@ def walk(o):
 
 
 INPUTS = set(walk({k: v for k, v in prices.items() if k != "aws"}))
-INPUTS |= {round(x * 1000, 6) for x in walk(prices["aws"])}            # e.g. $0.0002 per 1K requests
-INPUTS |= {0.085, 0.20, 0.625, 0.125, 0.01}                            # AWS unit prices as quoted in prose
+INPUTS |= set(walk(prices["aws"])) | {round(x * 1e6, 6) for x in walk(prices["aws"])}   # per unit and per million
+# Amounts quoted in the prose that are neither prices nor results, each with where it comes from
+QUOTED = {48.0: "gpt-oss-20b's wrong annual price (behavior_results.json)",
+          38.40: "the correct annual Plus price: 12 x $4 x 0.8 (faq.md)",
+          20.0: "Kimi K3 License ($20 million) revenue threshold (../pricing/external-2026-11-20.md)"}
+INPUTS |= set(QUOTED)
 
 
 def matches(v):
@@ -60,18 +65,28 @@ for m in re.finditer(r"\b(\d{1,2})(?:/| of )30\b", text):
     if int(m.group(1)) not in valid and "30 questions" not in m.group(0):
         fail.append(f"line {line}: score {m.group(0)} is not in scores.json")
 
-# 3. table rows
+# 3. table rows, by column
 names = {s["name"]: s for s in scores["models"].values()}
+cells = lambda l: [c.strip().strip("*") for c in l.strip().strip("|").split("|")]
+header = []
 for i, l in enumerate(lines, 1):
     if not l.startswith("|"):
+        header = []
         continue
-    first = l.strip("|").split("|")[0].strip().strip("*")
-    if first in names:
-        s = names[first]
-        if f"{s['pass']}/30" not in l:
-            fail.append(f"line {i}: table row for {first} does not show {s['pass']}/30")
-        if "confidently wrong" in scores["columns"] and str(s["wrong"]) not in l:
-            fail.append(f"line {i}: table row for {first} does not show {s['wrong']} confidently wrong")
+    if not header:
+        header = [h.lower() for h in cells(l)]
+        continue
+    row = cells(l)
+    name = re.sub(r" \((Bedrock|local)\)$", "", row[0])
+    if name not in names:
+        continue
+    s = names[name]
+    for col, want in (("floor test", f"{s['pass']}/30"), ("confidently wrong", str(s["wrong"]))):
+        if col in header and row[header.index(col)] != want:
+            fail.append(f"line {i}: {name}: column '{col}' is {row[header.index(col)]!r}, scores.json says {want!r}")
+import subprocess
+if subprocess.run([sys.executable, str(HERE / "render_tables.py"), "--check"]).returncode:
+    fail.append("a generated table is stale: run render_tables.py")
 
 # 4. announced counts and interrupted lists
 WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}

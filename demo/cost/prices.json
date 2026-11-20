@@ -129,6 +129,17 @@
     "in": 0.15,
     "out": 0.6
    }
+  },
+  "openrouter_k26_range": {
+   "_note": "Kimi K2.6 on OpenRouter, lowest and highest provider endpoint (https://openrouter.ai/api/v1/models/moonshotai/kimi-k2.6/endpoints, 2026-11-20). Quoted, not used in any calculation.",
+   "low": {
+    "in": 0.39,
+    "out": 1.8
+   },
+   "high": {
+    "in": 1.125,
+    "out": 5.25
+   }
   }
  },
  "yardsticks": {

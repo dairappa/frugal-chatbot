@@ -80,7 +80,8 @@
   "selfhost.1b.2000": 119.85,
   "selfhost.1b.10000": 599.25,
   "selfhost.3b.2000": 306.0,
-  "selfhost.3b.10000": 1491.2
+  "selfhost.3b.10000": 1491.2,
+  "spend.this_edition": 0.866472
  },
  "other": {
   "measured.kimi_k3.out": 148.166667,

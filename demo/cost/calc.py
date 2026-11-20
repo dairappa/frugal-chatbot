@@ -10,7 +10,7 @@ HERE = pathlib.Path(__file__).parent
 RESULTS = HERE.parent / "eval" / "results"
 P = json.loads((HERE / "prices.json").read_text())
 OPEN, YARD, AWS = P["open"], P["yardsticks"], P["aws"]
-EXT = {k: v for k, v in P["external"].items() if not k.startswith("_")}
+EXT = {k: v for k, v in P["external"].items() if isinstance(v, dict) and "in" in v}   # skips notes and quoted ranges
 YARD = {k: v for k, v in YARD.items() if not k.startswith("_")}
 ALL = {**OPEN, **YARD, **EXT}
 CHATS, IN, OUT = 10_000, 1_000, 400
@@ -125,5 +125,10 @@ for gb, label in ((0.705, "1b"), (1.8, "3b")):
         put(f"selfhost.{label}.{visitors}", min(tgb, 10_240) * AWS["cloudfront_per_gb"]
             + max(0, tgb - 10_240) * AWS["cloudfront_per_gb_10tb_to_50tb"])
         put(f"selfhost.{label}.{visitors}.tb", visitors * gb / 1000, usd=False)
+
+print("\n== What the measurements cost (ledger.json, logged usage x list price) ==")
+LEDGER = json.loads((HERE.parent / "eval" / "ledger.json").read_text())
+FIRST_EDITION_USD = 0.253033   # ledger total at commit f511ad1 (Claude 4 / Nova edition, 2026-11-19)
+put("spend.this_edition", LEDGER["total_usd"] - FIRST_EDITION_USD, "2026-11-20 runs, incl. an upper-bound correction")
 
 (HERE / "figures.json").write_text(json.dumps(F, indent=1) + "\n")

@@ -1,6 +1,6 @@
-# $120, $60, $3… Where Does the Chatbot Bill Stop?
+# $90, $18, $3.90… Where Does the Chatbot Bill Stop?
 
-*Walking an AWS support bot down the model shelf, starting from the flagship, and keeping score of what each dollar was really buying.*
+*Walking an AWS support bot down the open-weight model shelf at list price, and keeping score of what each dollar bought.*
 
 ---
 
@@ -10,44 +10,45 @@ Every team that adds a chatbot to a product has the same nightmare: a user paste
 
 [The Frugal Architect](https://thefrugalarchitect.com/), Werner Vogels' collection of laws for building cost-aware systems, is a good lens for this. The first law is *Make Cost a Non-functional Requirement*. I read the laws as drawing a line between frugal and cheap. Cheap means cutting corners and hoping nobody notices. Frugal means knowing what each design decision costs, and spending only where it buys something real.
 
-Nobody begins with the cheapest model. You begin with the *best* model, the flagship, because you want to see what "good" looks like before you start trading it away. Then the first bill arrives, and the real engineering begins: how far down the shelf can you walk before the chatbot stops being good enough?
+This time I priced the bot on open-weight models. Their weights are published, so the same model is sold by several hosts at different prices, and you can move to another host, or run it yourself, without changing what the bot says. Amazon Bedrock now serves a long list of them on demand: Moonshot's Kimi, DeepSeek, Qwen, Z.ai's GLM, OpenAI's gpt-oss, Google's Gemma, and Meta's Llama. Proprietary models appear here only as price yardsticks.
 
-We will build the same chatbot five times, walking down a ladder:
+I started at the most expensive open-weight model on the shelf, because I wanted to see what "good" looks like before trading it away. Then I walked down, one price step at a time, and asked at each step whether the bot still did its job. The same chatbot appears five times:
 
-1. **Stage 1:** the flagship, Claude Opus 5.5 on Amazon Bedrock, behind a Lambda function.
-2. **Stage 2:** the same architecture, walking down the model shelf: Sonnet, then Haiku, then Amazon's own Nova models.
-3. **Stage 3:** the same architecture, with three cost levers pulled.
-4. **Stage 4:** the same architecture, squeezed inside the AWS Free Tier, with a worst-case bill you can name.
+1. **Stage 1:** the open-weight flagship, Kimi K3 on Amazon Bedrock, behind a Lambda function.
+2. **Stage 2:** the same architecture, walking down the open-weight shelf through eleven cheaper models.
+3. **Stage 3:** the same architecture, with the cost levers that are pure configuration.
+4. **Stage 4:** the rest of the AWS bill at list price, and a worst case you can name before you deploy.
 5. **Stage 5:** one more step down, where the question stops being "which model?"
 
 ### What I ran, and what I didn't
 
-The monthly prices are **calculations** from list prices, and every list price was checked against the AWS Price List API. The floor checks are **measurements**. The code is in the companion repository (`demo/`):
+Every price in this article is a list price, and every monthly figure is calculated from list prices. No free tier is subtracted anywhere. The floor results are measurements. The code is in the companion repository (`demo/`):
 
-- **A cost script** (`demo/cost/calc.py`) that produces every dollar figure in this article from one price file. If you change the prices or the traffic, the article's tables change with them.
+- **A cost script** (`demo/cost/calc.py`) that produces every dollar figure here from one price file. The Bedrock prices in that file were read from the AWS Price List API on 2026-11-19 and 2026-11-20.
 - **Offline tests for the Stage 1 handler** (`demo/stage1/`). They use botocore's `Stubber`, which validates each request against the real Converse and DynamoDB API schemas without calling AWS.
-- **A 30-question floor test** (`demo/eval/`) with the same system prompt and FAQ on every rung. It ran on Amazon Bedrock against Nova Lite, Nova Micro, and gpt-oss-20b, and against Claude models (see the caveat below). It also ran on the last rung's model. Every answer was graded by reading it against a written rubric. All the Bedrock calls behind this article, including the experiments, cost **$0.25**, computed from the logged token counts at list prices.
-- **Live checks of the Converse behaviors the code relies on:** history that starts with an assistant turn, `temperature`, `outputConfig`, and prompt caching.
-
-**One caveat.** The Claude 5.5 models were not enabled on my AWS account (its Marketplace agreement status was `NOT_AVAILABLE`). So the Claude rungs were measured with older-generation stand-ins: **Opus 4.6, Sonnet 4.6, and Haiku 4.5**. The prices in this article are the 5.5 prices. The floor results for those rungs come from older models that cost more at this workload ($150, $90, and $30 a month); they are not measurements of the 5.5 models.
+- **A 30-question floor test** (`demo/eval/`). It ran three times on each of twelve open-weight models on Bedrock (one run of Llama 4 Maverick was cut short, as Stage 2 explains), and on two small Llama models locally. Every model got the same system prompt, the same FAQ, and the same request. I graded the first run of every model by reading each answer against one written rubric.
+- **Live checks of the Converse behaviors the code relies on:** history that starts with an assistant turn, `temperature`, and `outputConfig.effort`, on five of the models.
 - **A minimal implementation of the last rung** (`demo/stage5/`), served locally and smoke-tested.
+
+All the Bedrock calls for this edition, including probes and one run I had to throw away, cost **$0.87**, computed from the logged token counts at list prices.
+
+Some things I could not run. The Claude 5.5 models returned `AccessDeniedException: ... is not available for this account`, so Claude appears only as a price. Two of the most interesting cheap models live outside Bedrock: Kimi K2.6 on Moonshot's API and DeepSeek V4.1-Flash on DeepSeek's API. I had no API key for either provider, so they are priced, not tested. Gemma 4 has Bedrock prices, but Converse rejects its model ID ("The provided model identifier is invalid"), so it is not in the test either.
 
 ### The unit of comparison
 
 - **10,000 chats per month.**
-- **Each chat is 1,000 input tokens and 400 output tokens.** The input is the system prompt with the FAQ, a trimmed slice of history, and the user's question. The demo FAQ is 515 tokens with Llama's tokenizer. Other tokenizers count differently; Anthropic says Claude Haiku 5.5's tokenizer counts about 30% more tokens for the same text. Use one fixed budget for comparison, and measure your own.
-- **List prices, US East (N. Virginia), on demand**, checked against the AWS Price List API on 2026-11-19. For Claude, these are the *global* endpoint rates. Regional endpoints (`us.*` profiles) cost 10% more; the Price List shows $4.40/$22.00 for Opus 5.5.
-- **The budget is conservative.** In the measured runs, a single-turn FAQ answer used 550 to 610 input tokens. Output was 22 to 47 tokens on Nova and the Claude stand-ins, and 111 on gpt-oss-20b, whose count includes its reasoning. Real answers came in far under 400 output tokens; thinking on the 5.5 models is the unknown.
-- **Thinking tokens are not included.** The Claude 5.5 models think by default, and thinking is billed as output. Stage 1 shows what that does to the bill.
-- The master formula, per chat: `input_tokens/1M × input_price + output_tokens/1M × output_price`, times 10,000.
+- **Each chat is budgeted at 1,000 input tokens and 400 output tokens.** The input is the system prompt with the FAQ, a trimmed slice of history, and the user's question.
+- **List prices in US East (N. Virginia), on demand,** from the AWS Price List API. Kimi K3 is quoted at its global cross-Region rate. Its in-Region rate is 10% higher.
+- **Measured output, next to the budget.** In the test runs a question used about 530 to 630 input tokens, and most models wrote 25 to 35 output tokens on average. The models that reason before they answer wrote far more, and their reasoning is billed as output. So the tables show two monthly figures: one at the 400-token budget, and one at the output each model actually wrote.
+- The formula, per chat: `input_tokens/1M × input_price + output_tokens/1M × output_price`, times 10,000.
 
 ### The floor: what "minimum viable" means
 
-A descent needs a floor, or it's just falling. Before we price anything, define the least a support chatbot must do to deserve the name:
+A descent needs a floor, or it's just falling. Before pricing anything, I defined the least a support chatbot must do to deserve the name:
 
-- Answer questions **from the context you give it** (your FAQ, your docs), accurately and in the user's language.
-- **Admit ignorance** and offer a ticket or a human when the answer isn't in the context, instead of improvising.
-- Hold **a few turns of context**, so "and how do I undo that?" works.
+- Answer questions from the context you give it (your FAQ, your docs), accurately and in the user's language.
+- Admit ignorance and offer a ticket or a human when the answer isn't in the context, instead of improvising.
+- Hold a few turns of context, so "and how do I undo that?" works.
 - Stay polite, on-topic, and concise.
 
 The 30 questions in `demo/eval/questions.json` map to this list:
@@ -58,13 +59,13 @@ The 30 questions in `demo/eval/questions.json` map to this list:
 - 1 question in Japanese
 - 1 angry customer
 
-Every rung below gets the same question: *what do we give up here, and does the floor still hold?* Each rung now has a measured answer, from a stand-in model on the Claude rungs. Thirty questions is a smoke test, not a benchmark, so run the harness against your own FAQ before you trust mine.
+A pass means the answer is correct per the FAQ, in the user's language, and invents nothing: no policy, feature, step, URL, or number that the FAQ doesn't contain. A confidently wrong answer is a fluent answer that contradicts the FAQ or invents something. Thirty questions is a smoke test, not a benchmark, so run the harness against your own FAQ before you trust mine.
 
-## Stage 1: Start at the top, Claude Opus 5.5 behind Lambda
+## Stage 1: Start at the top, Kimi K3 behind Lambda
 
-The architecture is small: a static chat page, one Lambda function with a function URL, Amazon Bedrock for the model, and a DynamoDB table that we will need in Stage 4. There are no servers to patch and no GPU to feed. You pay per token, plus fractions of a cent of compute.
+The architecture is small: a static chat page, one Lambda function with a function URL, Amazon Bedrock for the model, and a DynamoDB table for the quota in Stage 4. There are no servers to patch and no GPU to feed. You pay per token, plus fractions of a cent of compute.
 
-The model choice is the flagship of Claude's Opus line. (Bedrock offers an even more expensive tier, Claude Fable 5.2 at $8/$40, but that tier is aimed at long-horizon agent work, not support chat.) Claude Opus 5.5 costs **$4.00 per 1M input tokens and $20.00 per 1M output tokens**. Per chat: `0.001 × $4.00 + 0.0004 × $20.00 = $0.012`. Times 10,000 chats: **$120/month in model costs.**
+The most expensive open-weight model on Bedrock is Moonshot's Kimi K3. Its weights are on Hugging Face under the Kimi K3 License, an MIT-style license that asks hosting providers above $20 million in yearly revenue for a separate agreement. On Bedrock it costs **$3.00 per 1M input tokens and $15.00 per 1M output tokens**. Per chat: `0.001 × $3.00 + 0.0004 × $15.00 = $0.009`. Times 10,000 chats, that is $90 a month in model costs. For scale, Claude Opus 5.5 at its list price of $4/$20 would be $120.
 
 Here is the backend, using the Bedrock Converse API from Lambda (Python). The full file and its tests are in `demo/stage1/`:
 
@@ -72,8 +73,7 @@ Here is the backend, using the Bedrock Converse API from Lambda (Python). The fu
 import json, os, boto3
 
 bedrock = boto3.client("bedrock-runtime")
-MODEL_ID = os.environ["MODEL_ID"]            # e.g. a global.* inference profile ID for Opus 5.5
-EFFORT = os.environ.get("EFFORT", "low")     # Claude 5.5 only; set to "" for Nova
+MODEL_ID = os.environ.get("MODEL_ID", "global.moonshotai.kimi-k3")
 SYSTEM_PROMPT = open("faq.md").read()        # instructions + the FAQ, ~600 tokens
 MAX_MESSAGES = 7                             # 3 exchanges + the new question
 MAX_CHARS_PER_MESSAGE, MAX_BODY_BYTES = 2_000, 16_000
@@ -97,15 +97,12 @@ def handler(event, context):
     except (ValueError, KeyError, TypeError) as e:
         return {"statusCode": 400, "body": str(e)}
 
-    request = dict(
+    response = bedrock.converse(
         modelId=MODEL_ID,
         system=[{"text": SYSTEM_PROMPT}],
         messages=[{"role": m["role"], "content": [{"text": m["text"]}]} for m in messages],
         inferenceConfig={"maxTokens": 1024},
     )
-    if EFFORT:   # Claude 5.5: thinking can be turned down, not off
-        request["outputConfig"] = {"effort": EFFORT}
-    response = bedrock.converse(**request)
     answer = "".join(b.get("text", "") for b in response["output"]["message"]["content"])
     print(json.dumps({"usage": response["usage"]}))   # the meter for this system
     return {"statusCode": 200, "headers": {"Content-Type": "application/json"},
@@ -114,146 +111,164 @@ def handler(event, context):
 
 Four details in this snippet do quiet financial or correctness work:
 
-- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question. So from the fourth turn on, that slice *starts with an assistant message*. What happens next depends on the model. Nova Micro rejects the call with `ValidationException: A conversation must start with a user message`. Haiku 4.5 accepted it. A chatbot that breaks on turn four for some models and not others is the worst kind of bug, so the handler never sends one. A unit test in `demo/stage1/` reproduces the bad slice.
-- **Size is checked before any token is spent.** The 3 a.m. wiki paste now gets a 413 and costs nothing.
-- **No `temperature`.** On Anthropic's API, the Claude 5.5 models reject non-default sampling parameters. Nova Micro and Haiku 4.5 accepted `temperature: 0.7` on Bedrock. I couldn't test the 5.5 models. A FAQ bot gains nothing from it anyway.
-- **`outputConfig.effort` is `low` and `maxTokens` is 1,024, not 400.** Opus 5.5 always thinks, and thinking tokens count toward `maxTokens`, so a tight cap can cut off the visible answer. Send `effort` only to the Claude 5.5 models. Nova rejects the whole request with `This model doesn't support the outputConfig field`, and Haiku 4.5 rejects it with `This model does not support the effort parameter`. I ran this handler live against Nova Micro and Haiku 4.5 with `EFFORT=""`, and both answered a five-message conversation correctly.
+- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question, so from the fourth turn on that slice starts with an assistant message. Kimi K3, Kimi K2.5, and both gpt-oss models answered such a request. Gemma 3 27B rejected it with a `ValidationException` that says conversation roles must alternate. A chatbot that breaks on turn four for some models and not others is the worst kind of bug, so the handler never sends one, and a unit test reproduces the bad slice.
+- **Size is checked before any token is spent.** The 3 a.m. wiki paste gets a 413 and costs nothing.
+- **There is no `temperature`.** Kimi K3 rejects the whole request with `This model doesn't support the temperature field`. The other four models I checked accepted `temperature: 0.7`. A FAQ bot gains nothing from it either way.
+- **There is no `outputConfig.effort`, and `maxTokens` is 1,024, not 400.** Kimi K3 accepted `effort: low`. Kimi K2.5, both gpt-oss models, and Gemma 3 27B rejected it with `This model doesn't support the effort field`. The handler has an `EFFORT` setting, off by default. The cap is generous because reasoning tokens count toward `maxTokens`. Even so, Kimi K2 Thinking hit 1,024 on three of its 90 test answers, and two of those came back empty.
 
-That last point changes the bill. The $120 assumes 400 output tokens per chat. If each chat also thinks for 200 tokens, the bill becomes **$160**; at 1,000 thinking tokens it becomes **$320**. Log `usage.outputTokens` from day one, because it is the only number that tells you which of these you are paying.
+Kimi K3 reasons before it answers, and its reasoning is billed as output. Across the 90 test answers it wrote 148 output tokens on average, and at most 403. That is well under the 400-token budget on average, so the measured bill comes to **$52.23** a month instead of $90. Log `usage.outputTokens` from day one, because it is the only number that tells you which of those two you are paying.
 
-The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds. In the test runs, the slowest Opus 4.6 answer took 5.5 seconds, and a thinking model will be slower.
+The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds. Kimi K3's slowest test answer took 4.2 seconds, and DeepSeek V3.2's took 14.8.
 
-What does $120/month buy? Excellent answers. The Opus stand-in passed **30 of 30**. It calmed the angry customer before it told them where Trash is, and it declined all six out-of-scope questions without inventing anything. Opus handles the ambiguous question, the question that needs three facts combined, and the annoyed customer who needs calming before instructions. If your chatbot does legal triage or complex troubleshooting, stop here: this is your stage, and $120/month for it is not much.
+Kimi K3 passed 30 of 30. It apologized to the angry customer before it pointed them to Trash, and it declined all six out-of-scope questions without inventing anything. FAQ traffic rarely needs that much model, though. On "How do I reset my password?" it billed 112 output tokens for a three-sentence answer, and most of them were reasoning.
 
-But watch a flagship model answer "How do I reset my password?" a few hundred times and a suspicion forms: you are paying for reasoning depth that FAQ traffic never touches. Let's walk down.
+## Stage 2: Walk down the open-weight shelf
 
-**Stage 1 total: ≈ $120/month** (model, before thinking tokens) + Lambda and DynamoDB charges, which Stage 4 takes to zero.
+Same code, same architecture. Only `MODEL_ID` changes. Here is the whole shelf, most expensive first, measured with the same 30 questions. The floor test column is the hand-graded first run:
 
-## Stage 2: Walk down the model shelf
-
-Same code, same architecture. The only thing that changes is configuration (`MODEL_ID`, plus `EFFORT=""` for any model outside the Claude 5.5 family), and the question we ask at each rung.
-
-### Rung 1: Claude Sonnet 5.5 ($60/month)
-
-**$2.00 per 1M input tokens, $10.00 per 1M output tokens** → `0.001 × $2.00 + 0.0004 × $10.00 = $0.006` per chat → **$60/month**. The first step down halves the bill.
-
-What you give up: the deepest reasoning, the multi-step edge cases, the subtlest reading of a convoluted question. None of that showed up in a FAQ test. The Sonnet stand-in also passed **30 of 30**. For most chatbots this rung is *still* overkill, just less flamboyantly so.
-
-### Rung 2: Claude Haiku 5.5 ($3/month)
-
-**$0.10 per 1M input tokens, $0.50 per 1M output tokens** for prompts up to 100K tokens; above that, $0.50/$2.50. Ours are 1,000. → `0.001 × $0.10 + 0.0004 × $0.50 = $0.0003` per chat → **$3/month**. This is the rung where the character of the exercise changes: we are no longer trimming a bill, we have divided it by forty.
-
-What you give up: nuance, and it shows up as the first wrong answers. The Haiku stand-in (Haiku 4.5, which costs ten times as much at this workload) passed **28 of 30**. Both failures were the dangerous kind. To a customer who bought three weeks ago, it opened with "Yes, you can!", then explained that the 14-day refund window had passed. And it promised that support would "help you with the import process" for an Evernote import feature the FAQ never mentions. The floor holds, with cracks you would want a human to review. For FAQ traffic this is the first rung that feels *designed* for the job, and $3/month is close to the point where further savings stop mattering in dollars and start mattering as a design exercise. We continue anyway.
-
-### Rung 2½: an open-weight model, gpt-oss-20b ($1.90/month)
-
-Bedrock also serves open-weight models on demand. OpenAI's gpt-oss-20b costs **$0.07/$0.30 per 1M tokens** → **$1.90/month**. Its list price is above Nova Lite's, and it also reasons before it answers. In my runs it averaged about 111 output tokens per answer, against Nova's 22 to 29, and the extra tokens appear to be its reasoning. So its real bill per answer runs higher than Nova's too. It passed **29 of 30**, in the right language every time across three runs. Its only failure was the angry customer: it escalated without mentioning Trash.
-
-### Rung 3: Amazon Nova Lite and Nova Micro ($1.56 and $0.91/month)
-
-The last step on the shelf is Amazon's own Nova family. Nova Lite costs **$0.06/$0.24 per 1M tokens** → **$1.56/month**. Nova Micro costs **$0.035/$0.14** → `0.001 × $0.035 + 0.0004 × $0.14 = $0.000091` per chat → **$0.91/month**.
-
-I expected Nova to fail by inventing answers. Mostly it didn't. In the hand-graded runs, neither model invented a policy, and both declined all six out-of-scope questions in all three runs. One repeat run did invent a help-page URL. Nova Lite passed **28 of 30**, but one refund answer came back in Spanish.
-
-Nova Micro failed differently. It answered **10 of 30 English questions in another language**, nine in German and one in Dutch, and passed **20 of 30**. Nine of those ten were factually right, just in the wrong language. Across three runs, Micro switched language on 10, 8, and 6 questions. The trigger was the prompt line "Reply in the same language as the user." Micro apparently read that as an invitation to pick a language.
-
-The fixes taught me more than the failure did:
-
-- "Reply in English. If the user writes in another language, reply in that language." This stopped the German, and it also made Micro answer the Japanese question in English, three runs out of three.
-- "Detect the language of the user's latest message and reply in exactly that language (English questions get English answers)." This fixed Micro: **29 of 30**, with English for English and Japanese for Japanese. The same line then made **Nova Lite** answer the Japanese question in English.
-
-A prompt fix is model-specific. Whenever you change the prompt or the model, rerun the floor test. (The demo's `faq.md` keeps the original line, so every rung in the table below saw the same prompt.)
-
-At this altitude, **routing** becomes attractive: send the easy majority to Micro, and escalate to Haiku when the question is complex. How you route matters:
-
-- **A router decides first** (a cheap classifier or rules), and 20% of chats go to Haiku: **$1.33/month**.
-- **Micro answers first**, and 20% are re-asked to Haiku when the answer looks unsure: **$1.51/month**, because escalated chats pay for both models.
-
-Here is the whole shelf, measured with the same 30 questions:
-
-| Rung | $/month | Model tested | Floor test | Confidently wrong | What went wrong |
+<!-- table:shelf -->
+| Model | $/month at the budget (1,000 in / 400 out) | $/month with measured output | Floor test | Confidently wrong | What went wrong |
 |---|---|---|---|---|---|
-| Opus 5.5 | $120 | Opus 4.6 ($150 at this workload) | 30/30 | 0 | nothing |
-| Sonnet 5.5 | $60 | Sonnet 4.6 ($90) | 30/30 | 0 | nothing (one mild hint that Team allows more devices) |
-| Haiku 5.5 | $3.00 | Haiku 4.5 ($30) | 28/30 | 2 | a contradictory refund answer; an implied import feature |
-| gpt-oss-20b | $1.90 | same | 29/30 | 0 | escalated the angry customer without mentioning Trash |
-| Nova Lite | $1.56 | same | 28/30 | 0 | one answer in Spanish; the angry customer again |
-| Nova Micro | $0.91 | same | 20/30 → **29/30** after a one-line prompt fix | 0 → 1 | German answers, then one invented "we don't offer student discounts" |
+| Kimi K3 | $90.00 | $52.23 | 30/30 | 0 | nothing |
+| Kimi K2.5 | $18.00 | $6.87 | 29/30 | 0 | one answer in French |
+| Kimi K2 Thinking | $16.00 | $16.03 | 25/30 | 0 | reasoning text shown on all four follow-ups; one empty answer at the 1,024-token cap |
+| GLM-4.7 | $14.80 | $6.54 | 29/30 | 0 | said it didn't know the Android requirement |
+| DeepSeek V3.2 | $13.60 | $6.71 | 26/30 | 2 | "Yes, you can get a full refund" after three weeks; sent a user to Export to recover notes; two answers in Spanish and French |
+| Llama 4 Maverick | $6.28 | $2.71 | 30/30 | 0 | nothing (but see below) |
+| Qwen3-Next 80B A3B | $6.20 | $1.74 | 27/30 | 3 | invented a no-student-discount policy and an Evernote workaround; promised help "immediately" |
+| gpt-oss-120b | $3.90 | $2.09 | 30/30 | 0 | nothing |
+| Gemma 3 27B | $3.82 | $2.43 | 30/30 | 0 | nothing |
+| GLM-4.7-Flash | $2.30 | $0.82 | 27/30 | 1 | told a user their note from yesterday was gone; two false refusals |
+| gpt-oss-20b | $1.90 | $1.06 | 29/30 | 0 | escalated the angry customer without mentioning Trash |
+| Gemma 3 4B | $0.72 | $0.42 | 25/30 | 1 | "Yes" to a refund after three weeks; four false refusals |
+<!-- /table -->
 
-**Stage 2 total: $120 → $60 → $3 → $1.56 → $0.91/month**, depending on where you stop. Notice the shape: the first two rungs saved $117 of the $120. Model selection is not one lever among many; it is *the* lever.
+![Monthly model cost on a log scale for twelve open-weight models, at the 400-token budget and at measured output, with each model's floor-test score](figures/shelf.png)
 
-The shape holds at any scale, but the absolute numbers decide whether the rest of this article matters to you:
+![Per-question grades for all fourteen models: correct, confidently wrong, wrong language, or other failure](figures/eval30.png)
 
-| Chats per month | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 | Nova Lite | Nova Micro |
+I expected price to predict the score, and it didn't. The two most expensive Kimi models scored 30 and 29. Below them, the score moved independently of the price. DeepSeek V3.2 at $13.60 failed four questions, and gpt-oss-120b and Gemma 3 27B, both under $4, failed none.
+
+### The Kimi K2 line: Kimi K2.5 ($18) and Kimi K2 Thinking ($16)
+
+Kimi K2.5 costs $0.60/$3.00 per 1M tokens. It writes short answers, 29 output tokens on average, so its measured bill is $6.87. It passed 29 of 30. The one failure was an English question about two-factor authentication answered in French; the content was right. That happened once in three runs.
+
+Kimi K2 Thinking costs $0.60/$2.50, and it thinks out loud. It wrote 401 output tokens per answer on average, so the 400-token budget was about right for it, and 63% of its measured bill is output. Its content was fine. Its delivery failed in two ways:
+
+- On the four follow-up questions, the ones that carry history, the reply text started with `<think>` and a paragraph of the model's reasoning. On single-turn questions, Bedrock returned the reasoning in a separate `reasoningContent` block, which the handler drops. With history, it came back inside the text block, so a user would see it. This happened on all four follow-ups in all three runs.
+- It hit the 1,024-token cap three times in 90 answers. Twice it returned nothing at all: once on the angry customer, once on the yearly-discount question. The third time, the user would have seen a cut-off monologue.
+
+If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." On Bedrock, both models still report `ACTIVE`.
+
+### DeepSeek V3.2 ($13.60) and GLM-4.7 ($14.80)
+
+DeepSeek V3.2 is where my expectations broke. It answered a customer who bought three weeks ago with "Yes, you can get a full refund", then quoted the 14-day rule. It told the angry customer to go to Settings > Export to get lost notes back. And it switched language on English questions: Spanish and French in the graded run, then German, French, Italian, and Portuguese in the other two. That was two, three, and three answers in the three runs.
+
+GLM-4.7 passed 29 of 30. Its one failure was a false refusal: it said it had no information about Android 11, although the FAQ says Android 12 or later.
+
+### Qwen3-Next ($6.20) and Llama 4 Maverick ($6.28)
+
+Qwen3-Next 80B A3B failed in the most dangerous way. It told a customer "We do not currently offer student discounts", a policy the FAQ never states. It told another "We don't support importing from Evernote" and then suggested a manual workaround. And it promised the angry customer help "immediately", against the FAQ's "within one business day". All three were fluent and confident, so a reader has no reason to doubt them.
+
+Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, Bedrock started rejecting it: `This Model is marked by provider as Legacy and you have not been actively using the model in the last 30 days`. `get-foundation-model` reports it as `LEGACY` since 2026-09-30, with an end of life on 2027-03-30. A model can pass your test and still be the wrong choice, because the host can retire it. Check `modelLifecycle` before you pick one.
+
+### Under $4: gpt-oss-120b, Gemma 3 27B, GLM-4.7-Flash, gpt-oss-20b, Gemma 3 4B
+
+This is the part of the shelf I would deploy from.
+
+**gpt-oss-120b ($3.90)** passed 30 of 30. It also reasons, at 99 output tokens per answer on average, which makes its measured bill $2.09.
+
+**Gemma 3 27B ($3.82)** passed 30 of 30, with short answers and a measured bill of $2.43. It is the model that rejected an assistant-first history, so it needs the trimming rule from Stage 1.
+
+**GLM-4.7-Flash ($2.30)** passed 27 of 30. The failure I would worry about: a user who deleted a note yesterday was told, "Since 30 days have passed, you will not see it there anymore."
+
+**gpt-oss-20b ($1.90)** passed 29 of 30. Its one failure was the angry customer, whom it offered a ticket without mentioning Trash. Outside the test, in a behavior check, it answered "How much is Plus?" with "$4 per month (or $48 if you choose annual billing, which saves 20%)". A year at 20% off is $38.40. One question in the 30 asks about the yearly discount, and it got that one right.
+
+**Gemma 3 4B ($0.72)** passed 25 of 30. It said "Yes" to the three-week refund and gave four false refusals, including "I don't know" for a Team price it could have multiplied.
+
+For comparison, here is what the proprietary models on Bedrock cost at the same budget. I did not test them:
+
+<!-- table:yardsticks -->
+| Proprietary model (price only, not measured) | $ per 1M tokens in / out | $/month at the budget |
+|---|---|---|
+| Claude Opus 5.5 | $4.00 / $20.00 | $120.00 |
+| Claude Sonnet 5.5 | $2.00 / $10.00 | $60.00 |
+| Claude Haiku 5.5 | $0.10 / $0.50 | $3.00 |
+| Amazon Nova Micro | $0.035 / $0.14 | $0.91 |
+<!-- /table -->
+
+At the budget, Gemma 3 27B and gpt-oss-120b cost a little more than Claude Haiku 5.5, and only Gemma 3 4B costs less than Nova Micro. I couldn't measure the proprietary models' real output, so the measured column has no counterpart for them.
+
+The ratios hold at any scale, but the absolute numbers decide whether the rest of this article matters to you:
+
+<!-- table:scale -->
+| Chats per month | Kimi K3 | Kimi K2.5 | gpt-oss-120b | gpt-oss-20b | Gemma 3 4B |
 |---|---|---|---|---|---|
-| 10,000 | $120 | $60 | $3.00 | $1.56 | $0.91 |
-| 100,000 | $1,200 | $600 | $30 | $15.60 | $9.10 |
-| 1,000,000 | $12,000 | $6,000 | $300 | $156 | $91 |
+| 10,000 | $90.00 | $18.00 | $3.90 | $1.90 | $0.72 |
+| 100,000 | $900.00 | $180.00 | $39.00 | $19.00 | $7.20 |
+| 1,000,000 | $9,000 | $1,800 | $390.00 | $190.00 | $72.00 |
+<!-- /table -->
 
-## Stage 3: Three levers that cost nothing to pull
+### The same weights, at other prices
 
-Before changing any architecture, pull the levers that are pure configuration. They multiply whatever rung you're standing on. They are worth most at the top of the ladder, so the examples start there.
+Open weights mean the price depends on the host. Two models I could not test show how much it varies:
 
-### Lever 1: Stop paying full price for the prompt you send every time
-
-Your system prompt and FAQ are identical on every request. Bedrock prompt caching bills a repeated prefix at a cache-read rate: **$0.20 per 1M tokens on Opus 5.5** (5% of its input price), **$0.10 on Sonnet 5.5**, **$0.01 on Haiku 5.5**, and **$0.015 on Nova Lite**. In the Converse API, you mark the end of the cacheable prefix with a `cachePoint`:
-
-```python
-system=[
-    {"text": SYSTEM_PROMPT},
-    {"cachePoint": {"type": "default"}},   # everything above is cached
-],
-```
-
-Three things a price table does not show:
-
-1. **Measure the minimum; don't trust it.** AWS documents a minimum of 1K tokens per cache checkpoint for Nova. In my runs, Nova Micro and Nova Lite both cached our **~540-token** prefix: the first call reported it in `cacheWriteInputTokens` and the next calls in `cacheReadInputTokens`. If that holds for you, Nova Lite with a cached 600-token prefix drops from $1.56 to **$1.29/month** at a perfect hit rate. For the Claude 5.5 models, the documented minimum is 512 tokens. If the prompt caches there too, Opus drops from $120 to **$97.20/month** at a perfect hit rate, or **$100 to $106** at the realistic hit rates below.
-2. **Cross-region profiles split the cache.** A `us.*` inference profile can route consecutive calls to different Regions, and each Region keeps its own cache. Called through `us.amazon.nova-micro-v1:0`, only 2 of 4 repeat calls read the cache; the others wrote it again. With the in-Region model ID, 4 of 4 hit. (That is a handful of calls, not a study, but it is easy to check in your own `usage` logs.)
-3. **Writes may cost extra, and entries expire.** On Claude, a cache write costs 1.25× the input price; the Price List shows $5.00 per 1M for Opus 5.5. For Nova, it lists cache writes at $0.00. An entry lives 5 minutes after its last use. 10,000 chats a month is one every **4.3 minutes** on average. If arrivals are random, the next chat arrives within 5 minutes only **69%** of the time. If all traffic falls in 12 waking hours, that rises to **90%**. A 100% hit rate is not a free assumption.
-4. **Check that it works.** After each call, read `usage.cacheReadInputTokens`. If it stays at zero, your prefix isn't stable, isn't long enough, or is landing in a different Region each time.
-
-With a bigger FAQ (a 2,000-token cached prefix plus 400 tokens of question and history), caching earns its keep. The table uses the hit rates above and the write premium. For Nova, the table bills writes at the input price, which makes its Nova figures an upper bound:
-
-| 2,400 input / 400 output | No cache | 69% hits | 90% hits |
+<!-- table:external -->
+| Model, where | $ per 1M tokens in / out | $/month at the budget | What you need |
 |---|---|---|---|
-| Opus 5.5 | $176.00 | $130.17 | $109.48 |
-| Haiku 5.5 | $4.40 | $3.32 | $2.83 |
-| Nova Lite | $2.40 | $1.78 | $1.59 |
+| Kimi K2.6 (Moonshot API) | $0.95 / $4.00 | $25.50 | Moonshot (platform.kimi.ai) API key |
+| DeepSeek V4.1-Flash, DeepSeek API, peak | $0.30 / $1.20 | $7.80 | DeepSeek API key |
+| DeepSeek V4.1-Flash, DeepSeek API, off-peak | $0.15 / $0.60 | $3.90 | DeepSeek API key |
+<!-- /table -->
 
-The trade-off is design discipline: the cacheable prefix has to be byte-for-byte static, so per-user data goes *after* the cache point, never inside it.
+OpenRouter lists Kimi K2.6 from more than ten providers, from $0.39/$1.80 to $1.125/$5.25 per 1M tokens, and most of the cheap endpoints serve quantized weights. A router's headline price is one provider's endpoint, not a list price, so I left those out of the calculations.
 
-### Lever 2: Trim the history, summarize the rest
+## Stage 3: Levers that cost nothing to pull
 
-Lever 2 is Stage 1's `trim_history` taken seriously. A chat that replays a 40-message history on every turn can multiply its input tokens fivefold by the end of a long session. Under our assumptions, that takes Nova Lite from $1.56 to **$3.96** for the same answers, and Opus from $120 to **$280**. Keep the last few exchanges verbatim, replace everything older with a short running summary, and your input cost per chat stays flat no matter how long the conversation runs.
+Before changing any architecture, pull the levers that are pure configuration. They multiply whatever rung you're standing on, so they matter most near the top.
 
-### Lever 3: Cap the output, and turn the thinking down
+### Lever 1: Count the output tokens you actually get
 
-Output tokens cost 4 to 5 times as much as input tokens on every model on the shelf, so a chatbot that writes essays when a paragraph would do pays essay prices. Ask for concision in the system prompt ("3 sentences or fewer"), and on the Claude 5.5 models set `effort` to `low`. Keep `maxTokens` as a safety net, not as the main control. On a thinking model, a tight cap truncates answers instead of shortening them.
+The 400-token budget hides the biggest difference between these models. Most of them wrote 25 to 35 tokens per answer. The reasoning models wrote more: gpt-oss-120b about 99, gpt-oss-20b about 119, Kimi K3 about 148, and Kimi K2 Thinking about 401. Output is the expensive side of every price on this shelf, so the reasoning share decides the bill. Output is 43% of Kimi K3's measured bill and 63% of Kimi K2 Thinking's. Ask for concision in the system prompt ("3 sentences or fewer"), keep `maxTokens` as a safety net rather than the main control, and turn reasoning down where the model allows it. Of the models I checked, only Kimi K3 accepted `effort`.
 
-**Stage 3 total: ≈ $0.75 to $1.51/month** at the bottom rungs, depending on how you route and whether the cache holds. Nova Micro with a cached prefix comes to $0.75 to $0.80. The levers matter more at the top: Opus can drop from $120 to about $100 to $106 with caching alone.
+### Lever 2: Stop paying full price for the prompt you send every time
 
-## Stage 4: Fit the whole thing inside the free tier
+Your system prompt and FAQ are identical on every request. Kimi K3 is the only open-weight model on Bedrock with a listed cache-read rate, $0.30 per 1M tokens against $3.00 for fresh input. It also turned out to cache without being asked.
 
-Now for the supporting cast. At 10,000 chats a month, the compute and storage around the model are small enough that AWS's **always-free** allowances cover them. These are not the 12-month trial; they don't expire.
+I found that by mistake. My harness priced every call as `inputTokens × input price`, and the first Kimi K3 runs reported 25 input tokens for a 600-token prompt. The rest was in `cacheReadInputTokens`, which I wasn't logging. I threw those runs away, added the cache fields, and ran Kimi K3 again through the `global` profile. In all 90 calls, about 614 tokens came from the cache, and no cache write was reported. The calls were seconds apart, so that is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to **$73.80** a month. With no hits it stays at $90. Read `usage.cacheReadInputTokens` in your own logs to see where you land.
 
-- **Lambda:** 1 million requests and 400,000 GB-seconds per month are free. Even at 10 seconds per call at 256 MB, 10,000 calls use 25,000 GB-seconds, about 6% of the allowance. Cost: **$0**.
-- **DynamoDB:** 25 GB of storage plus 25 read and 25 write capacity units. The allowance covers **provisioned** capacity, so create the table in provisioned mode with 1 to 5 units. Our quota counter writes one small item per day. Cost: **$0**.
-- **The API layer:** a **Lambda function URL** is an HTTPS endpoint with no per-request charge of its own. What you give up is API Gateway's toolbox (usage plans, request validation, WAF attachment). A function URL with auth type `NONE` is a public endpoint, so put CloudFront in front of it with origin access control. Two details trip people up here. If the chat page is served from another origin, configure CORS on the function URL. And with origin access control, POST requests must carry an `x-amz-content-sha256` header with the body's SHA-256 hash, which the page computes before sending. But be clear about what that buys. It hides the raw endpoint; it does not stop anyone who opens your chat page from sending as many messages as they like. On a public chatbot, every visitor is a legitimate client.
+The trade-off is design discipline: a cached prefix has to be byte-for-byte static, so per-user data goes after the FAQ, never inside it.
+
+### Lever 3: Trim the history, summarize the rest
+
+A chat that replays a 40-message history on every turn can multiply its input tokens fivefold by the end of a long session. Under the budget, that takes Kimi K2.5 from $18 to **$42** for the same answers, and Kimi K3 from $90 to **$210**. Keep the last few exchanges verbatim, replace everything older with a short running summary, and input cost per chat stays flat no matter how long the conversation runs.
+
+## Stage 4: The rest of the bill, and the worst case
+
+Now for the supporting cast, at list price. A function URL has no per-request charge of its own. Per chat, the bot makes one Lambda invocation at 256 MB that lasts as long as the model call, one DynamoDB write for the quota counter, and four CloudFront requests (page, script, FAQ, API call). At 10,000 chats, with Kimi K3's measured 2.0-second average:
+
+- **Lambda:** $0.0873 ($0.0000166667 per GB-second, $0.20 per million requests)
+- **DynamoDB, on demand:** $0.0063 ($0.625 per million write units)
+- **CloudFront:** $0.123 (HTTPS requests and about 0.1 MB of static transfer per visit)
+
+That is **$0.22** a month. Next to Kimi K3's $90 it disappears. Next to Gemma 3 4B's $0.72 it is about a quarter of the bill, so at the bottom of the shelf the infrastructure starts to show. I left the free tiers out, which removes the temptation to design around them.
+
+A function URL with auth type `NONE` is a public endpoint, so put CloudFront in front of it with origin access control. If the chat page is served from another origin, configure CORS on the function URL. With origin access control, POST requests must carry an `x-amz-content-sha256` header with the body's SHA-256 hash, which the page computes before sending. Be clear about what that buys: it hides the raw endpoint, but it doesn't stop anyone who opens your chat page from sending as many messages as they like. On a public chatbot, every visitor is a legitimate client.
 
 ### Put a ceiling on the worst case
 
-Frugal design means the failure mode is priced too. My first draft capped the Lambda function at 2 concurrent executions and called the result a ceiling: two slots busy 24/7 for 30 days at 256 MB come to **about $15/month of compute, maximum**. That figure is correct and almost irrelevant. It caps the *compute*, not the *tokens*.
+My first draft capped the Lambda function at 2 concurrent executions and called that a ceiling. Two slots busy around the clock for 30 days at 256 MB cost **$21.95** in Lambda charges. That figure is correct and almost irrelevant, because it caps the compute, not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
 
-Two slots answering one chat every 3 seconds each make **1.73 million calls a month**. In tokens, that is:
-
-| 24/7 abuse at concurrency 2, one call every 3 s per slot | Nova Micro | Haiku 5.5 | Opus 5.5 |
+<!-- table:worst -->
+| Concurrency 2, one call every 3 s per slot, all month | gpt-oss-20b | Kimi K2.5 | Kimi K3 |
 |---|---|---|---|
-| Average chats (1,000 in / 400 out) | $157 | $518 | $20,736 |
-| Chats at the handler's caps (~4,700 in / 1,024 out) | $532 | $1,697 | $67,876 |
+| Average chats (1,000 in / 400 out) | $328.32 | $3,110 | $15,552 |
+| Chats at the handler's caps (~4,700 in / 1,024 out) | $1,099 | $10,181 | $50,907 |
+| With a 500-chat daily quota, average chats | $2.85 | $27.00 | $135.00 |
+| With a 500-chat daily quota, every chat at the caps | $9.54 | $88.38 | $441.90 |
+<!-- /table -->
 
-An abuser won't send average chats. They will send the largest body you accept, and the model will use the output cap.
-
-The model you choose sets your worst-case bill as well as your expected bill. Concurrency limits Lambda; it doesn't limit Bedrock spend enough. So the brake has to count **chats**. A daily quota in DynamoDB does it in one conditional write (the full function, with a test that it returns 429 at the limit, is in `demo/stage1/handler.py`):
+An abuser won't send average chats. They will send the largest body you accept, and on a reasoning model the output will run to the cap. The model sets the worst-case bill as well as the expected one. Concurrency limits Lambda; it doesn't limit Bedrock spend enough. So the brake has to count chats. A daily quota in DynamoDB does it in one conditional write (the full function, with a test that it returns 429 at the limit, is in `demo/stage1/handler.py`):
 
 ```python
 ddb.update_item(
@@ -265,19 +280,17 @@ ddb.update_item(
 )   # ConditionalCheckFailedException -> return 429 "try again tomorrow"
 ```
 
-With 500 chats a day, a month of average chats costs $1.37 on Nova Micro, $4.50 on Haiku, and $180 on Opus. If every chat hits the caps, the worst month is **$4.62 on Nova Micro, $14.73 on Haiku, and $589 on Opus**, plus the Lambda compute ceiling for rejected requests. That is a number you can state before you deploy. On Opus it is also a reason to lower the quota or the caps. Then add **an AWS Budgets alert** at an amount that would make you raise an eyebrow. $5 is a fine eyebrow. Budgets is an **alarm, not a brake**: billing data can arrive hours late, and an alert stops nothing by itself. The quota is the brake. The alarm tells you your assumptions were wrong.
+With 500 chats a day, the worst month on Kimi K3 is **$441.90**, on Kimi K2.5 $88.38, and on gpt-oss-20b $9.54. Rejected calls still run Lambda and still attempt the write, which adds about $1.79 a month under the same abuse. That is a number you can state before you deploy, and on Kimi K3 it is a reason to lower the quota or the caps. Then add an AWS Budgets alert at an amount that would make you raise an eyebrow. Budgets is an alarm, not a brake: billing data can arrive hours late, and an alert stops nothing by itself. The quota is the brake.
 
 What you give up: on a busy day, user number 501 gets "try again tomorrow." Whether 500 is the right number is a business decision, not a technical one.
 
-**Stage 4 total: ≈ $0.91/month** (Nova Micro; everything else is inside free allowances at this volume), with a worst case you can state before you deploy.
-
-We have optimized diligently. The model still costs money on every chat. There is one rung left.
+At this point the model still costs money on every chat. There is one rung left.
 
 ## Stage 5: The last rung
 
-If per-token pricing is the problem, remove the token meter. Modern browsers can run small language models on the visitor's own GPU through WebGPU. [WebLLM](https://github.com/mlc-ai/web-llm) (`@mlc-ai/web-llm`) packages this up. It downloads a quantized model into the browser, caches it, and exposes an OpenAI-style `chat.completions` API, entirely client-side.
+If per-token pricing is the problem, remove the token meter. Modern browsers can run small language models on the visitor's own GPU through WebGPU. [WebLLM](https://github.com/mlc-ai/web-llm) (`@mlc-ai/web-llm`) packages this up. It downloads a quantized model into the browser, caches it, and exposes an OpenAI-style `chat.completions` API, entirely client-side. This is the open-weight idea taken to its end: the visitor runs the weights.
 
-To keep this the *same chatbot*, the page loads the same `faq.md` system prompt and uses the same trimming rule as the Lambda version. It also checks the GPU before it commits to a 700 MB download. The full page is in `demo/stage5/`:
+To keep this the same chatbot, the page loads the same `faq.md` system prompt and uses the same trimming rule as the Lambda version. It also checks the GPU before it commits to a 700 MB download. The full page is in `demo/stage5/`:
 
 ```js
 import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm@0.2.89";
@@ -315,35 +328,36 @@ That's the whole chatbot. There is no API key, no backend, and no per-token anyt
 | Llama 3.2 3B (q4f16) | 1.8 GB | 2.3 GB |
 | Qwen3 0.6B (q4f16) | 352 MB | 1.4 GB |
 
-Note that Qwen3 0.6B is smaller to download than Llama 1B but needs more GPU memory. All of these models run with a 4K-token context window.
+Qwen3 0.6B is smaller to download than Llama 1B but needs more GPU memory. All of these run with a 4K-token context window.
 
-### Does the floor hold? I measured this one
+### The floor test on the last rung
 
-I ran the 30-question floor test on Llama 3.2 1B and 3B: same system prompt, same FAQ, 4-bit quantization, Llama's default sampling. I ran them locally with Ollama as a stand-in for the in-browser runtime. The quantization formats differ, so treat the numbers as indicative. Every answer was graded by reading it against a written rubric: a pass must be correct per the FAQ and invent nothing. The rubric and per-question grades are in `demo/eval/grades.md`.
+I ran the 30 questions on Llama 3.2 1B and 3B three times each, with the same system prompt and FAQ, 4-bit quantization, and Llama's default sampling. I ran them locally with Ollama as a stand-in for the in-browser runtime. The quantization formats differ, so treat the numbers as indicative. The grades use the same rubric as every Bedrock model above. For comparison, the table also shows Gemma 3 4B, the smallest model I tested on Bedrock:
 
-| Model | Correct | **Confidently wrong** | Other failures (false refusals, off-topic answers, no answer) |
+<!-- table:browser -->
+| Model | Floor test | Confidently wrong | Other failures (false refusals, off-topic answers, no answer) |
 |---|---|---|---|
-| Llama 3.2 1B | 13/30 | **11** | 6 |
-| Llama 3.2 3B | 23/30 | **3** | 4 |
+| Gemma 3 4B (Bedrock) | 25/30 | 1 | 4 |
+| Llama 3.2 3B (local) | 23/30 | 3 | 4 |
+| Llama 3.2 1B (local) | 13/30 | 11 | 6 |
+<!-- /table -->
 
-For a support bot, the middle column is the one that matters. A wrong answer delivered fluently is worse than "I don't know." Some of the 1B model's answers:
+For a support bot, the confidently wrong column matters most. A wrong answer delivered fluently is worse than "I don't know." Some of the 1B model's answers:
 
 - It told a customer they had "already used your 30-day money-back guarantee." The FAQ says 14 days.
 - It said there was no discount for paying yearly. The FAQ says annual billing saves 20%.
 - It invented an Evernote import feature, with directions to "the import settings."
 - It said the web app works offline. The FAQ says it needs a connection.
 
-The 1B model **does not hold the floor**. It fails the floor item small models lose first: knowing what it doesn't know. The 3B model comes much closer: 23 of 30, with three confidently wrong answers. One of them is a mistranslation in Japanese. It costs 2.6 times the download.
+The 1B model does not hold the floor. It fails the floor item small models lose first: knowing what it doesn't know. The 3B model gets much closer, with three confidently wrong answers, one of them a mistranslation in Japanese, and it costs 2.6 times the download. Gemma 3 4B, slightly larger again, made one confidently wrong answer and four false refusals. At this size, a model mostly fails by refusing too much or by inventing, and the 1B model invents.
 
-Put that next to the Bedrock rungs. The cheapest model on the shelf, Nova Micro at $0.91 a month, gave one invented answer in 30 once its prompt was fixed. The 1B model gave 11, and its AWS bill is zero. At this traffic, the gap between them is less than a dollar a month.
+An automatic keyword grader, by the way, scored the 1B model at 19 to 22 out of 30 across three runs. It passed answers that put the right keyword next to an invented claim. Read your outputs.
 
-An automatic keyword grader, by the way, scored the 1B model at 19 to 22 out of 30 across three runs. It passed five answers that put the right keyword next to an invented claim. Read your outputs.
+### Running it on my machine
 
-### Will it even run?
+I loaded the page in headless Chrome on a Linux PC with an Intel integrated GPU (the adapter reports "gen-7"). That machine is a Mac running Linux, its GPU driver is unstable, and Chrome's hardware acceleration is turned off on it for that reason. WebGPU had to be forced on with `--enable-unsafe-webgpu` and Vulkan flags, which is not a normal user's setup. The page loaded and found an adapter. The default 1B build then failed to compile, because this GPU lacks the `shader-f16` feature that the q4f16 build needs. With the feature check above, the page picked the q4f32 build instead. The first load took 93 seconds, and a repeat load from the browser cache took 4 seconds. On an otherwise idle machine, it produced no answer within nine minutes.
 
-I loaded the page in headless Chrome on a Linux PC with an Intel integrated GPU (the adapter reports "gen-7"). Read what follows with that machine in mind. It is a Mac running Linux, its GPU driver is unstable, and Chrome's hardware acceleration is turned off on it for that reason. WebGPU had to be forced on with `--enable-unsafe-webgpu` and Vulkan flags. This is not a normal user's setup. The page loaded and found an adapter. The default 1B build then failed to compile, because this GPU lacks the `shader-f16` feature that the q4f16 build needs. With the feature check above, the page picked the q4f32 build instead. The first load took 93 seconds, and a repeat load from the browser cache took 4 seconds. On an otherwise idle machine, it still produced **no answer within nine minutes**.
-
-**The compile failure and the missing answer are this machine's problem, not a limit of WebLLM.** With hardware acceleration off, the browser was not really using the GPU. Most readers will run Chrome, Edge, or Safari with GPU acceleration on. That is the default, and it is the setup WebLLM targets. I couldn't measure that setup here, so I have no speed numbers for it, good or bad. What the test does show is the shape of the failure on a machine like mine: "WebGPU is available" is not the same as "the model answers." Visitors with machines like that exist, so the fallback needs a timeout, not only a feature check. I did not test a machine with GPU acceleration on, Safari, Firefox, or a phone.
+The compile failure and the missing answer are this machine's problem, not a limit of WebLLM. With hardware acceleration off, the browser was not really using the GPU. Most readers will run Chrome, Edge, or Safari with GPU acceleration on, which is the default and the setup WebLLM targets. I couldn't measure that setup here, so I have no speed numbers for it, good or bad. What the test does show is the shape of the failure on a machine like mine: "WebGPU is available" is not the same as "the model answers." Visitors with machines like that exist, so the fallback needs a timeout, not only a feature check. I did not test a machine with GPU acceleration on, Safari, Firefox, or a phone.
 
 ### What's left on the bill
 
@@ -355,33 +369,34 @@ aws s3 sync ./dist s3://your-chatbot-bucket --delete
 # the default root object, long cache TTLs on hashed assets.
 ```
 
-At 10,000 visits a month, that traffic sits comfortably inside CloudFront's always-free allowance (1 TB of transfer and 10 million requests per month), and S3 storage for a few files rounds to zero. **The chatbot's AWS bill is now effectively zero.**
+At 10,000 visits a month and list price, that is three HTTPS requests and about 0.1 MB per visit: **$0.11** a month in CloudFront charges, with S3 storage for a few files rounding to zero. There is no model charge at all.
 
-The trick behind that number deserves to be stated out loud. WebLLM fetches the model weights from Hugging Face and the compiled GPU code from GitHub by default, so the one heavy asset never crosses your CloudFront bill. By the definition at the top of this article, that is close to *cheap*: someone else is paying for the transfer, and it depends on a service you don't control. If you self-host the weights, the delivery bill follows the number of *new visitors*, not chats:
+That number depends on a trick worth stating out loud. WebLLM fetches the model weights from Hugging Face and the compiled GPU code from GitHub by default, so the one heavy asset never crosses your CloudFront bill. By the definition at the top of this article, that is close to cheap: someone else is paying for the transfer, and it depends on a service you don't control. If you host the weights yourself, the delivery bill follows the number of new visitors, not chats. At $0.085 per GB:
 
-- 2,000 first-time visitors × 0.7 GB = 1.4 TB → **about $32/month** after the free terabyte.
-- 10,000 first-time visitors = 7 TB → **about $508/month**, which is more than Haiku would have cost for a year.
+- 2,000 first-time visitors × 705 MB for the 1B model is about 1.4 TB: **$119.85** a month.
+- 10,000 first-time visitors is about 7 TB: **$599.25**.
+- For the 3B model, the one that comes closer to the floor, those become **$306** and **$1,491.20**.
 
-**Stage 5 total: $0 in inference and compute, and static delivery inside the free tier.** But the model that fits the budget does not hold the floor.
+At 10,000 new visitors a month, self-hosted 1B weights cost more than Kimi K3 serving every chat. The last rung is free in inference and expensive in bytes.
 
 ## The limits
 
 A ladder you only climb down in the sales brochure is marketing, so here is what Stage 5 costs in the currencies that aren't dollars:
 
-- **The first visit is heavy.** 705 MB for the 1B model, 1.8 GB for the 3B model that actually held the floor. It's cached afterwards, but a drive-by visitor may never finish loading. Load on intent, show progress, and prefer small models.
-- **Browser support is broad, not universal.** WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows. Older devices, many phones, GPUs without `shader-f16`, and browsers with hardware acceleration turned off will fail or crawl. My own test machine was in that last group (see "Will it even run?"), so its result says little about a typical visitor with GPU acceleration on. The best escape hatch is a **hybrid**: try the local model, and if WebGPU is missing or too slow, quietly fall back to your Stage 4 endpoint. The expensive path then serves only the visitors the free path can't.
-- **Small models are confidently wrong.** The measurement above is the whole argument. For support triage with a human behind it, a 3B model may be acceptable. For refunds, billing, medical, legal, or financial answers, a 1B model is not.
+- **The first visit is heavy.** It is 705 MB for the 1B model, and 1.8 GB for the 3B model that came closer to the floor. It's cached afterwards, but a drive-by visitor may never finish loading. Load on intent, show progress, and prefer small models.
+- **Browser support is broad, not universal.** WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows. Older devices, many phones, GPUs without `shader-f16`, and browsers with hardware acceleration turned off will fail or crawl. My own test machine was in that last group. The best escape hatch is a hybrid: try the local model, and if WebGPU is missing or too slow, fall back to the Stage 4 endpoint, so the metered path serves only the visitors the free path can't.
+- **Small models are confidently wrong.** For support triage with a human behind it, a 3B model may be acceptable. For refunds, billing, medical, legal, or financial answers, a 1B model is not.
 - **You lose the server-side view.** You get no central logs of what users asked (unless you add analytics, carefully and with consent), no instant model upgrades, and no server-side guardrails. Anyone who opens DevTools can read your system prompt.
-- **The user's battery is now your compute budget.** Inference is free to *you* because the visitor's GPU does the work. On a plugged-in laptop that's a fine trade. On a phone at 12% battery, be polite: small models, short answers, and no warm GPU when the tab is idle.
+- **The user's battery is now your compute budget.** Inference is free to you because the visitor's GPU does the work. On a plugged-in laptop that's a fine trade. On a phone at 12% battery, be polite: small models, short answers, and no warm GPU when the tab is idle.
 
 ## Conclusion: the order is the lesson
 
-Notice what we did *not* do. We didn't start with the last rung, and we didn't start with the cheapest model either. The ladder has an order, and the order is the frugal part:
+The ladder has an order, and the order is the frugal part:
 
-1. **Start at the top** (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request.
-2. **Walk down one rung at a time** (Stage 2), with a fixed question set, and stop at the first rung where the floor cracks for *your* questions; then step back up one. In my test, the floor held all the way down the Bedrock shelf, with cracks. The Haiku stand-in gave a contradictory refund answer, Nova Lite replied once in Spanish, and Nova Micro switched languages until a one-line prompt change fixed it. Nova Lite and gpt-oss-20b passed 28 and 29 of 30 for under $2 a month. Rerun the test every time you change the prompt, because the fix for one model broke another.
-3. **Pull the free levers, and price the worst case** (Stages 3 and 4). Cache what is static, trim what grows, cap what is long, and put a quota in front of the token meter.
+1. **Start at the top** (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request, including the cache fields.
+2. **Walk down one price step at a time** (Stage 2), with a fixed question set. Stop at the first model where the floor cracks for your questions, then step back up one. In my test the price and the score did not move together: two models under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. Check the model's lifecycle status, and the provider's availability notices, before you commit.
+3. **Pull the free levers, and price the worst case** (Stages 3 and 4). Count real output tokens, cache what is static, trim what grows, and put a quota in front of the token meter.
 
-Most products should stop at Stage 2 or 3. A few dollars a month for a correct, logged, upgradeable chatbot is one of the great bargains in modern infrastructure. Stage 5 is for cases where something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, my measurement says to choose the model by the floor, not by the download size.
+Most products should stop at Stage 2 or 3. On this FAQ, $2 to $4 a month bought a model that answered all 30 questions correctly, with logs and the option to switch hosts. Stage 5 is for cases where something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, choose the model by the floor, not by the download size.
 
-Your homework, in the spirit of The Frugal Architect: take the formula from the introduction, plug in *your* chat count and *your* token counts, and run 30 of *your* questions down the ladder. The ladder is only useful if you know your rung.
+Your homework, in the spirit of The Frugal Architect: take the formula from the introduction, plug in your chat count and your token counts, and run 30 of your own questions down the shelf.
