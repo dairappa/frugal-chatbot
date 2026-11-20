@@ -32,7 +32,7 @@ Every price in this article is a list price, and every monthly figure is calcula
 
 All the Bedrock calls for this edition, including probes and one run I had to throw away, cost $0.87, computed from the logged token counts at list prices.
 
-Some things I could not run. The Claude 5.5 models returned `AccessDeniedException: ... is not available for this account`, so Claude appears only as a price. Two of the most interesting cheap models live outside Bedrock: Kimi K2.6 on Moonshot's API and DeepSeek V4.1-Flash on DeepSeek's API. I had no API key for either provider, so they are priced, not tested. Gemma 4 has Bedrock prices, but Converse rejects its model ID ("The provided model identifier is invalid"), so it is not in the test either.
+Some things I could not run. A Converse call to Claude Haiku 5.5 returned `AccessDeniedException: ... is not available for this account`, so Claude appears only as a price. Two of the most interesting cheap models live outside Bedrock: Kimi K2.6 on Moonshot's API and DeepSeek V4.1-Flash on DeepSeek's API. I had no API key for either provider, so they are priced, not tested. Gemma 4 has Bedrock prices, but Converse rejects its model ID ("The provided model identifier is invalid"), so it is not in the test either.
 
 ### The unit of comparison
 
@@ -65,7 +65,7 @@ A pass means the answer is correct per the FAQ, in the user's language, and inve
 
 The architecture is small: a static chat page, one Lambda function with a function URL, Amazon Bedrock for the model, and a DynamoDB table for the quota in Stage 4. There are no servers to patch and no GPU to feed. You pay per token, plus fractions of a cent of compute.
 
-The most expensive open-weight model on Bedrock is Moonshot's Kimi K3. Its weights are on Hugging Face under the Kimi K3 License, an MIT-style license that asks hosting providers above $20 million in yearly revenue for a separate agreement. On Bedrock it costs $3.00 per 1M input tokens and $15.00 per 1M output tokens. Per chat: `0.001 × $3.00 + 0.0004 × $15.00 = $0.009`. Times 10,000 chats, that is $90 a month in model costs. For scale, Claude Opus 5.5 at its list price of $4/$20 would be $120.
+The most expensive open-weight model I found a Bedrock price for is Moonshot's Kimi K3. Its weights are on Hugging Face under the Kimi K3 License, an MIT-style license that asks hosting providers above $20 million in yearly revenue for a separate agreement. On Bedrock it costs $3.00 per 1M input tokens and $15.00 per 1M output tokens. Per chat: `0.001 × $3.00 + 0.0004 × $15.00 = $0.009`. Times 10,000 chats, that is $90 a month in model costs. For scale, Claude Opus 5.5 at its list price of $4/$20 would be $120.
 
 Here is the backend, using the Bedrock Converse API from Lambda (Python). The full file and its tests are in `demo/stage1/`:
 
@@ -111,7 +111,7 @@ def handler(event, context):
 
 Four details in this snippet do quiet financial or correctness work:
 
-- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question, so from the fourth turn on that slice starts with an assistant message. Kimi K3, Kimi K2.5, and both gpt-oss models answered such a request. Gemma 3 27B rejected it with a `ValidationException` that says conversation roles must alternate. A chatbot that breaks on turn four for some models and not others is the worst kind of bug, so the handler never sends one, and a unit test reproduces the bad slice.
+- **The history is trimmed so that it starts with a user turn.** My first draft used `history[-6:]`. The client always sends an odd number of messages, because the list ends with the user's new question, so from the fourth turn on that slice starts with an assistant message. Kimi K3, Kimi K2.5, and both gpt-oss models answered such a request. Gemma 3 27B rejected it with a `ValidationException`: "Conversation roles must alternate user/assistant/user/assistant/...". A chatbot that breaks on turn four for some models and not others is the worst kind of bug, so the handler never sends one, and a unit test reproduces the bad slice.
 - **Size is checked before any token is spent.** The 3 a.m. wiki paste gets a 413 and costs nothing.
 - **There is no `temperature`.** Kimi K3 rejects the whole request with `This model doesn't support the temperature field`. The other four models I checked accepted `temperature: 0.7`. A FAQ bot gains nothing from it either way.
 - **There is no `outputConfig.effort`, and `maxTokens` is 1,024, not 400.** Kimi K3 accepted `effort: low`. Kimi K2.5, both gpt-oss models, and Gemma 3 27B rejected it with `This model doesn't support the effort field`. The handler has an `EFFORT` setting, off by default. The cap is generous because reasoning tokens count toward `maxTokens`. Even so, Kimi K2 Thinking hit 1,024 on three of its 90 test answers, and two of those came back empty.
@@ -120,11 +120,11 @@ Kimi K3 reasons before it answers, and its reasoning is billed as output. Across
 
 The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds. Kimi K3's slowest test answer took 4.2 seconds, and DeepSeek V3.2's took 14.8.
 
-Kimi K3 passed 30 of 30. It apologized to the angry customer before it pointed them to Trash, and it declined all six out-of-scope questions without inventing anything. FAQ traffic rarely needs that much model, though. On "How do I reset my password?" it billed 112 output tokens for a three-sentence answer, and most of them were reasoning.
+Kimi K3 passed 30 of 30. It apologized to the angry customer before it pointed them to Trash, and it declined all six out-of-scope questions without inventing anything. FAQ traffic rarely needs that much model, though. On "How do I reset my password?" it billed 124 output tokens for a three-sentence answer, and most of them were reasoning.
 
 ## Stage 2: Walk down the open-weight shelf
 
-Same code, same architecture. Only `MODEL_ID` changes. Here is the whole shelf, most expensive first, measured with the same 30 questions. The floor test column is the hand-graded first run:
+Same code, same architecture. Only `MODEL_ID` changes. Here are the twelve models I tested, most expensive first, measured with the same 30 questions. Bedrock serves more open-weight models than these (GLM-5, MiniMax M2.5, NVIDIA Nemotron, and Mistral's, among others); I picked one or two per family. The floor test column is the hand-graded first run:
 
 <!-- table:shelf -->
 | Model | $/month at the budget (1,000 in / 400 out) | $/month with measured output | Floor test | Confidently wrong | What went wrong |
@@ -145,7 +145,7 @@ Same code, same architecture. Only `MODEL_ID` changes. Here is the whole shelf, 
 
 ![Monthly model cost on a log scale for twelve open-weight models, at the 400-token budget and at measured output, with each model's floor-test score](figures/shelf.png)
 
-![Per-question grades for all fourteen models: correct, confidently wrong, wrong language, or other failure](figures/eval30.png)
+![Per-question grades, run 1, for the twelve Bedrock models and the two local Llama models from Stage 5: correct, confidently wrong, wrong language, or other failure](figures/eval30.png)
 
 I expected price to predict the score, and it didn't. The two most expensive Kimi models scored 30 and 29. Below them, the score moved independently of the price. DeepSeek V3.2 at $13.60 failed four questions, and gpt-oss-120b and Gemma 3 27B, both under $4, failed none.
 
@@ -233,7 +233,7 @@ The 400-token budget hides the biggest difference between these models. Most of 
 
 ### Lever 2: Stop paying full price for the prompt you send every time
 
-Your system prompt and FAQ are identical on every request. Kimi K3 is the only open-weight model on Bedrock with a listed cache-read rate, $0.30 per 1M tokens against $3.00 for fresh input. It also turned out to cache without being asked.
+Your system prompt and FAQ are identical on every request. Of the twelve models, Kimi K3 is the only one with a cache-read rate in the Bedrock price list, $0.30 per 1M tokens against $3.00 for fresh input. It also turned out to cache without being asked.
 
 I found that by mistake. My harness priced every call as `inputTokens × input price`, and the first Kimi K3 runs reported 25 input tokens for a 600-token prompt. The rest was in `cacheReadInputTokens`, which I wasn't logging. I threw those runs away, added the cache fields, and ran Kimi K3 again through the `global` profile. In all 90 calls, about 614 tokens came from the cache, and no cache write was reported. The calls were seconds apart, so that is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month. With no hits it stays at $90. Read `usage.cacheReadInputTokens` in your own logs to see where you land.
 

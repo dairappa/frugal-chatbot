@@ -39,7 +39,7 @@ I did not run it over the article. I loaded it as a checklist, scanned the draft
 
 - My harness priced Kimi K3 wrong at first (auto-cached tokens weren't logged), and I threw those runs away.
 - "I expected price to predict the score, and it didn't" / "DeepSeek V3.2 is where my expectations broke".
-- Verbatim errors: the Claude 5.5 `AccessDeniedException`, Gemma's role-alternation rejection, Kimi K3's `temperature` rejection, Maverick's Legacy message, Gemma 4's invalid model identifier.
+- Verbatim errors: the Claude 5.5 `AccessDeniedException`, Gemma's "Conversation roles must alternate" rejection, Kimi K3's `temperature` rejection, Maverick's Legacy message, Gemma 4's invalid model identifier.
 - Model answers quoted as they came back, including the wrong ones ("$48 if you choose annual billing").
 - What wasn't run: Claude 5.5, Kimi K2.6, DeepSeek V4.1-Flash, Gemma 4, and the browser on a machine with GPU acceleration on.
 
