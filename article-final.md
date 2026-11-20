@@ -14,37 +14,37 @@ This time I priced the bot on open-weight models. Their weights are published, s
 
 I started at the most expensive open-weight model on the shelf, because I wanted to see what "good" looks like before trading it away. Then I walked down, one price step at a time, and asked at each step whether the bot still did its job. The same chatbot appears five times:
 
-1. **Stage 1:** the open-weight flagship, Kimi K3 on Amazon Bedrock, behind a Lambda function.
-2. **Stage 2:** the same architecture, walking down the open-weight shelf through eleven cheaper models.
-3. **Stage 3:** the same architecture, with the cost levers that are pure configuration.
-4. **Stage 4:** the rest of the AWS bill at list price, and a worst case you can name before you deploy.
-5. **Stage 5:** one more step down, where the question stops being "which model?"
+1. Stage 1: the open-weight flagship, Kimi K3 on Amazon Bedrock, behind a Lambda function.
+2. Stage 2: the same architecture, walking down the open-weight shelf through eleven cheaper models.
+3. Stage 3: the same architecture, with the cost levers that are pure configuration.
+4. Stage 4: the rest of the AWS bill at list price, and a worst case you can name before you deploy.
+5. Stage 5: one more step down, where the question stops being "which model?"
 
 ### What I ran, and what I didn't
 
 Every price in this article is a list price, and every monthly figure is calculated from list prices. No free tier is subtracted anywhere. The floor results are measurements. The code is in the companion repository (`demo/`):
 
-- **A cost script** (`demo/cost/calc.py`) that produces every dollar figure here from one price file. The Bedrock prices in that file were read from the AWS Price List API on 2026-11-19 and 2026-11-20.
-- **Offline tests for the Stage 1 handler** (`demo/stage1/`). They use botocore's `Stubber`, which validates each request against the real Converse and DynamoDB API schemas without calling AWS.
-- **A 30-question floor test** (`demo/eval/`). It ran three times on each of twelve open-weight models on Bedrock (one run of Llama 4 Maverick was cut short, as Stage 2 explains), and on two small Llama models locally. Every model got the same system prompt, the same FAQ, and the same request. I graded the first run of every model by reading each answer against one written rubric.
-- **Live checks of the Converse behaviors the code relies on:** history that starts with an assistant turn, `temperature`, and `outputConfig.effort`, on five of the models.
-- **A minimal implementation of the last rung** (`demo/stage5/`), served locally and smoke-tested.
+- A cost script (`demo/cost/calc.py`) that produces every dollar figure here from one price file. The Bedrock prices in that file were read from the AWS Price List API on 2026-11-19 and 2026-11-20.
+- Offline tests for the Stage 1 handler (`demo/stage1/`). They use botocore's `Stubber`, which validates each request against the real Converse and DynamoDB API schemas without calling AWS.
+- A 30-question floor test (`demo/eval/`). It ran three times on each of twelve open-weight models on Bedrock (one run of Llama 4 Maverick was cut short, as Stage 2 explains), and on two small Llama models locally. Every model got the same system prompt, the same FAQ, and the same request. I graded the first run of every model by reading each answer against one written rubric.
+- Live checks of the Converse behaviors the code relies on: history that starts with an assistant turn, `temperature`, and `outputConfig.effort`, on five of the models.
+- A minimal implementation of the last rung (`demo/stage5/`), served locally and smoke-tested.
 
-All the Bedrock calls for this edition, including probes and one run I had to throw away, cost **$0.87**, computed from the logged token counts at list prices.
+All the Bedrock calls for this edition, including probes and one run I had to throw away, cost $0.87, computed from the logged token counts at list prices.
 
 Some things I could not run. The Claude 5.5 models returned `AccessDeniedException: ... is not available for this account`, so Claude appears only as a price. Two of the most interesting cheap models live outside Bedrock: Kimi K2.6 on Moonshot's API and DeepSeek V4.1-Flash on DeepSeek's API. I had no API key for either provider, so they are priced, not tested. Gemma 4 has Bedrock prices, but Converse rejects its model ID ("The provided model identifier is invalid"), so it is not in the test either.
 
 ### The unit of comparison
 
-- **10,000 chats per month.**
-- **Each chat is budgeted at 1,000 input tokens and 400 output tokens.** The input is the system prompt with the FAQ, a trimmed slice of history, and the user's question.
-- **List prices in US East (N. Virginia), on demand,** from the AWS Price List API. Kimi K3 is quoted at its global cross-Region rate. Its in-Region rate is 10% higher.
-- **Measured output, next to the budget.** In the test runs a question used about 530 to 630 input tokens, and most models wrote 25 to 35 output tokens on average. The models that reason before they answer wrote far more, and their reasoning is billed as output. So the tables show two monthly figures: one at the 400-token budget, and one at the output each model actually wrote.
+- 10,000 chats per month.
+- Each chat is budgeted at 1,000 input tokens and 400 output tokens. The input is the system prompt with the FAQ, a trimmed slice of history, and the user's question.
+- List prices in US East (N. Virginia), on demand, from the AWS Price List API. Kimi K3 is quoted at its global cross-Region rate. Its in-Region rate is 10% higher.
+- Measured output, next to the budget. In the test runs a question used about 530 to 630 input tokens, and most models wrote 25 to 35 output tokens on average. The models that reason before they answer wrote far more, and their reasoning is billed as output. So the tables show two monthly figures: one at the 400-token budget, and one at the output each model actually wrote.
 - The formula, per chat: `input_tokens/1M × input_price + output_tokens/1M × output_price`, times 10,000.
 
 ### The floor: what "minimum viable" means
 
-A descent needs a floor, or it's just falling. Before pricing anything, I defined the least a support chatbot must do to deserve the name:
+Before pricing anything, I defined the least a support chatbot must do to deserve the name:
 
 - Answer questions from the context you give it (your FAQ, your docs), accurately and in the user's language.
 - Admit ignorance and offer a ticket or a human when the answer isn't in the context, instead of improvising.
@@ -65,7 +65,7 @@ A pass means the answer is correct per the FAQ, in the user's language, and inve
 
 The architecture is small: a static chat page, one Lambda function with a function URL, Amazon Bedrock for the model, and a DynamoDB table for the quota in Stage 4. There are no servers to patch and no GPU to feed. You pay per token, plus fractions of a cent of compute.
 
-The most expensive open-weight model on Bedrock is Moonshot's Kimi K3. Its weights are on Hugging Face under the Kimi K3 License, an MIT-style license that asks hosting providers above $20 million in yearly revenue for a separate agreement. On Bedrock it costs **$3.00 per 1M input tokens and $15.00 per 1M output tokens**. Per chat: `0.001 × $3.00 + 0.0004 × $15.00 = $0.009`. Times 10,000 chats, that is $90 a month in model costs. For scale, Claude Opus 5.5 at its list price of $4/$20 would be $120.
+The most expensive open-weight model on Bedrock is Moonshot's Kimi K3. Its weights are on Hugging Face under the Kimi K3 License, an MIT-style license that asks hosting providers above $20 million in yearly revenue for a separate agreement. On Bedrock it costs $3.00 per 1M input tokens and $15.00 per 1M output tokens. Per chat: `0.001 × $3.00 + 0.0004 × $15.00 = $0.009`. Times 10,000 chats, that is $90 a month in model costs. For scale, Claude Opus 5.5 at its list price of $4/$20 would be $120.
 
 Here is the backend, using the Bedrock Converse API from Lambda (Python). The full file and its tests are in `demo/stage1/`:
 
@@ -116,7 +116,7 @@ Four details in this snippet do quiet financial or correctness work:
 - **There is no `temperature`.** Kimi K3 rejects the whole request with `This model doesn't support the temperature field`. The other four models I checked accepted `temperature: 0.7`. A FAQ bot gains nothing from it either way.
 - **There is no `outputConfig.effort`, and `maxTokens` is 1,024, not 400.** Kimi K3 accepted `effort: low`. Kimi K2.5, both gpt-oss models, and Gemma 3 27B rejected it with `This model doesn't support the effort field`. The handler has an `EFFORT` setting, off by default. The cap is generous because reasoning tokens count toward `maxTokens`. Even so, Kimi K2 Thinking hit 1,024 on three of its 90 test answers, and two of those came back empty.
 
-Kimi K3 reasons before it answers, and its reasoning is billed as output. Across the 90 test answers it wrote 148 output tokens on average, and at most 403. That is well under the 400-token budget on average, so the measured bill comes to **$52.23** a month instead of $90. Log `usage.outputTokens` from day one, because it is the only number that tells you which of those two you are paying.
+Kimi K3 reasons before it answers, and its reasoning is billed as output. Across the 90 test answers it wrote 148 output tokens on average, and at most 403. That is well under the 400-token budget on average, so the measured bill comes to $52.23 a month instead of $90. Log `usage.outputTokens` from day one, because it is the only number that tells you which of those two you are paying.
 
 The execution role needs `bedrock:InvokeModel` on the inference profile and the models it routes to. Raise the Lambda timeout from its 3-second default to 30 seconds. Kimi K3's slowest test answer took 4.2 seconds, and DeepSeek V3.2's took 14.8.
 
@@ -170,7 +170,7 @@ GLM-4.7 passed 29 of 30. Its one failure was a false refusal: it said it had no 
 
 Qwen3-Next 80B A3B failed in the most dangerous way. It told a customer "We do not currently offer student discounts", a policy the FAQ never states. It told another "We don't support importing from Evernote" and then suggested a manual workaround. And it promised the angry customer help "immediately", against the FAQ's "within one business day". All three were fluent and confident, so a reader has no reason to doubt them.
 
-Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, Bedrock started rejecting it: `This Model is marked by provider as Legacy and you have not been actively using the model in the last 30 days`. `get-foundation-model` reports it as `LEGACY` since 2026-09-30, with an end of life on 2027-03-30. A model can pass your test and still be the wrong choice, because the host can retire it. Check `modelLifecycle` before you pick one.
+Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, Bedrock started rejecting it: `This Model is marked by provider as Legacy and you have not been actively using the model in the last 30 days`. `get-foundation-model` reports it as `LEGACY` since 2026-09-30, with an end of life on 2027-03-30. A model that passes your test can still be retired by its host, so check `modelLifecycle` before you pick one.
 
 ### Under $4: gpt-oss-120b, Gemma 3 27B, GLM-4.7-Flash, gpt-oss-20b, Gemma 3 4B
 
@@ -235,29 +235,29 @@ The 400-token budget hides the biggest difference between these models. Most of 
 
 Your system prompt and FAQ are identical on every request. Kimi K3 is the only open-weight model on Bedrock with a listed cache-read rate, $0.30 per 1M tokens against $3.00 for fresh input. It also turned out to cache without being asked.
 
-I found that by mistake. My harness priced every call as `inputTokens × input price`, and the first Kimi K3 runs reported 25 input tokens for a 600-token prompt. The rest was in `cacheReadInputTokens`, which I wasn't logging. I threw those runs away, added the cache fields, and ran Kimi K3 again through the `global` profile. In all 90 calls, about 614 tokens came from the cache, and no cache write was reported. The calls were seconds apart, so that is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to **$73.80** a month. With no hits it stays at $90. Read `usage.cacheReadInputTokens` in your own logs to see where you land.
+I found that by mistake. My harness priced every call as `inputTokens × input price`, and the first Kimi K3 runs reported 25 input tokens for a 600-token prompt. The rest was in `cacheReadInputTokens`, which I wasn't logging. I threw those runs away, added the cache fields, and ran Kimi K3 again through the `global` profile. In all 90 calls, about 614 tokens came from the cache, and no cache write was reported. The calls were seconds apart, so that is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month. With no hits it stays at $90. Read `usage.cacheReadInputTokens` in your own logs to see where you land.
 
 The trade-off is design discipline: a cached prefix has to be byte-for-byte static, so per-user data goes after the FAQ, never inside it.
 
 ### Lever 3: Trim the history, summarize the rest
 
-A chat that replays a 40-message history on every turn can multiply its input tokens fivefold by the end of a long session. Under the budget, that takes Kimi K2.5 from $18 to **$42** for the same answers, and Kimi K3 from $90 to **$210**. Keep the last few exchanges verbatim, replace everything older with a short running summary, and input cost per chat stays flat no matter how long the conversation runs.
+A chat that replays a 40-message history on every turn can multiply its input tokens fivefold by the end of a long session. Under the budget, that takes Kimi K2.5 from $18 to $42 for the same answers, and Kimi K3 from $90 to $210. Keep the last few exchanges verbatim, replace everything older with a short running summary, and input cost per chat stays flat no matter how long the conversation runs.
 
 ## Stage 4: The rest of the bill, and the worst case
 
 Now for the supporting cast, at list price. A function URL has no per-request charge of its own. Per chat, the bot makes one Lambda invocation at 256 MB that lasts as long as the model call, one DynamoDB write for the quota counter, and four CloudFront requests (page, script, FAQ, API call). At 10,000 chats, with Kimi K3's measured 2.0-second average:
 
-- **Lambda:** $0.0873 ($0.0000166667 per GB-second, $0.20 per million requests)
-- **DynamoDB, on demand:** $0.0063 ($0.625 per million write units)
-- **CloudFront:** $0.123 (HTTPS requests and about 0.1 MB of static transfer per visit)
+- Lambda: $0.0873 ($0.0000166667 per GB-second, $0.20 per million requests)
+- DynamoDB, on demand: $0.0063 ($0.625 per million write units)
+- CloudFront: $0.123 (HTTPS requests and about 0.1 MB of static transfer per visit)
 
-That is **$0.22** a month. Next to Kimi K3's $90 it disappears. Next to Gemma 3 4B's $0.72 it is about a quarter of the bill, so at the bottom of the shelf the infrastructure starts to show. I left the free tiers out, which removes the temptation to design around them.
+That is $0.22 a month. Next to Kimi K3's $90 it disappears. Next to Gemma 3 4B's $0.72 it is about a quarter of the bill, so at the bottom of the shelf the infrastructure starts to show. I left the free tiers out, which removes the temptation to design around them.
 
-A function URL with auth type `NONE` is a public endpoint, so put CloudFront in front of it with origin access control. If the chat page is served from another origin, configure CORS on the function URL. With origin access control, POST requests must carry an `x-amz-content-sha256` header with the body's SHA-256 hash, which the page computes before sending. Be clear about what that buys: it hides the raw endpoint, but it doesn't stop anyone who opens your chat page from sending as many messages as they like. On a public chatbot, every visitor is a legitimate client.
+A function URL with auth type `NONE` is a public endpoint, so put CloudFront in front of it with origin access control. If the chat page is served from another origin, configure CORS on the function URL. With origin access control, POST requests must carry an `x-amz-content-sha256` header with the body's SHA-256 hash, which the page computes before sending. It hides the raw endpoint, but it doesn't stop anyone who opens your chat page from sending as many messages as they like. On a public chatbot, every visitor is a legitimate client.
 
 ### Put a ceiling on the worst case
 
-My first draft capped the Lambda function at 2 concurrent executions and called that a ceiling. Two slots busy around the clock for 30 days at 256 MB cost **$21.95** in Lambda charges. That figure is correct and almost irrelevant, because it caps the compute, not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
+My first draft capped the Lambda function at 2 concurrent executions and called that a ceiling. Two slots busy around the clock for 30 days at 256 MB cost $21.95 in Lambda charges. That figure is correct and almost irrelevant, because it caps the compute, not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
 
 <!-- table:worst -->
 | Concurrency 2, one call every 3 s per slot, all month | gpt-oss-20b | Kimi K2.5 | Kimi K3 |
@@ -268,7 +268,7 @@ My first draft capped the Lambda function at 2 concurrent executions and called 
 | With a 500-chat daily quota, every chat at the caps | $9.54 | $88.38 | $441.90 |
 <!-- /table -->
 
-An abuser won't send average chats. They will send the largest body you accept, and on a reasoning model the output will run to the cap. The model sets the worst-case bill as well as the expected one. Concurrency limits Lambda; it doesn't limit Bedrock spend enough. So the brake has to count chats. A daily quota in DynamoDB does it in one conditional write (the full function, with a test that it returns 429 at the limit, is in `demo/stage1/handler.py`):
+An abuser won't send average chats. They will send the largest body you accept, and on a reasoning model the output will run to the cap. Concurrency limits Lambda, not Bedrock spend, so the brake has to count chats. A daily quota in DynamoDB does it in one conditional write (the full function, with a test that it returns 429 at the limit, is in `demo/stage1/handler.py`):
 
 ```python
 ddb.update_item(
@@ -280,15 +280,15 @@ ddb.update_item(
 )   # ConditionalCheckFailedException -> return 429 "try again tomorrow"
 ```
 
-With 500 chats a day, the worst month on Kimi K3 is **$441.90**, on Kimi K2.5 $88.38, and on gpt-oss-20b $9.54. Rejected calls still run Lambda and still attempt the write, which adds about $1.79 a month under the same abuse. That is a number you can state before you deploy, and on Kimi K3 it is a reason to lower the quota or the caps. Then add an AWS Budgets alert at an amount that would make you raise an eyebrow. Budgets is an alarm, not a brake: billing data can arrive hours late, and an alert stops nothing by itself. The quota is the brake.
+With 500 chats a day, the worst month on Kimi K3 is $441.90, on Kimi K2.5 $88.38, and on gpt-oss-20b $9.54. Rejected calls still run Lambda and still attempt the write, which adds about $1.79 a month under the same abuse. That is a number you can state before you deploy, and on Kimi K3 it is a reason to lower the quota or the caps. Then add an AWS Budgets alert at an amount that would make you raise an eyebrow. Budgets only raises an alarm: billing data can arrive hours late, and an alert stops nothing by itself.
 
 What you give up: on a busy day, user number 501 gets "try again tomorrow." Whether 500 is the right number is a business decision, not a technical one.
 
-At this point the model still costs money on every chat. There is one rung left.
+The model still costs money on every chat, and there is one rung left.
 
 ## Stage 5: The last rung
 
-If per-token pricing is the problem, remove the token meter. Modern browsers can run small language models on the visitor's own GPU through WebGPU. [WebLLM](https://github.com/mlc-ai/web-llm) (`@mlc-ai/web-llm`) packages this up. It downloads a quantized model into the browser, caches it, and exposes an OpenAI-style `chat.completions` API, entirely client-side. This is the open-weight idea taken to its end: the visitor runs the weights.
+If per-token pricing is the problem, remove the token meter. Modern browsers can run small language models on the visitor's own GPU through WebGPU. [WebLLM](https://github.com/mlc-ai/web-llm) (`@mlc-ai/web-llm`) packages this up. It downloads a quantized model into the browser, caches it, and exposes an OpenAI-style `chat.completions` API, entirely client-side. Here the visitor runs the weights.
 
 To keep this the same chatbot, the page loads the same `faq.md` system prompt and uses the same trimming rule as the Lambda version. It also checks the GPU before it commits to a 700 MB download. The full page is in `demo/stage5/`:
 
@@ -369,19 +369,19 @@ aws s3 sync ./dist s3://your-chatbot-bucket --delete
 # the default root object, long cache TTLs on hashed assets.
 ```
 
-At 10,000 visits a month and list price, that is three HTTPS requests and about 0.1 MB per visit: **$0.11** a month in CloudFront charges, with S3 storage for a few files rounding to zero. There is no model charge at all.
+At 10,000 visits a month and list price, that is three HTTPS requests and about 0.1 MB per visit: $0.11 a month in CloudFront charges, with S3 storage for a few files rounding to zero. There is no model charge at all.
 
-That number depends on a trick worth stating out loud. WebLLM fetches the model weights from Hugging Face and the compiled GPU code from GitHub by default, so the one heavy asset never crosses your CloudFront bill. By the definition at the top of this article, that is close to cheap: someone else is paying for the transfer, and it depends on a service you don't control. If you host the weights yourself, the delivery bill follows the number of new visitors, not chats. At $0.085 per GB:
+That number depends on WebLLM's defaults. It fetches the model weights from Hugging Face and the compiled GPU code from GitHub by default, so the one heavy asset never crosses your CloudFront bill. By the definition at the top of this article, that is close to cheap: someone else is paying for the transfer, and it depends on a service you don't control. If you host the weights yourself, the delivery bill follows the number of new visitors, not chats. At $0.085 per GB:
 
-- 2,000 first-time visitors × 705 MB for the 1B model is about 1.4 TB: **$119.85** a month.
-- 10,000 first-time visitors is about 7 TB: **$599.25**.
-- For the 3B model, the one that comes closer to the floor, those become **$306** and **$1,491.20**.
+- 2,000 first-time visitors × 705 MB for the 1B model is about 1.4 TB: $119.85 a month.
+- 10,000 first-time visitors is about 7 TB: $599.25.
+- For the 3B model, the one that comes closer to the floor, those become $306 and $1,491.20.
 
-At 10,000 new visitors a month, self-hosted 1B weights cost more than Kimi K3 serving every chat. The last rung is free in inference and expensive in bytes.
+At 10,000 new visitors a month, self-hosted 1B weights cost more than Kimi K3 serving every chat.
 
 ## The limits
 
-A ladder you only climb down in the sales brochure is marketing, so here is what Stage 5 costs in the currencies that aren't dollars:
+Stage 5 also costs things that aren't dollars:
 
 - **The first visit is heavy.** It is 705 MB for the 1B model, and 1.8 GB for the 3B model that came closer to the floor. It's cached afterwards, but a drive-by visitor may never finish loading. Load on intent, show progress, and prefer small models.
 - **Browser support is broad, not universal.** WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows. Older devices, many phones, GPUs without `shader-f16`, and browsers with hardware acceleration turned off will fail or crawl. My own test machine was in that last group. The best escape hatch is a hybrid: try the local model, and if WebGPU is missing or too slow, fall back to the Stage 4 endpoint, so the metered path serves only the visitors the free path can't.
@@ -391,11 +391,11 @@ A ladder you only climb down in the sales brochure is marketing, so here is what
 
 ## Conclusion: the order is the lesson
 
-The ladder has an order, and the order is the frugal part:
+This is the order I would follow again:
 
-1. **Start at the top** (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request, including the cache fields.
-2. **Walk down one price step at a time** (Stage 2), with a fixed question set. Stop at the first model where the floor cracks for your questions, then step back up one. In my test the price and the score did not move together: two models under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. Check the model's lifecycle status, and the provider's availability notices, before you commit.
-3. **Pull the free levers, and price the worst case** (Stages 3 and 4). Count real output tokens, cache what is static, trim what grows, and put a quota in front of the token meter.
+1. Start at the top (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request, including the cache fields.
+2. Walk down one price step at a time (Stage 2), with a fixed question set. Stop at the first model where the floor cracks for your questions, then step back up one. In my test the price and the score did not move together: two models under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. Check the model's lifecycle status, and the provider's availability notices, before you commit.
+3. Pull the free levers, and price the worst case (Stages 3 and 4). Count real output tokens, cache what is static, trim what grows, and put a quota in front of the token meter.
 
 Most products should stop at Stage 2 or 3. On this FAQ, $2 to $4 a month bought a model that answered all 30 questions correctly, with logs and the option to switch hosts. Stage 5 is for cases where something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, choose the model by the floor, not by the download size.
 
