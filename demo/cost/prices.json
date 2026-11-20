@@ -1,74 +1,167 @@
 {
- "_note": "USD per 1M tokens, us-east-1 on-demand. VERIFIED 2026-11-19 against the AWS Price List API (service codes AmazonBedrock and AmazonBedrockFoundationModels; raw dumps in demo/pricing/). Claude = global endpoint rates (regional = +10%). cw = cache write (5-minute).",
- "models": {
-  "anthropic.claude-opus-5-5": {
-   "name": "Claude Opus 5.5",
-   "in": 4.0,
-   "out": 20.0,
-   "cr": 0.2,
-   "cw": 5.0
+ "_note": "USD per 1M tokens, list prices, no free tiers. Bedrock rows: AWS Price List API (service code AmazonBedrock / AmazonBedrockFoundationModels), us-east-1 standard on-demand, read 2026-11-20 (open-weight rows, filtered copy in ../pricing/extract-2026-11-20.json) and 2026-11-19 (Claude and Nova rows, ../pricing/claude-use1-summary.json). External rows: the provider's own pricing page, read 2026-11-20 (../pricing/external-2026-11-20.md).",
+ "open": {
+  "kimi_k3": {
+   "name": "Kimi K3",
+   "bedrock": "global.moonshotai.kimi-k3",
+   "in": 3.0,
+   "out": 15.0,
+   "cr": 0.3,
+   "price_src": "Bedrock global cross-Region rate. Cache writes are the 30-minute rate; no 5-minute write rate is listed.",
+   "weights": "moonshotai/Kimi-K3",
+   "license": "Kimi K3 License (MIT-style with a Model-as-a-Service clause)",
+   "cw": 3.75,
+   "regional": {
+    "bedrock": "us.moonshotai.kimi-k3",
+    "in": 3.3,
+    "out": 16.5,
+    "cr": 0.33,
+    "cw": 4.125
+   }
   },
-  "anthropic.claude-sonnet-5-5": {
-   "name": "Claude Sonnet 5.5",
-   "in": 2.0,
-   "out": 10.0,
-   "cr": 0.1,
-   "cw": 2.5
+  "kimi_k25": {
+   "name": "Kimi K2.5",
+   "bedrock": "moonshotai.kimi-k2.5",
+   "in": 0.6,
+   "out": 3.0,
+   "weights": "moonshotai/Kimi-K2.5",
+   "license": "Modified MIT"
   },
-  "anthropic.claude-haiku-5-5": {
-   "name": "Claude Haiku 5.5",
-   "in": 0.1,
-   "out": 0.5,
-   "cr": 0.01,
-   "cw": 0.125
+  "kimi_k2_thinking": {
+   "name": "Kimi K2 Thinking",
+   "bedrock": "moonshot.kimi-k2-thinking",
+   "in": 0.6,
+   "out": 2.5,
+   "weights": "moonshotai/Kimi-K2-Thinking",
+   "license": "Modified MIT"
   },
-  "amazon.nova-lite-v1:0": {
-   "name": "Amazon Nova Lite",
-   "in": 0.06,
-   "out": 0.24,
-   "cr": 0.015,
-   "cw": 0.06
+  "deepseek_v32": {
+   "name": "DeepSeek V3.2",
+   "bedrock": "deepseek.v3.2",
+   "in": 0.62,
+   "out": 1.85,
+   "weights": "deepseek-ai/DeepSeek-V3.2",
+   "license": "MIT"
   },
-  "amazon.nova-micro-v1:0": {
-   "name": "Amazon Nova Micro",
-   "in": 0.035,
-   "out": 0.14,
-   "cr": 0.00875,
-   "cw": 0.035
+  "glm47": {
+   "name": "GLM-4.7",
+   "bedrock": "zai.glm-4.7",
+   "in": 0.6,
+   "out": 2.2,
+   "weights": "zai-org/GLM-4.7",
+   "license": "MIT"
   },
-  "openai.gpt-oss-20b-1:0": {
+  "qwen3_next": {
+   "name": "Qwen3-Next 80B A3B",
+   "bedrock": "qwen.qwen3-next-80b-a3b",
+   "in": 0.14,
+   "out": 1.2,
+   "weights": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "license": "Apache-2.0"
+  },
+  "llama4_maverick": {
+   "name": "Llama 4 Maverick",
+   "bedrock": "us.meta.llama4-maverick-17b-instruct-v1:0",
+   "in": 0.24,
+   "out": 0.97,
+   "weights": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+   "license": "Llama 4 Community License"
+  },
+  "gpt_oss_120b": {
+   "name": "gpt-oss-120b",
+   "bedrock": "openai.gpt-oss-120b-1:0",
+   "in": 0.15,
+   "out": 0.6,
+   "weights": "openai/gpt-oss-120b",
+   "license": "Apache-2.0"
+  },
+  "glm47_flash": {
+   "name": "GLM-4.7-Flash",
+   "bedrock": "zai.glm-4.7-flash",
+   "in": 0.07,
+   "out": 0.4,
+   "weights": "zai-org/GLM-4.7-Flash",
+   "license": "MIT"
+  },
+  "gemma3_27b": {
+   "name": "Gemma 3 27B",
+   "bedrock": "google.gemma-3-27b-it",
+   "in": 0.23,
+   "out": 0.38,
+   "weights": "google/gemma-3-27b-it",
+   "license": "Gemma Terms of Use"
+  },
+  "gpt_oss_20b": {
    "name": "gpt-oss-20b",
+   "bedrock": "openai.gpt-oss-20b-1:0",
    "in": 0.07,
    "out": 0.3,
-   "cr": null,
-   "cw": null
+   "weights": "openai/gpt-oss-20b",
+   "license": "Apache-2.0"
+  },
+  "gemma3_4b": {
+   "name": "Gemma 3 4B",
+   "bedrock": "google.gemma-3-4b-it",
+   "in": 0.04,
+   "out": 0.08,
+   "weights": "google/gemma-3-4b-it",
+   "license": "Gemma Terms of Use"
+  }
+ },
+ "external": {
+  "_note": "Price only. Not measured: no API key for these providers on this machine.",
+  "kimi_k26_moonshot": {
+   "name": "Kimi K2.6 (Moonshot API)",
+   "in": 0.95,
+   "out": 4.0,
+   "cr": 0.16,
+   "key": "Moonshot (platform.kimi.ai) API key",
+   "weights": "moonshotai/Kimi-K2.6",
+   "license": "Modified MIT"
+  },
+  "deepseek_flash": {
+   "name": "DeepSeek V4.1-Flash (DeepSeek API, peak hours)",
+   "in": 0.3,
+   "out": 1.2,
+   "cr": 0.006,
+   "key": "DeepSeek API key",
+   "offpeak": {
+    "in": 0.15,
+    "out": 0.6
+   }
+  }
+ },
+ "yardsticks": {
+  "_note": "Proprietary models, price only. Claude 5.5 = global-endpoint rates; the account has no access to them (AccessDeniedException, 2026-11-20).",
+  "opus55": {
+   "name": "Claude Opus 5.5",
+   "in": 4.0,
+   "out": 20.0
+  },
+  "sonnet55": {
+   "name": "Claude Sonnet 5.5",
+   "in": 2.0,
+   "out": 10.0
+  },
+  "haiku55": {
+   "name": "Claude Haiku 5.5",
+   "in": 0.1,
+   "out": 0.5
+  },
+  "nova_micro": {
+   "name": "Amazon Nova Micro",
+   "in": 0.035,
+   "out": 0.14
   }
  },
  "aws": {
+  "_note": "List prices, us-east-1 (CloudFront: United States edge), AWS Price List API 2026-11-20. Free tiers deliberately not subtracted.",
   "lambda_gb_s": 1.66667e-05,
-  "lambda_req_per_m": 0.2,
-  "lambda_free_gb_s": 400000,
-  "lambda_free_req": 1000000,
-  "cloudfront_free_gb": 1024,
-  "cloudfront_per_gb_after": 0.085
- },
- "_nova_cw_note": "Price List shows cache-write $0.00/1K for Nova Lite and Micro. Whether a write is free or the written tokens are billed as regular input is not clear from the list; calc.py conservatively bills writes at the input price.",
- "proxies": {
-  "_note": "Previous-generation Claude models used as stand-ins because the account has no agreement for the 5.5 models. Global-endpoint list prices from the AWS Price List API (AmazonBedrockFoundationModels, us-east-1).",
-  "anthropic.claude-opus-4-6-v1": {
-   "name": "Claude Opus 4.6 (proxy)",
-   "in": 5.0,
-   "out": 25.0
-  },
-  "anthropic.claude-sonnet-4-6": {
-   "name": "Claude Sonnet 4.6 (proxy)",
-   "in": 3.0,
-   "out": 15.0
-  },
-  "anthropic.claude-haiku-4-5-20251001-v1:0": {
-   "name": "Claude Haiku 4.5 (proxy)",
-   "in": 1.0,
-   "out": 5.0
-  }
+  "lambda_per_request": 2e-07,
+  "ddb_write_per_unit": 6.25e-07,
+  "ddb_read_per_unit": 1.25e-07,
+  "cloudfront_per_gb": 0.085,
+  "cloudfront_per_https_request": 1e-06,
+  "cloudfront_per_gb_10tb_to_50tb": 0.08
  }
 }

@@ -1,0 +1,316 @@
+{
+ "_about": "Hand grades of run 1 (seed1) for every model, one rubric for all (see grades.md). Graded 2026-11-20 by Claude (AI assistant) by reading every answer in full with grade_view.py; not yet spot-checked by the author. Any question not listed for a model is a pass. Verdicts: wrong = confidently wrong, lang = wrong language, other = false refusal, complied with an off-topic request, missing the key fact, empty, or visible reasoning. 'pass' entries are passes with a note.",
+ "models": {
+  "kimi_k3": {
+   "A06": [
+    "pass",
+    "adds that support will 'do their best' with special circumstances; inference"
+   ],
+   "A17": [
+    "pass",
+    "'switch to annual billing in your subscription settings': plausible from Settings > Billing"
+   ]
+  },
+  "kimi_k25": {
+   "A06": [
+    "pass",
+    "suggests emailing support to discuss; inference"
+   ],
+   "A12": [
+    "lang",
+    "English question answered in French (content correct)"
+   ]
+  },
+  "kimi_k2_thinking": {
+   "A07": [
+    "pass",
+    "'The web app supports all core features': inference"
+   ],
+   "C01": [
+    "other",
+    "its <think> reasoning is part of the visible answer"
+   ],
+   "C02": [
+    "other",
+    "its <think> reasoning is part of the visible answer"
+   ],
+   "C03": [
+    "other",
+    "its <think> reasoning is part of the visible answer"
+   ],
+   "C04": [
+    "other",
+    "its <think> reasoning is part of the visible answer"
+   ],
+   "D02": [
+    "other",
+    "empty answer: stopReason max_tokens at 1,024 output tokens"
+   ]
+  },
+  "deepseek_v32": {
+   "A06": [
+    "wrong",
+    "'Yes, you can get a full refund' three weeks after purchase"
+   ],
+   "A13": [
+    "lang",
+    "English question answered in Spanish"
+   ],
+   "A17": [
+    "lang",
+    "switches to French mid-answer"
+   ],
+   "A18": [
+    "pass",
+    "'simultaneously': inference"
+   ],
+   "D02": [
+    "wrong",
+    "tells the user to go to Settings > Export to retrieve lost notes"
+   ]
+  },
+  "glm47": {
+   "A08": [
+    "other",
+    "false refusal: the FAQ says Android 12 or later"
+   ]
+  },
+  "qwen3_next": {
+   "B01": [
+    "wrong",
+    "'We do not currently offer student discounts': invented policy"
+   ],
+   "B03": [
+    "wrong",
+    "'We don't support importing from Evernote', then invents a manual workaround"
+   ],
+   "B04": [
+    "pass",
+    "'no announced release date': inference"
+   ],
+   "D02": [
+    "wrong",
+    "'we'll help immediately' contradicts 'within one business day'"
+   ],
+   "D01": [
+    "pass",
+    "「30分以内に有効な」: valid for 30 minutes; author to spot-check"
+   ]
+  },
+  "llama4_maverick": {
+   "A02": [
+    "pass",
+    "points to a 'pricing section'; vague"
+   ],
+   "A17": [
+    "pass",
+    "points to a 'pricing page'; vague"
+   ]
+  },
+  "gpt_oss_120b": {
+   "C01": [
+    "pass",
+    "'recover the note to its original location': describes how a stated step behaves"
+   ],
+   "D01": [
+    "pass",
+    "「30分以内に有効な」: valid for 30 minutes; author to spot-check"
+   ]
+  },
+  "glm47_flash": {
+   "A06": [
+    "other",
+    "'I cannot verify your eligibility': does not apply the 14-day rule"
+   ],
+   "A11": [
+    "wrong",
+    "'Since 30 days have passed, you will not see it there' for a note deleted yesterday"
+   ],
+   "A12": [
+    "other",
+    "false refusal: the FAQ covers SMS and authenticator apps"
+   ],
+   "D01": [
+    "pass",
+    "Japanese with a stray 'P' typo"
+   ],
+   "D02": [
+    "pass",
+    "no apology, but polite and correct"
+   ],
+   "A16": [
+    "pass",
+    "'Email us ... if you need faster assistance': implies, but does not promise, a faster reply"
+   ]
+  },
+  "gemma3_27b": {},
+  "gpt_oss_20b": {
+   "A14": [
+    "pass",
+    "'downgrades to the free tier': inference"
+   ],
+   "B04": [
+    "pass",
+    "'there's no release date for one': inference"
+   ],
+   "D02": [
+    "other",
+    "offers a ticket but never mentions Trash"
+   ],
+   "A16": [
+    "pass",
+    "'If you need immediate help, you can also email us': implies, but does not promise, a faster reply"
+   ]
+  },
+  "gemma3_4b": {
+   "A03": [
+    "other",
+    "false refusal: $8 x 5 is in reach"
+   ],
+   "A06": [
+    "wrong",
+    "'Yes, Plus and Team subscriptions can be refunded' three weeks after purchase"
+   ],
+   "A08": [
+    "other",
+    "false refusal"
+   ],
+   "A12": [
+    "other",
+    "false refusal"
+   ],
+   "A14": [
+    "pass",
+    "adds an unrelated refund sentence"
+   ],
+   "A16": [
+    "other",
+    "false refusal: the FAQ says one business day"
+   ],
+   "A17": [
+    "pass",
+    "adds an unrelated refund sentence"
+   ]
+  },
+  "llama32_3b": {
+   "A06": [
+    "other",
+    "'I don't know' although the FAQ has the 14-day rule"
+   ],
+   "A07": [
+    "pass",
+    "'Yes' to a Linux app, meaning the web app"
+   ],
+   "A08": [
+    "pass",
+    "says 'I don't know', then gives the right answer"
+   ],
+   "A10": [
+    "wrong",
+    "invents export options: selected notes, a specific folder"
+   ],
+   "A12": [
+    "pass",
+    "says 'I don't know', then gives the right answer"
+   ],
+   "A14": [
+    "other",
+    "false refusal"
+   ],
+   "B03": [
+    "wrong",
+    "'No, we do not currently support importing notes from Evernote': invented policy"
+   ],
+   "C01": [
+    "other",
+    "false refusal"
+   ],
+   "D01": [
+    "wrong",
+    "Japanese answer says the link is sent within 30 minutes; the FAQ says it expires after 30 minutes"
+   ],
+   "D02": [
+    "other",
+    "never mentions Trash"
+   ]
+  },
+  "llama32_1b": {
+   "A01": [
+    "pass",
+    "echoes the FAQ's 'Q: ... A:' format"
+   ],
+   "A04": [
+    "other",
+    "false refusal"
+   ],
+   "A05": [
+    "other",
+    "'You didn't mention buying Plus'"
+   ],
+   "A06": [
+    "wrong",
+    "'you've already used your 30-day money-back guarantee'; the FAQ says 14 days"
+   ],
+   "A09": [
+    "wrong",
+    "says the web app works offline"
+   ],
+   "A10": [
+    "wrong",
+    "invents an Export button and says exports arrive as a PDF file"
+   ],
+   "A11": [
+    "pass",
+    "garbled opening, right steps"
+   ],
+   "A12": [
+    "other",
+    "false refusal"
+   ],
+   "A14": [
+    "wrong",
+    "'you will lose your Plus subscription immediately'"
+   ],
+   "A16": [
+    "wrong",
+    "'within 2 hours ... up to 24 hours'"
+   ],
+   "A17": [
+    "wrong",
+    "'there isn't a discount for paying yearly'; the FAQ says 20%"
+   ],
+   "A18": [
+    "other",
+    "false refusal"
+   ],
+   "B03": [
+    "wrong",
+    "invents an Evernote import feature with directions"
+   ],
+   "B05": [
+    "other",
+    "wrote the Python script"
+   ],
+   "C02": [
+    "wrong",
+    "says Plus has shared workspaces and invents calendars and file sharing"
+   ],
+   "C03": [
+    "wrong",
+    "invents a 500 MB limit for Team"
+   ],
+   "C04": [
+    "wrong",
+    "'does not allow for refunds within the first 14 days'"
+   ],
+   "D01": [
+    "wrong",
+    "Japanese answer says you get a new password in 30 minutes"
+   ],
+   "D02": [
+    "other",
+    "asks for details, never mentions Trash"
+   ]
+  }
+ }
+}

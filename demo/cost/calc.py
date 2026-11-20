@@ -1,97 +1,129 @@
 #!/usr/bin/env python3
-"""Recompute every dollar figure in the Frugal Chatbot article. Writes figures.json."""
-import json, math, pathlib
+"""Recompute every dollar figure in the Frugal Chatbot article. Writes figures.json.
+
+All prices are list prices from prices.json. No free tier is subtracted anywhere.
+Measured token counts come from the eval results (../eval/results/bedrock-<model>-seed{1,2,3}.jsonl).
+"""
+import json, pathlib, re, statistics
+
 HERE = pathlib.Path(__file__).parent
+RESULTS = HERE.parent / "eval" / "results"
 P = json.loads((HERE / "prices.json").read_text())
-M, AWS = P["models"], P["aws"]
-OPUS, SONNET, HAIKU, LITE, MICRO, GPTOSS = list(M)
+OPEN, YARD, AWS = P["open"], P["yardsticks"], P["aws"]
+EXT = {k: v for k, v in P["external"].items() if not k.startswith("_")}
+YARD = {k: v for k, v in YARD.items() if not k.startswith("_")}
+ALL = {**OPEN, **YARD, **EXT}
 CHATS, IN, OUT = 10_000, 1_000, 400
 MONTH_S = 30 * 24 * 3600
-F = {}
+F = {"usd": {}, "other": {}}   # check_article.py matches $ amounts against "usd" only
 
-def per_chat(m, tin=IN, tout=OUT, cached=0, hit=1.0):
-    """cached = tokens of static prefix behind a cache point; hit = cache hit rate."""
-    p = M[m]
-    fresh = tin - cached
+
+def put(key, val, note="", usd=True):
+    F["usd" if usd else "other"][key] = round(val, 6)
+    print(f"{key:<48} {'$' if usd else ' '}{val:>14,.4f}  {note}")
+
+
+def per_chat(p, tin=IN, tout=OUT, cached=0, hit=1.0):
+    """USD for one chat. cached = static prefix tokens behind a cache point; hit = cache hit rate."""
     prefix = cached * (hit * p["cr"] + (1 - hit) * p["cw"]) if cached else 0.0
-    return (fresh * p["in"] + prefix + tout * p["out"]) / 1e6
+    return ((tin - cached) * p["in"] + prefix + tout * p["out"]) / 1e6
 
-def put(key, val, note=""):
-    F[key] = round(val, 4)
-    print(f"{key:<46} {val:>12,.4f}  {note}")
 
-print("== Ladder (10,000 chats, 1,000 in / 400 out) ==")
-for m in M:
-    put(f"ladder.{M[m]['name']}", per_chat(m) * CHATS, f"per chat ${per_chat(m):.6f}")
+def measured(key):
+    """Mean tokens and latency per answer over the three eval runs of one model."""
+    safe = re.sub(r"[^A-Za-z0-9.-]", "_", OPEN[key]["bedrock"])
+    rows = [json.loads(l) for s in (1, 2, 3)
+            for l in (RESULTS / f"bedrock-{safe}-seed{s}.jsonl").read_text().splitlines()]
+    tin = statistics.mean(r["in"] + r.get("cache_read", 0) + r.get("cache_write", 0) for r in rows)
+    return {"n": len(rows), "in": tin, "out": statistics.mean(r["out"] for r in rows),
+            "out_max": max(r["out"] for r in rows), "sec": statistics.mean(r["sec"] for r in rows),
+            "max_tokens_stops": sum(r["stop"] == "max_tokens" for r in rows)}
+
+
+print("== List-price ladder (10,000 chats, 1,000 in / 400 out) ==")
+for k, p in ALL.items():
+    put(f"ladder.{k}", per_chat(p) * CHATS, f"{p['name']}: ${per_chat(p):.6f}/chat")
+put("ladder.deepseek_flash_offpeak", per_chat(EXT["deepseek_flash"]["offpeak"]) * CHATS)
 for n in (100_000, 1_000_000):
-    for m in M:
-        put(f"scale{n}.{M[m]['name']}", per_chat(m) * n)
+    for k in ("kimi_k3", "kimi_k25", "gpt_oss_120b", "gpt_oss_20b", "gemma3_4b", "opus55", "haiku55"):
+        put(f"scale{n}.{k}", per_chat(ALL[k]) * n)
 
-for k, label in (("anthropic.claude-opus-4-6-v1", "opus46"), ("anthropic.claude-sonnet-4-6", "sonnet46"), ("anthropic.claude-haiku-4-5-20251001-v1:0", "haiku45")):
-    pp = P["proxies"][k]
-    put(f"proxy.{label}", (IN * pp["in"] + OUT * pp["out"]) / 1e6 * CHATS, "stand-in model at the same workload")
-put("ladder.saved_first_two_rungs", (per_chat(OPUS) - per_chat(HAIKU)) * CHATS)
-print("\n== Thinking tokens (hidden output) on Opus ==")
-for extra in (200, 1000):
-    put(f"thinking+{extra}.opus", per_chat(OPUS, tout=OUT + extra) * CHATS)
+print("\n== Measured tokens per answer (3 runs x 30 questions) ==")
+M = {}
+for k in OPEN:
+    M[k] = m = measured(k)
+    put(f"measured.{k}.out", m["out"], f"in {m['in']:.0f}, out max {m['out_max']}, {m['sec']:.1f} s, "
+        f"{m['max_tokens_stops']} max_tokens stops, n={m['n']}", usd=False)
+    put(f"measured.{k}.in", m["in"], usd=False)
+    put(f"measured.{k}.sec", m["sec"], usd=False)
+    put(f"measured.{k}.out_max", m["out_max"], usd=False)
+    put(f"measured.{k}.n", m["n"], usd=False)
+    put(f"measured.{k}.max_tokens_stops", m["max_tokens_stops"], usd=False)
+    # The budget's 1,000 input tokens stay (real chats carry history); output is what the model really wrote.
+    put(f"measured_ladder.{k}", per_chat(OPEN[k], IN, m["out"]) * CHATS, "1,000 in / measured out")
+    put(f"measured.{k}.out_vs_budget", m["out"] / OUT, usd=False)
 
-print("\n== Lever 1: caching ==")
-# Our FAQ prompt is ~515-700 tokens: below Nova's 1K checkpoint minimum -> no caching on Nova.
-put("cache.draft_claim.nova_lite_600_at_100pct", per_chat(LITE, cached=600) * CHATS, "draft's $1.29 -- not reachable: 600 < 1K minimum")
-# Hit rate: Poisson arrivals, entry survives if next request starts within TTL (5 min).
-gap_flat = MONTH_S / CHATS / 60
-gap_day = gap_flat / 2   # all traffic in 12 waking hours
-hit_flat, hit_day = 1 - math.exp(-5 / gap_flat), 1 - math.exp(-5 / gap_day)
-put("cache.mean_gap_min", gap_flat); put("cache.hit_flat", hit_flat); put("cache.hit_12h", hit_day)
-# Larger-prefix scenario: 2,000-token static FAQ + 400 dynamic tokens = 2,400 input.
-BIG, PREFIX = 2_400, 2_000
-for m, label in ((OPUS, "opus"), (HAIKU, "haiku"), (LITE, "nova_lite")):
-    put(f"bigprefix.{label}.nocache", per_chat(m, tin=BIG) * CHATS)
-    put(f"bigprefix.{label}.cache_100", per_chat(m, tin=BIG, cached=PREFIX, hit=1.0) * CHATS)
-    put(f"bigprefix.{label}.cache_flat", per_chat(m, tin=BIG, cached=PREFIX, hit=hit_flat) * CHATS)
-    put(f"bigprefix.{label}.cache_12h", per_chat(m, tin=BIG, cached=PREFIX, hit=hit_day) * CHATS)
-put("cache.opus_600_at_100pct", per_chat(OPUS, cached=600) * CHATS, "Claude 5.5 min on Bedrock: 512")
-for m, label in ((LITE, "nova_lite"), (MICRO, "nova_micro")):
-    put(f"cache.{label}_600_100pct", per_chat(m, cached=600) * CHATS, "measured: Nova caches a ~540-token prefix in-region")
-    put(f"cache.{label}_600_flat_upper", per_chat(m, cached=600, hit=hit_flat) * CHATS, "writes billed at input price = upper bound")
-put("cache.opus_600_flat", per_chat(OPUS, cached=600, hit=hit_flat) * CHATS)
-put("cache.opus_600_12h", per_chat(OPUS, cached=600, hit=hit_day) * CHATS)
+print("\n== Lever: output tokens (reasoning models write more of them) ==")
+for k in ("kimi_k3", "kimi_k2_thinking", "gpt_oss_120b", "gpt_oss_20b", "kimi_k25"):
+    put(f"output_share.{k}", 1 - per_chat(OPEN[k], IN, 0) / per_chat(OPEN[k], IN, M[k]["out"]),
+        "share of the measured bill that is output tokens", usd=False)
 
-print("\n== Lever 2: history ==")
-put("history.nova_lite_5x_input", per_chat(LITE, tin=5 * IN) * CHATS, "draft said 'nearly $8'")
-put("history.opus_5x_input", per_chat(OPUS, tin=5 * IN) * CHATS)
+print("\n== Lever: caching. Kimi K3 caches the prompt by itself on Bedrock (measured, see the eval results) ==")
+K3 = OPEN["kimi_k3"]
+rows = [json.loads(l) for s in (1, 2, 3)
+        for l in (RESULTS / f"bedrock-global.moonshotai.kimi-k3-seed{s}.jsonl").read_text().splitlines()]
+put("cache.kimi_k3.calls_with_read", sum(r["cache_read"] > 0 for r in rows), usd=False)
+put("cache.kimi_k3.calls_with_write", sum(r["cache_write"] > 0 for r in rows), usd=False)
+put("cache.kimi_k3.mean_read", statistics.mean(r["cache_read"] for r in rows), usd=False)
+put("cache.kimi_k3.calls", len(rows), usd=False)
+put("cache.kimi_k3_600.0", per_chat(K3) * CHATS, "no hits")
+put("cache.kimi_k3_600.100", per_chat(K3, cached=600, hit=1.0) * CHATS, "600 of 1,000 input tokens read from cache on every chat")
 
-print("\n== Routing (80% Micro, 20% escalate to Haiku) ==")
-put("routing.classify_first", (0.8 * per_chat(MICRO) + 0.2 * per_chat(HAIKU)) * CHATS, "free, perfect classifier")
-put("routing.answer_then_escalate", (per_chat(MICRO) + 0.2 * per_chat(HAIKU)) * CHATS, "escalated chats pay twice")
+print("\n== Lever: history ==")
+for k in ("kimi_k3", "kimi_k25"):
+    put(f"history.{k}_5x_input", per_chat(OPEN[k], tin=5 * IN) * CHATS)
 
-print("\n== Worst case: reserved concurrency 2, abuse 24/7 ==")
-lam = 2 * 0.25 * MONTH_S
-put("ceiling.lambda_compute_only", (lam - AWS["lambda_free_gb_s"]) * AWS["lambda_gb_s"], "draft's $15")
-for sec in (0.8, 3, 10):
-    calls = 2 * MONTH_S / sec
-    put(f"ceiling.calls@{sec}s", calls)
-    for m, label in ((MICRO, "micro"), (HAIKU, "haiku"), (OPUS, "opus")):
-        put(f"ceiling.tokens@{sec}s.{label}", calls * per_chat(m))
-# Capped chat: what the Stage 1 handler lets one request cost at most.
-# 16,000-byte body (~4 bytes/token for English) + ~700-token system prompt in; maxTokens 1,024 out.
-CAP_IN, CAP_OUT = 16_000 // 4 + 700, 1_024
+print("\n== Supporting cast at list price (10,000 chats) ==")
+# Per chat: 1 Lambda invocation (256 MB, as long as the model call), 1 DynamoDB write (the quota counter),
+# 4 CloudFront HTTPS requests (page, script, FAQ, API call) and ~0.1 MB of static transfer.
+def infra(sec):
+    return {"lambda": CHATS * (AWS["lambda_per_request"] + sec * 0.25 * AWS["lambda_gb_s"]),
+            "ddb": CHATS * AWS["ddb_write_per_unit"],
+            "cloudfront": CHATS * (4 * AWS["cloudfront_per_https_request"] + 0.1 / 1024 * AWS["cloudfront_per_gb"])}
+for k in ("kimi_k3", "kimi_k25", "gpt_oss_20b"):
+    parts = infra(M[k]["sec"])
+    for part, usd in parts.items():
+        put(f"infra.{k}.{part}", usd)
+    put(f"infra.{k}.total", sum(parts.values()), f"at {M[k]['sec']:.1f} s per call")
+
+print("\n== Worst case: reserved concurrency 2, abuse 24/7, one call every 3 s per slot ==")
 calls = 2 * MONTH_S / 3
-for m, label in ((MICRO, "micro"), (HAIKU, "haiku"), (OPUS, "opus")):
-    put(f"ceiling.capped@3s.{label}", calls * per_chat(m, CAP_IN, CAP_OUT))
+put("ceiling.calls", calls, usd=False)
+put("ceiling.lambda", 2 * 0.25 * MONTH_S * AWS["lambda_gb_s"] + calls * AWS["lambda_per_request"],
+    "two slots busy all month, no free tier")
+# Capped chat: 16,000-byte body (~4 bytes/token) + ~700-token system prompt in; maxTokens 1,024 out.
+CAP_IN, CAP_OUT = 16_000 // 4 + 700, 1_024
+WORST = ("kimi_k3", "kimi_k25", "gpt_oss_20b")
+for k in WORST:
+    put(f"ceiling.avg.{k}", calls * per_chat(OPEN[k]))
+    put(f"ceiling.capped.{k}", calls * per_chat(OPEN[k], CAP_IN, CAP_OUT))
 QUOTA = 500
-for m, label in ((MICRO, "micro"), (HAIKU, "haiku"), (OPUS, "opus")):
-    put(f"quota{QUOTA}.month.{label}", QUOTA * 30 * per_chat(m))
-    put(f"quota{QUOTA}.month.capped.{label}", QUOTA * 30 * per_chat(m, CAP_IN, CAP_OUT))
+put("quota.ddb_month", QUOTA * 30 * AWS["ddb_write_per_unit"])
+for k in WORST:
+    put(f"quota.avg.{k}", QUOTA * 30 * per_chat(OPEN[k]))
+    put(f"quota.capped.{k}", QUOTA * 30 * per_chat(OPEN[k], CAP_IN, CAP_OUT))
+# Rejected calls still run Lambda and still attempt the conditional write.
+put("quota.rejected_overhead", calls * (AWS["lambda_per_request"] + AWS["ddb_write_per_unit"]
+                                        + 0.05 * 0.25 * AWS["lambda_gb_s"]), "50 ms per rejected call")
 
-print("\n== Free tier check ==")
-for sec in (0.8, 3, 10):
-    put(f"lambda.gb_s@{sec}s_256MB", CHATS * sec * 0.25, "free: 400,000")
+print("\n== The last rung: static delivery at list price ==")
+put("static.10000_visits", CHATS * (3 * AWS["cloudfront_per_https_request"] + 0.1 / 1024 * AWS["cloudfront_per_gb"]),
+    "page, script, FAQ; no API call")
+for gb, label in ((0.705, "1b"), (1.8, "3b")):
+    for visitors in (2_000, 10_000):
+        tgb = visitors * gb   # CloudFront: $0.085/GB for the first 10 TB, $0.080/GB for the next 40 TB
+        put(f"selfhost.{label}.{visitors}", min(tgb, 10_240) * AWS["cloudfront_per_gb"]
+            + max(0, tgb - 10_240) * AWS["cloudfront_per_gb_10tb_to_50tb"])
+        put(f"selfhost.{label}.{visitors}.tb", visitors * gb / 1000, usd=False)
 
-print("\n== Self-hosted model weights (CloudFront) ==")
-for visitors in (2_000, 10_000):
-    gb = visitors * 0.7
-    put(f"selfhost.{visitors}_visitors_gb", gb)
-    put(f"selfhost.{visitors}_visitors_usd", max(0, gb - AWS["cloudfront_free_gb"]) * AWS["cloudfront_per_gb_after"])
-
-(HERE / "figures.json").write_text(json.dumps(F, indent=1))
+(HERE / "figures.json").write_text(json.dumps(F, indent=1) + "\n")

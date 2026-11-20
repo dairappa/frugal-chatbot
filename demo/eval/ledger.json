@@ -1,5 +1,5 @@
 {
- "total_usd": 0.253033,
+ "total_usd": 1.119505,
  "entries": [
   {
    "usd": 0.000163,
@@ -2420,6 +2420,5809 @@
   {
    "usd": 0.003,
    "note": "live handler.py calls: Nova Micro, Haiku 4.5 x2 (upper bound at Haiku 4.5 prices)"
+  },
+  {
+   "usd": 0.008091,
+   "note": "probe us.moonshotai.kimi-k3"
+  },
+  {
+   "usd": 0.000461,
+   "note": "probe moonshotai.kimi-k2.5"
+  },
+  {
+   "usd": 0.002325,
+   "note": "probe moonshot.kimi-k2-thinking"
+  },
+  {
+   "usd": 0.000382,
+   "note": "probe deepseek.v3.2"
+  },
+  {
+   "usd": 0.000386,
+   "note": "probe zai.glm-4.7"
+  },
+  {
+   "usd": 0.000123,
+   "note": "probe qwen.qwen3-next-80b-a3b"
+  },
+  {
+   "usd": 0.000187,
+   "note": "probe us.meta.llama4-maverick-17b-instruct-v1:0"
+  },
+  {
+   "usd": 0.00019,
+   "note": "probe openai.gpt-oss-120b-1:0"
+  },
+  {
+   "usd": 5.8e-05,
+   "note": "probe zai.glm-4.7-flash"
+  },
+  {
+   "usd": 0.000154,
+   "note": "probe google.gemma-3-27b-it"
+  },
+  {
+   "usd": 7.8e-05,
+   "note": "probe openai.gpt-oss-20b-1:0"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "probe google.gemma-3-4b-it"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000108,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001755,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000129,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000165,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000371,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000963,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001725,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000164,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000399,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000118,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000349,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00327,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000138,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000816,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000189,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000108,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000388,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000389,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00016,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000158,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001332,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000167,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000392,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00038,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000157,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002139,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000178,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000351,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000364,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000163,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001202,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000389,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000429,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000161,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000281,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000186,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000437,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.008151,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000379,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001013,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000166,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000361,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000359,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000126,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00147,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00016,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000364,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000395,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000354,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003153,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000187,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00039,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001263,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000401,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000173,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000402,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0001,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000168,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002226,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000109,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000127,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000159,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000337,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000104,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001458,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000143,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000337,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00045,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000176,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000348,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000175,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003504,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000378,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000137,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002199,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000159,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000165,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000137,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002595,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001524,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000112,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000181,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00014,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002952,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000941,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000135,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00168,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000118,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.8e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00037,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.8e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001398,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000161,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000358,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0004,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002286,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001502,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000375,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000123,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0004,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00012,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002271,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000189,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000158,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000362,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00014,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000181,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00396,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000138,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000179,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000103,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001527,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002502,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000163,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.6e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000164,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000189,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.8e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000471,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000186,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002721,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000131,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000178,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001254,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000156,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0004,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003726,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000379,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000165,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000161,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003219,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000172,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001388,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000167,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00035,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00252,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000168,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000159,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000125,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000127,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001602,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000415,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000377,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000194,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000127,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000678,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000365,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000965,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000192,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000108,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000419,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001446,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000167,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00016,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000115,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000401,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000918,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000354,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000165,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000395,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000367,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000223,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001378,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003033,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000423,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000139,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000188,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000104,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000349,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000401,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000138,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00043,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000871,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000403,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000106,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.004908,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00018,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000419,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000816,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000161,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000378,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.9e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000173,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000362,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000446,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001551,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00047,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000134,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001172,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001416,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000479,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002571,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000386,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000108,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00013,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001506,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001092,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000377,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000156,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000118,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000406,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001866,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000139,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000354,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001145,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.6e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000135,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000426,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000408,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000137,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.006036,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000375,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000126,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000458,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001881,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000337,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002751,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000113,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000407,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000355,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000135,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002116,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000112,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001941,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000393,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000143,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000413,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000106,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000169,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001866,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00104,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000415,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000127,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000119,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000412,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002421,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000408,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.8e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00038,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001165,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002196,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001511,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000168,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002121,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.5e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001761,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00018,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.6e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001776,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000416,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000118,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001982,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000405,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000352,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000104,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000131,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000758,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001386,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000138,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00042,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000391,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000376,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002436,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000138,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000407,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001006,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000393,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001551,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000181,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000425,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000115,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000396,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000986,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002691,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000347,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000105,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000353,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.7e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000103,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000353,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.1e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003591,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000106,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.8e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001275,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000158,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000388,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.2e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003666,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000375,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000442,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000349,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00012,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003291,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00041,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000968,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000422,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003711,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000432,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.6e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000406,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 4.5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002631,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001279,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001116,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000101,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000155,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.3e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000379,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001236,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000375,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.4e-05,
+   "note": "eval zai.glm-4.7-flash",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000132,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000128,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001153,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000936,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000396,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000164,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000425,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000136,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000115,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000449,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002046,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.8e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000395,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000491,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000158,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002001,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000137,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000127,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000151,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000137,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000126,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.004626,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00014,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000119,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002891,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000376,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000112,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001746,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000417,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000362,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000107,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001536,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000117,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000359,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000118,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002571,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000143,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00016,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000119,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001671,
+   "note": "eval us.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001198,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.8e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000394,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000174,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00037,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000989,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000411,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000182,
+   "note": "eval openai.gpt-oss-120b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000367,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000101,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000446,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000379,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.6e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000362,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.5e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.5e-05,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000377,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.6e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000354,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000131,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.7e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001624,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000144,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000109,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000467,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 2.9e-05,
+   "note": "eval google.gemma-3-4b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000367,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000848,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000389,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000334,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000143,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000119,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000393,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000141,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000384,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000113,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000355,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001088,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000145,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000112,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000348,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000365,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00011,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000385,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00097,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00038,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000347,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000102,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000379,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000106,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000412,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001203,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000412,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00035,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000356,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000122,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000375,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000149,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000406,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000147,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000363,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000378,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001012,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000142,
+   "note": "eval qwen.qwen3-next-80b-a3b",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000156,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000412,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000369,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000352,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00037,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000371,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001127,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000358,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000389,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000156,
+   "note": "eval google.gemma-3-27b-it",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000366,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000987,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000366,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000401,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000447,
+   "note": "eval zai.glm-4.7",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000429,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000437,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000438,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001493,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000376,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002113,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000374,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001083,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000396,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00148,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000443,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000398,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001205,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000111,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000446,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003688,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00039,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.179063,
+   "note": "upper-bound correction for 64 stopped us.moonshotai.kimi-k3 eval calls: +10% regional rate, and ~620 auto-cached prompt tokens per call priced at the cache-write rate",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001006,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0005,
+   "note": "eval moonshotai.kimi-k2.5",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000808,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002515,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000421,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000372,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002798,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000395,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001972,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000376,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000962,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0004,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002435,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000421,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000425,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002684,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00176,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003707,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001461,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000392,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002105,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000361,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001801,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000402,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000361,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000367,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00228,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000103,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002452,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000373,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002107,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000382,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001777,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001762,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000363,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000378,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00111,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00277,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.5e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001978,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001023,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000773,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001726,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000819,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002704,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000407,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001144,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001223,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 6.7e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000347,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003553,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000358,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.2e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001443,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.004675,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001342,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003635,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00443,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001093,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001852,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000366,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000381,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002099,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002253,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002066,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000403,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.4e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00039,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001352,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000956,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000401,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000856,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000108,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001909,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001069,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001982,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0004,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.6e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002207,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000409,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002061,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000395,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.9e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.006346,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 7.8e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001408,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001105,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001298,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001555,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.1e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 9.3e-05,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001931,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002421,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002561,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000146,
+   "note": "eval openai.gpt-oss-20b-1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001277,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002112,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000383,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001002,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00042,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002682,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00226,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001304,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000417,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002485,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000397,
+   "note": "eval deepseek.v3.2",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002246,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001375,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00205,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001355,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.004106,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00094,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002231,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001466,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001441,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002561,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001293,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001675,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00166,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001721,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002439,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00169,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00196,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003325,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00277,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002882,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0037,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003896,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001747,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00238,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001931,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001617,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001606,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001707,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001231,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001923,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002983,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001222,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00321,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00073,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00081,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00214,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000688,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002965,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000922,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000753,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002756,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002096,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001038,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002697,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003507,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002425,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002909,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00196,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002321,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001045,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00184,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002156,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002316,
+   "note": "eval moonshot.kimi-k2-thinking",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002006,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001481,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002396,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0019,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00145,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.0016,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002485,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.005275,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00298,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00289,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003851,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002561,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00334,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001586,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001632,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001647,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.001906,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003253,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00303,
+   "note": "eval global.moonshotai.kimi-k3",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000165,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000174,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000187,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000158,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000167,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000179,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000163,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00016,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000183,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.00015,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000171,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000154,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000152,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000163,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000173,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000173,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000168,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000159,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000162,
+   "note": "eval us.meta.llama4-maverick-17b-instruct-v1:0",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.003345,
+   "note": "one direct Converse call to global.moonshotai.kimi-k3 outside the harness (usage check)",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002396,
+   "note": "behavior_checks global.moonshotai.kimi-k3 assistant_first",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.002952,
+   "note": "behavior_checks global.moonshotai.kimi-k3 effort",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000368,
+   "note": "behavior_checks moonshotai.kimi-k2.5 assistant_first",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000384,
+   "note": "behavior_checks moonshotai.kimi-k2.5 temperature",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000157,
+   "note": "behavior_checks openai.gpt-oss-120b-1:0 assistant_first",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000139,
+   "note": "behavior_checks openai.gpt-oss-120b-1:0 temperature",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000148,
+   "note": "behavior_checks google.gemma-3-27b-it temperature",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 8.5e-05,
+   "note": "behavior_checks openai.gpt-oss-20b-1:0 assistant_first",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 5.8e-05,
+   "note": "behavior_checks openai.gpt-oss-20b-1:0 temperature",
+   "date": "2026-11-20"
+  },
+  {
+   "usd": 0.000153,
+   "note": "live handler check, Gemma 3 27B",
+   "date": "2026-11-20"
   }
  ]
 }

@@ -1,8 +1,7 @@
 """Stage 1 backend for the Frugal Chatbot: one Lambda function behind a function URL.
 
 Changes from the first draft of the article:
-- no `temperature` (the Claude 5.5 models reject non-default sampling parameters on
-  Anthropic's API; for a FAQ bot it buys nothing anyway)
+- no `temperature` (a FAQ bot gains nothing from sampling tweaks, and some models reject them)
 - the history is trimmed so that it always starts with a user turn (Converse requirement)
 - request size is capped *before* any token is spent
 - a daily quota in DynamoDB is the cost brake; AWS Budgets is only the alarm
@@ -14,14 +13,14 @@ import pathlib
 
 import boto3
 
-MODEL_ID = os.environ.get("MODEL_ID", "global.anthropic.claude-opus-5-5")  # verify the profile ID in your Region
-MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "1024"))   # leaves room for thinking tokens on Claude 5.5
+MODEL_ID = os.environ.get("MODEL_ID", "global.moonshotai.kimi-k3")  # verify the ID in your Region
+MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "1024"))   # leaves room for reasoning tokens
 MAX_MESSAGES = int(os.environ.get("MAX_MESSAGES", "7"))  # 3 exchanges + the new question
 MAX_CHARS_PER_MESSAGE = 2_000
 MAX_BODY_BYTES = 16_000
 DAILY_LIMIT = int(os.environ.get("DAILY_LIMIT", "500"))
 TABLE = os.environ.get("TABLE")  # unset -> no quota (local tests only)
-EFFORT = os.environ.get("EFFORT", "low")  # Claude 5.5: thinking can't be turned off, only turned down; "" for Nova
+EFFORT = os.environ.get("EFFORT", "")  # only for models that accept outputConfig.effort; most reject it
 
 SYSTEM_PROMPT = (pathlib.Path(__file__).with_name("faq.md")).read_text() \
     if pathlib.Path(__file__).with_name("faq.md").exists() else os.environ.get("SYSTEM_PROMPT", "")

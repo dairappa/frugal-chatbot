@@ -7,7 +7,7 @@ Backends:
 
 Usage:
   python3 run_eval.py ollama llama3.2:1b-instruct-q4_K_M
-  python3 run_eval.py bedrock us.amazon.nova-micro-v1:0 --dry-run
+  python3 run_eval.py bedrock moonshotai.kimi-k2.5 --dry-run
 """
 import json, sys, time, pathlib, re, urllib.request
 
@@ -20,10 +20,18 @@ REFUSAL_MARKERS = ["don't know", "do not know", "not sure", "don't have", "do no
                    "no information", "not in the faq", "not covered", "ticket", "unable to",
                    "can't help", "cannot help", "can't assist", "cannot assist", "not able to",
                    "only help", "only answer", "support@example.com", "outside"]
-# USD per 1M tokens (input, output) -- keep in sync with ../cost/prices.json
 SEED = int(next((a.split("=")[1] for a in sys.argv if a.startswith("--seed=")), "1"))
+# USD per 1M tokens, keyed by Bedrock model ID (one source of truth: ../cost/prices.json)
 _P = json.loads((HERE.parent / "cost" / "prices.json").read_text())
-PRICES = {**_P["models"], **{k: v for k, v in _P["proxies"].items() if not k.startswith("_")}}
+PRICES = {m["bedrock"]: m for m in _P["open"].values()}
+PRICES.update({m["regional"]["bedrock"]: m["regional"] for m in _P["open"].values() if "regional" in m})
+
+
+def usage_usd(u, p):
+    """Cost of one call. Some models (Kimi K3) cache the prompt on their own; inputTokens then excludes it."""
+    return (u["inputTokens"] * p["in"] + u["outputTokens"] * p["out"]
+            + u.get("cacheReadInputTokens", 0) * p.get("cr", p["in"])
+            + u.get("cacheWriteInputTokens", 0) * p.get("cw", p["in"])) / 1e6
 LEDGER = HERE / "ledger.json"   # one running total across every paid call in this project
 
 
@@ -45,41 +53,46 @@ def call_ollama(model, msgs):
     return r["message"]["content"], r.get("prompt_eval_count", 0), r.get("eval_count", 0), time.time() - t
 
 
-BUDGET_USD = float(next((a.split("=")[1] for a in sys.argv if a.startswith("--budget=")), "1.05"))
+# Stop when the project-wide ledger passes this total (USD). Required for the bedrock backend.
+BUDGET_USD = float(next((a.split("=")[1] for a in sys.argv if a.startswith("--budget=")), "0"))
 SPENT = 0.0  # this run
 
 
 def ledger_add(usd, note):
-    led = json.loads(LEDGER.read_text()) if LEDGER.exists() else {"total_usd": 0.0, "entries": []}
-    led["total_usd"] = round(led["total_usd"] + usd, 6)
-    led["entries"].append({"usd": round(usd, 6), "note": note})
-    LEDGER.write_text(json.dumps(led, indent=1))
-    return led["total_usd"]
+    import fcntl   # several eval runs may append at once
+    with open(HERE / ".ledger.lock", "w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        led = json.loads(LEDGER.read_text()) if LEDGER.exists() else {"total_usd": 0.0, "entries": []}
+        led["total_usd"] = round(led["total_usd"] + usd, 6)
+        led["entries"].append({"usd": round(usd, 6), "note": note, "date": time.strftime("%Y-%m-%d")})
+        LEDGER.write_text(json.dumps(led, indent=1))
+        return led["total_usd"]
 _client = None
 
 
 def price_for(model):
-    key = model.split(".", 1)[1] if model.split(".", 1)[0] in ("global", "us", "eu", "apac") else model
-    return PRICES[key]
+    return PRICES[model]   # KeyError before any paid call if the model isn't priced
 
 
 def call_bedrock(model, msgs):
-    """Same request shape as the Stage 1 handler: no temperature, maxTokens 1024, effort low on Claude."""
+    """Same request shape as the Stage 1 handler: no temperature, no effort, maxTokens 1024."""
     global _client, SPENT
     import boto3  # only needed for this backend
+    p = price_for(model)
     _client = _client or boto3.client("bedrock-runtime", region_name="us-east-1")
     req = dict(modelId=model, system=[{"text": SYSTEM}],
                messages=[{"role": m["role"], "content": [{"text": m["text"]}]} for m in msgs],
                inferenceConfig={"maxTokens": 1024})
-    if "5-5" in model and "anthropic" in model:   # effort only on the Claude 5.5 models
-        req["outputConfig"] = {"effort": "low"}
     t = time.time()
     r = _client.converse(**req)
-    text = "".join(b.get("text", "") for b in r["output"]["message"]["content"])
+    content = r["output"]["message"]["content"]
+    text = "".join(b.get("text", "") for b in content)
+    call_bedrock.last_reasoning_chars = sum(
+        len(b["reasoningContent"].get("reasoningText", {}).get("text", "")) for b in content if "reasoningContent" in b)
     u = r["usage"]
-    p = price_for(model)
-    usd = (u["inputTokens"] * p["in"] + u["outputTokens"] * p["out"]) / 1e6
+    usd = usage_usd(u, p)
     SPENT += usd
+    call_bedrock.last_cache = (u.get("cacheReadInputTokens", 0), u.get("cacheWriteInputTokens", 0))
     total = ledger_add(usd, f"eval {model}")
     if total > BUDGET_USD:
         raise SystemExit(f"project budget ${BUDGET_USD} exceeded (ledger ${total:.4f}); stopping")
@@ -115,6 +128,10 @@ def main():
         if p:
             print(f"estimated cost <= ${tin/1e6*p['in'] + tout/1e6*p['out']:.4f}")
         return
+    if backend == "bedrock":
+        price_for(model)
+        if not BUDGET_USD:
+            raise SystemExit("pass --budget=<ledger total in USD at which to stop>")
     call = {"ollama": call_ollama, "bedrock": call_bedrock}[backend]
     out = HERE / "results" / f"{backend}-{re.sub(r'[^A-Za-z0-9.-]', '_', model)}-seed{SEED}{TAG}.jsonl"
     out.parent.mkdir(exist_ok=True)
@@ -127,6 +144,9 @@ def main():
             f.write(json.dumps({"id": item["id"], "cat": item["cat"], "q": item["q"], "answer": ans,
                                 "auto_pass": ok, "auto_reason": why, "in": i_tok, "out": o_tok,
                                 "stop": getattr(call, "last_stop", None),
+                                "reasoning_chars": getattr(call, "last_reasoning_chars", None),
+                                "cache_read": getattr(call, "last_cache", (0, 0))[0],
+                                "cache_write": getattr(call, "last_cache", (0, 0))[1],
                                 "sec": round(sec, 2)}, ensure_ascii=False) + "\n")
             print(f"{item['id']} {'PASS' if ok else 'FAIL'} ({why}) {sec:.1f}s")
     print(f"\nauto-graded: {passed}/{len(QUESTIONS)}  tokens in={tin} out={tout}  cost=${SPENT:.4f}  -> {out}")

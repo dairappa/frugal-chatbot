@@ -1,210 +1,77 @@
 {
- "temperature0.7.haiku": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
- },
- "temperature0.7.opus": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-opus-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
- },
- "temperature0.7.nova-micro": {
+ "global.moonshotai.kimi-k3 assistant_first": {
   "ok": true,
-  "usage": {
-   "inputTokens": 3,
-   "outputTokens": 30,
-   "totalTokens": 33
-  },
   "stop": "end_turn",
-  "text": "OK! How can I assist you today? Whether you need information, advice, or just want to chat, I'm here to help."
+  "text": "Deleted notes stay in Trash for 30 days. To restore one, open Trash, select the note, and click \"Restore.\""
  },
- "assistant_first.haiku": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
- },
- "assistant_first.nova-micro": {
+ "global.moonshotai.kimi-k3 temperature": {
   "ok": false,
   "error": "ValidationException",
-  "message": "A conversation must start with a user message. Try again with a conversation that starts with a user message."
+  "message": "This model doesn't support the temperature field. Remove temperature and try again."
  },
- "effort_low.haiku": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ "global.moonshotai.kimi-k3 effort": {
+  "ok": true,
+  "stop": "end_turn",
+  "text": "Plus costs $4 per month and includes unlimited notes and 3 devices. Annual billing saves 20%. Let me know if you have any other questions!"
  },
- "effort_default.haiku": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+ "moonshotai.kimi-k2.5 assistant_first": {
+  "ok": true,
+  "stop": "end_turn",
+  "text": "Open Trash, select the note, and click \"Restore\"."
  },
- "effort_low.nova-micro": {
+ "moonshotai.kimi-k2.5 temperature": {
+  "ok": true,
+  "stop": "end_turn",
+  "text": "Plus is $4 per month with unlimited notes and 3 devices. Annual billing saves 20%."
+ },
+ "moonshotai.kimi-k2.5 effort": {
   "ok": false,
   "error": "ValidationException",
-  "message": "This model doesn't support the outputConfig field. Remove outputConfig and try again."
+  "message": "This model doesn't support the effort field. Remove effort and try again."
  },
- "cache.small.nova-micro.1": {
+ "openai.gpt-oss-120b-1:0 assistant_first": {
   "ok": true,
-  "usage": {
-   "inputTokens": 7,
-   "outputTokens": 32,
-   "totalTokens": 576,
-   "cacheReadInputTokens": 0,
-   "cacheWriteInputTokens": 537
-  },
   "stop": "end_turn",
-  "text": "Auf der Anmeldeseite klicken Sie auf \"Passwort vergessen\". Wir senden Ihnen eine Reset-E-Mail, die nach 30 Minuten abläuft."
+  "text": "Open the Trash, select the note you want back, and click **Restore**. The note will reappear in its original location."
  },
- "cache.small.nova-micro.2": {
+ "openai.gpt-oss-120b-1:0 temperature": {
   "ok": true,
-  "usage": {
-   "inputTokens": 7,
-   "outputTokens": 36,
-   "totalTokens": 580,
-   "cacheReadInputTokens": 0,
-   "cacheWriteInputTokens": 537
-  },
   "stop": "end_turn",
-  "text": "Um Passwort zurückzusetzen, klicke auf der Anmeldeseite auf \"Passwort vergessen\". Wir senden dir eine Reset-Mail, die nach 30 Minuten abläuft."
+  "text": "Plus costs $4 per month (or a discounted rate with annual billing)."
  },
- "cache.small.haiku.1": {
+ "openai.gpt-oss-120b-1:0 effort": {
   "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+  "error": "ValidationException",
+  "message": "This model doesn't support the effort field. Remove effort and try again."
  },
- "cache.small.haiku.2": {
+ "google.gemma-3-27b-it assistant_first": {
   "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
+  "error": "ValidationException",
+  "message": "The model returned the following errors: ErrorEvent { error: APIError { type: \"BadRequestError\", code: Some(400), message: \"Conversation roles must alternate user/assistant/user/assistant/...\", param:"
  },
- "cache.big.nova-micro.1": {
+ "google.gemma-3-27b-it temperature": {
   "ok": true,
-  "usage": {
-   "inputTokens": 6,
-   "outputTokens": 31,
-   "totalTokens": 1475,
-   "cacheReadInputTokens": 0,
-   "cacheWriteInputTokens": 1438
-  },
   "stop": "end_turn",
-  "text": "Auf der Anmeldeseite klicken Sie auf „Passwort vergessen“. Wir senden Ihnen einen Link zur Passwortänderung, der nach 30 Minuten abläuft."
+  "text": "Plus costs $4 per month and includes unlimited notes and support for 3 devices. You can save 20% with annual billing. More information about our plans is availa"
  },
- "cache.big.nova-micro.2": {
+ "google.gemma-3-27b-it effort": {
+  "ok": false,
+  "error": "ValidationException",
+  "message": "This model doesn't support the effort field. Remove effort and try again."
+ },
+ "openai.gpt-oss-20b-1:0 assistant_first": {
   "ok": true,
-  "usage": {
-   "inputTokens": 6,
-   "outputTokens": 43,
-   "totalTokens": 1487,
-   "cacheReadInputTokens": 0,
-   "cacheWriteInputTokens": 1438
-  },
   "stop": "end_turn",
-  "text": "Um Passwort zurückzusetzen, klicke auf der Anmeldeseite auf \"Passwort vergessen\". Du erhältst eine E-Mail mit einem Link zum Zurücksetzen, der 30 Minuten lang g"
+  "text": "To undo a deletion, open the **Trash** in your app, choose the note you want to restore, and click **Restore**. The note will return to its original location. T"
  },
- "cache.big.haiku.1": {
+ "openai.gpt-oss-20b-1:0 temperature": {
+  "ok": true,
+  "stop": "end_turn",
+  "text": "Plus costs $4 per month (or $48 if you choose annual billing, which saves 20%)."
+ },
+ "openai.gpt-oss-20b-1:0 effort": {
   "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
- },
- "cache.big.haiku.2": {
-  "ok": false,
-  "error": "AccessDeniedException",
-  "message": "anthropic.claude-haiku-5-5 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/"
- },
- "cache_experiments_2": {
-  "us-profile-micro-spaced3s": [
-   [
-    543,
-    0
-   ],
-   [
-    543,
-    0
-   ],
-   [
-    0,
-    543
-   ],
-   [
-    0,
-    543
-   ],
-   [
-    543,
-    0
-   ]
-  ],
-  "inregion-micro-backtoback": [
-   [
-    545,
-    0
-   ],
-   [
-    0,
-    545
-   ],
-   [
-    0,
-    545
-   ],
-   [
-    0,
-    545
-   ],
-   [
-    0,
-    545
-   ]
-  ],
-  "inregion-lite-small": [
-   [
-    543,
-    0
-   ],
-   [
-    0,
-    543
-   ],
-   [
-    0,
-    543
-   ]
-  ],
-  "us-profile-lite-small": [
-   [
-    542,
-    0
-   ],
-   [
-    542,
-    0
-   ],
-   [
-    542,
-    0
-   ],
-   [
-    0,
-    542
-   ],
-   [
-    0,
-    542
-   ]
-  ],
-  "assistant_first.haiku45": {
-   "ok": true,
-   "usage": {
-    "inputTokens": 626,
-    "outputTokens": 31,
-    "totalTokens": 657,
-    "cacheReadInputTokens": 0,
-    "cacheWriteInputTokens": 0
-   }
-  },
-  "temperature.haiku45": {
-   "ok": true
-  }
+  "error": "ValidationException",
+  "message": "This model doesn't support the effort field. Remove effort and try again."
  }
 }

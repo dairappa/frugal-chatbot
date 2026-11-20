@@ -1,0 +1,122 @@
+{
+ "kimi_k3": {
+  "model": "us.moonshotai.kimi-k3",
+  "in": 627,
+  "out": 414,
+  "stop": "end_turn",
+  "reasoning_chars": 1577,
+  "sec": 4.31,
+  "usd": 0.008091,
+  "answer": "I'm sorry — full refunds for Plus are only available within 14 days of purchase, so a purchase made three weeks ago is unfortunately past that window. If you'd like, I can open a support ticket or you can email support@example.com with your order number."
+ },
+ "kimi_k25": {
+  "model": "moonshotai.kimi-k2.5",
+  "in": 544,
+  "out": 45,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 1.09,
+  "usd": 0.000461,
+  "answer": " Unfortunately, no—refunds are only available within 14 days of purchase, and your subscription is now three weeks old. I'd be happy to open a support ticket if you'd like us to look into your specific situation."
+ },
+ "kimi_k2_thinking": {
+  "model": "moonshot.kimi-k2-thinking",
+  "in": 542,
+  "out": 800,
+  "stop": "end_turn",
+  "reasoning_chars": 3416,
+  "sec": 5.21,
+  "usd": 0.002325,
+  "answer": " Plus subscriptions can only be refunded within 14 days of purchase, and your purchase from three weeks ago exceeds that period. Unfortunately, we cannot issue a refund at this time. If you have other questions, please email support@example.com."
+ },
+ "deepseek_v32": {
+  "model": "deepseek.v3.2",
+  "in": 541,
+  "out": 25,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 1.34,
+  "usd": 0.000382,
+  "answer": "Yes. Plus subscriptions can be refunded in full within 14 days of purchase. Contact support with your order number."
+ },
+ "glm47": {
+  "model": "zai.glm-4.7",
+  "in": 534,
+  "out": 30,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 0.97,
+  "usd": 0.000386,
+  "answer": "No, Plus subscriptions can only be refunded within 14 days of purchase. Since your purchase was three weeks ago, you are no longer eligible."
+ },
+ "qwen3_next": {
+  "model": "qwen.qwen3-next-80b-a3b",
+  "in": 554,
+  "out": 38,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 1.09,
+  "usd": 0.000123,
+  "answer": "Refunds are only available within 14 days of purchase. Since you bought Plus three weeks ago, a refund is no longer possible. Please contact support if you have other concerns."
+ },
+ "llama4_maverick": {
+  "model": "us.meta.llama4-maverick-17b-instruct-v1:0",
+  "in": 565,
+  "out": 53,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 0.7,
+  "usd": 0.000187,
+  "answer": "You purchased Plus three weeks ago, which is beyond the 14-day refund window. According to our policy, Plus subscriptions can be refunded in full within 14 days of purchase. You can contact support with your order number, but a refund is unlikely."
+ },
+ "gpt_oss_120b": {
+  "model": "openai.gpt-oss-120b-1:0",
+  "in": 600,
+  "out": 166,
+  "stop": "end_turn",
+  "reasoning_chars": 454,
+  "sec": 1.6,
+  "usd": 0.00019,
+  "answer": "Unfortunately, refunds for Plus subscriptions are only available within 14 days of purchase, so the period has passed. If you have any other concerns, you can contact support at support@example.com. Let us know if you’d like us to open a support ticket."
+ },
+ "glm47_flash": {
+  "model": "zai.glm-4.7-flash",
+  "in": 534,
+  "out": 51,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 0.62,
+  "usd": 5.8e-05,
+  "answer": "According to our policy, Plus and Team subscriptions can be refunded within 14 days of purchase. Since you have had the service for three weeks, you are outside the refund window. We recommend reaching out to support@example.com to discuss your specific situation."
+ },
+ "gemma3_27b": {
+  "model": "google.gemma-3-27b-it",
+  "in": 587,
+  "out": 50,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 1.68,
+  "usd": 0.000154,
+  "answer": "Plus and Team subscriptions can be refunded in full within 14 days of purchase. Unfortunately, since you purchased the plan three weeks ago, a full refund is no longer available. Please contact support with your order number if you have further questions."
+ },
+ "gpt_oss_20b": {
+  "model": "openai.gpt-oss-20b-1:0",
+  "in": 600,
+  "out": 120,
+  "stop": "end_turn",
+  "reasoning_chars": 250,
+  "sec": 2.13,
+  "usd": 7.8e-05,
+  "answer": "I’m sorry, but refunds for Plus subscriptions are only available within 14 days of purchase. Since it’s been three weeks, the refund window has closed. If you’d like to discuss options, I can open a support ticket for you."
+ },
+ "gemma3_4b": {
+  "model": "google.gemma-3-4b-it",
+  "in": 587,
+  "out": 32,
+  "stop": "end_turn",
+  "reasoning_chars": 0,
+  "sec": 0.53,
+  "usd": 2.6e-05,
+  "answer": "Yes, Plus and Team subscriptions can be refunded in full within 14 days of purchase. Please contact support with your order number to initiate a refund."
+ }
+}

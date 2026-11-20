@@ -17,3 +17,5 @@ credentials.json
 demo/pricing/err*.txt
 *.swp
 .DS_Store
+demo/eval/.ledger.lock
+demo/eval/logs/

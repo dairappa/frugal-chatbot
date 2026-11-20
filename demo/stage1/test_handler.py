@@ -72,7 +72,7 @@ def test_fixed_request_matches_converse_schema():
     with stub:
         client.converse(**req)
     assert "temperature" not in req["inferenceConfig"]
-    assert req["outputConfig"] == {"effort": "low"}
+    assert "outputConfig" not in req   # EFFORT is off by default
 
 
 def test_schema_alone_does_not_catch_the_draft_bugs():
@@ -81,7 +81,7 @@ def test_schema_alone_does_not_catch_the_draft_bugs():
     shows -- this test documents that limit of offline validation."""
     client, stub = stubbed_bedrock()
     msgs = conversation(5)[-6:]
-    req = dict(modelId="anthropic.claude-opus-5-5", system=[{"text": "s"}],
+    req = dict(modelId="moonshotai.kimi-k2.5", system=[{"text": "s"}],
                messages=[{"role": m["role"], "content": [{"text": m["text"]}]} for m in msgs],
                inferenceConfig={"maxTokens": 512, "temperature": 0.7})
     stub.add_response("converse", {
