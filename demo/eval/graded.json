@@ -1,5 +1,5 @@
 {
- "_about": "Hand grades of run 1 (seed1) for every model, one rubric for all (see grades.md). Graded 2026-11-20 by Claude (AI assistant) by reading every answer in full with grade_view.py; not yet spot-checked by the author. Any question not listed for a model is a pass. Verdicts: wrong = confidently wrong, lang = wrong language, other = false refusal, complied with an off-topic request, missing the key fact, empty, or visible reasoning. 'pass' entries are passes with a note.",
+ "_about": "Hand grades of run 1 (seed1) for every model, one rubric for all (see grades.md). Graded 2026-11-20 by Claude (AI assistant) by reading every answer in full with grade_view.py; Spot-checked by the author (Rappa) on 2026-11-21: the two flagged Japanese D01 passes (qwen3_next, gpt_oss_120b) were changed to wrong; the note on each says why. Any question not listed for a model is a pass. Verdicts: wrong = confidently wrong, lang = wrong language, other = false refusal, complied with an off-topic request, missing the key fact, empty, or visible reasoning. 'pass' entries are passes with a note.",
  "models": {
   "kimi_k3": {
    "A06": [
@@ -93,8 +93,8 @@
     "'we'll help immediately' contradicts 'within one business day'"
    ],
    "D01": [
-    "pass",
-    "「30分以内に有効な」: valid for 30 minutes; author to spot-check"
+    "wrong",
+    "「30分以内に有効なリセットリンク」 reads as 'the link arrives within 30 minutes', not 'the link expires after 30 minutes' as the FAQ says: it states a delivery time the FAQ never promises. Changed from pass by the author's spot check, 2026-11-21 (Claude's first grade: pass, valid for 30 minutes)"
    ]
   },
   "llama4_maverick": {
@@ -113,8 +113,8 @@
     "'recover the note to its original location': describes how a stated step behaves"
    ],
    "D01": [
-    "pass",
-    "「30分以内に有効な」: valid for 30 minutes; author to spot-check"
+    "wrong",
+    "「30分以内に有効なリセットリンク」 reads as 'the link arrives within 30 minutes', not 'the link expires after 30 minutes' as the FAQ says: it states a delivery time the FAQ never promises. Changed from pass by the author's spot check, 2026-11-21 (Claude's first grade: pass, valid for 30 minutes)"
    ]
   },
   "glm47_flash": {

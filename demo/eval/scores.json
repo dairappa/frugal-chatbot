@@ -160,8 +160,8 @@
   },
   "qwen3_next": {
    "name": "Qwen3-Next 80B A3B",
-   "pass": 27,
-   "wrong": 3,
+   "pass": 26,
+   "wrong": 4,
    "lang": 0,
    "other": 0,
    "runs": {
@@ -208,8 +208,8 @@
   },
   "gpt_oss_120b": {
    "name": "gpt-oss-120b",
-   "pass": 30,
-   "wrong": 0,
+   "pass": 29,
+   "wrong": 1,
    "lang": 0,
    "other": 0,
    "runs": {

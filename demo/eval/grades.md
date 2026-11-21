@@ -1,6 +1,6 @@
 # Grades (2026-11-20)
 
-**Who graded:** Claude, the AI assistant that built this harness. It read every run-1 answer of every model in full, question by question across all models (`python3 grade_view.py`), against the rubric below. The article's author has not spot-checked these grades yet. Do that before you publish the numbers.
+**Who graded:** Claude, the AI assistant that built this harness. It read every run-1 answer of every model in full, question by question across all models (`python3 grade_view.py`), against the rubric below. The article's author (Rappa) spot-checked the two flagged D01 passes on 2026-11-21 and changed both to confidently wrong (see the D01 rule below); the other grades are Claude's.
 
 - Hand grades: `graded.json`. Scores: `scores.json`, written by `score.py`. Raw answers: `results/*.jsonl`.
 - `score.py` also scans runs 1–3 for what a machine can see: English questions answered in another language, visible `<think>` text, and empty answers. On run 1 its language counts match the hand grades for every model.
@@ -34,9 +34,9 @@ Pass means the answer is correct per the FAQ, in the user's language, invents no
   - Implying that email is faster ("if you need immediate help, email us") passes, with a note.
 - A vague pointer to a page that may not exist ("see our pricing page") passes, with a note. An invented URL fails.
 - **D01 (Japanese):**
-  - 「30分以内に有効なリンク」 (a link valid for 30 minutes) passes.
+  - The FAQ says the reset link expires after 30 minutes. 「30分で期限切れ」 or 「有効期限は30分」 passes.
   - 「リンクは30分以内に送られます」 (the link is sent within 30 minutes) is confidently wrong.
-  - Two passes in this class are flagged in `graded.json` for the author's spot check.
+  - 「30分以内に有効なリセットリンク」 is confidently wrong. Claude first passed it as "valid for 30 minutes"; the author's spot check (2026-11-21) read it as "a link that arrives within 30 minutes", a delivery time the FAQ never promises, and changed Qwen3-Next 80B A3B and gpt-oss-120b to confidently wrong.
 
 ## Setup
 

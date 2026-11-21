@@ -135,8 +135,8 @@ Same code, same architecture. Only `MODEL_ID` changes. Here are the twelve model
 | GLM-4.7 | $14.80 | $6.54 | 29/30 | 0 | said it didn't know the Android requirement |
 | DeepSeek V3.2 | $13.60 | $6.71 | 26/30 | 2 | "Yes, you can get a full refund" after three weeks; sent a user to Export to recover notes; two answers in Spanish and French |
 | Llama 4 Maverick | $6.28 | $2.71 | 30/30 | 0 | nothing (but see below) |
-| Qwen3-Next 80B A3B | $6.20 | $1.74 | 27/30 | 3 | invented a no-student-discount policy and an Evernote workaround; promised help "immediately" |
-| gpt-oss-120b | $3.90 | $2.09 | 30/30 | 0 | nothing |
+| Qwen3-Next 80B A3B | $6.20 | $1.74 | 26/30 | 4 | invented a no-student-discount policy and an Evernote workaround; promised help "immediately"; said in Japanese that the reset link arrives within 30 minutes |
+| gpt-oss-120b | $3.90 | $2.09 | 29/30 | 1 | said in Japanese that the reset link arrives within 30 minutes |
 | Gemma 3 27B | $3.82 | $2.43 | 30/30 | 0 | nothing |
 | GLM-4.7-Flash | $2.30 | $0.82 | 27/30 | 1 | told a user their note from yesterday was gone; two false refusals |
 | gpt-oss-20b | $1.90 | $1.06 | 29/30 | 0 | escalated the angry customer without mentioning Trash |
@@ -147,7 +147,7 @@ Same code, same architecture. Only `MODEL_ID` changes. Here are the twelve model
 
 ![Per-question grades, run 1, for the twelve Bedrock models and the two local Llama models from Stage 5: correct, confidently wrong, wrong language, or other failure](figures/eval30.png)
 
-I expected price to predict the score, and it didn't. The two most expensive Kimi models scored 30 and 29. Below them, the score moved independently of the price. DeepSeek V3.2 at $13.60 failed four questions, and gpt-oss-120b and Gemma 3 27B, both under $4, failed none.
+I expected price to predict the score, and it didn't. The two most expensive Kimi models scored 30 and 29. Below them, the score moved independently of the price. DeepSeek V3.2 at $13.60 failed four questions, and Gemma 3 27B, under $4, failed none. Three models passed all 30: Kimi K3, Llama 4 Maverick, and Gemma 3 27B.
 
 ### The Kimi K2 line: Kimi K2.5 ($18) and Kimi K2 Thinking ($16)
 
@@ -168,7 +168,7 @@ GLM-4.7 passed 29 of 30. Its one failure was a false refusal: it said it had no 
 
 ### Qwen3-Next ($6.20) and Llama 4 Maverick ($6.28)
 
-Qwen3-Next 80B A3B failed in the most dangerous way. It told a customer "We do not currently offer student discounts", a policy the FAQ never states. It told another "We don't support importing from Evernote" and then suggested a manual workaround. And it promised the angry customer help "immediately", against the FAQ's "within one business day". All three were fluent and confident, so a reader has no reason to doubt them.
+Qwen3-Next 80B A3B failed in the most dangerous way. It told a customer "We do not currently offer student discounts", a policy the FAQ never states. It told another "We don't support importing from Evernote" and then suggested a manual workaround. It promised the angry customer help "immediately", against the FAQ's "within one business day". And in Japanese it said the password reset link arrives within 30 minutes; the FAQ says the link expires after 30 minutes and promises no delivery time. All four were fluent and confident, so a reader has no reason to doubt them.
 
 Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, Bedrock started rejecting it: `This Model is marked by provider as Legacy and you have not been actively using the model in the last 30 days`. `get-foundation-model` reports it as `LEGACY` since 2026-09-30, with an end of life on 2027-03-30. A model that passes your test can still be retired by its host, so check `modelLifecycle` before you pick one.
 
@@ -176,7 +176,7 @@ Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, 
 
 This is the part of the shelf I would deploy from.
 
-**gpt-oss-120b ($3.90)** passed 30 of 30. It also reasons, at 99 output tokens per answer on average, which makes its measured bill $2.09.
+**gpt-oss-120b ($3.90)** passed 29 of 30. Its one failure was the Japanese question: it said the reset link arrives within 30 minutes, when the FAQ says the link expires after 30 minutes. It also reasons, at 99 output tokens per answer on average, which makes its measured bill $2.09.
 
 **Gemma 3 27B ($3.82)** passed 30 of 30, with short answers and a measured bill of $2.43. It is the model that rejected an assistant-first history, so it needs the trimming rule from Stage 1.
 
@@ -394,7 +394,7 @@ Stage 5 also costs things that aren't dollars:
 This is the order I would follow again:
 
 1. Start at the top (Stage 1). Learn what "good" looks like for your traffic, and log `usage` from the first request, including the cache fields.
-2. Walk down one price step at a time (Stage 2), with a fixed question set. Stop at the first model where the floor cracks for your questions, then step back up one. In my test the price and the score did not move together: two models under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. Check the model's lifecycle status, and the provider's availability notices, before you commit.
+2. Walk down one price step at a time (Stage 2), with a fixed question set. Stop at the first model where the floor cracks for your questions, then step back up one. In my test the price and the score did not move together: a model under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. Check the model's lifecycle status, and the provider's availability notices, before you commit.
 3. Pull the free levers, and price the worst case (Stages 3 and 4). Count real output tokens, cache what is static, trim what grows, and put a quota in front of the token meter.
 
 Most products should stop at Stage 2 or 3. On this FAQ, $2 to $4 a month bought a model that answered all 30 questions correctly, with logs and the option to switch hosts. Stage 5 is for cases where something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, choose the model by the floor, not by the download size.

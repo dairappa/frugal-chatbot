@@ -30,7 +30,7 @@ Alternatives (none of them reveals the last rung):
   - The Claude and Nova yardsticks were read on 2026-11-19 (`demo/pricing/claude-use1-summary.json`).
   - Lambda, DynamoDB, and CloudFront list prices were read on 2026-11-20.
 - **External prices and licenses.** These are in `demo/pricing/external-2026-11-20.md`. They were gathered by an AI research assistant from Hugging Face, the Moonshot, DeepSeek, and Z.ai pricing pages, and OpenRouter, and were not re-read by the author.
-- **Grades.** Run 1 of all 14 models was graded by Claude (AI assistant) against one rubric (`demo/eval/grades.md`, `graded.json`). The author has not spot-checked them. **Spot-check before publishing**, because the article reports them in the author's voice. Two Japanese D01 passes are flagged in `graded.json`.
+- **Grades.** Run 1 of all 14 models was graded by Claude (AI assistant) against one rubric (`demo/eval/grades.md`, `graded.json`). The author spot-checked the two flagged Japanese D01 passes on 2026-11-21 and failed both (Qwen3-Next 27→26/30, gpt-oss-120b 30→29/30): 「30分以内に有効なリセットリンク」 reads as a delivery time, not the FAQ's 30-minute expiry. The rest of the grades have not been spot-checked.
 - **Llama 4 Maverick.** It went `LEGACY` mid-test, so it has 2 full runs plus 3 answers.
 - **Kimi K3's automatic caching.** It was measured: 90/90 calls read about 614 tokens from cache, and no write was reported. Bedrock's retention time for automatic caching is unknown. The calls were seconds apart.
 - **Behaviour checks.** These are in `demo/eval/behavior_results.json`, from 5 models, 2026-11-20. The Stage 1 handler was run live once on Gemma 3 27B and returned 200.
@@ -42,4 +42,4 @@ Alternatives (none of them reveals the last rung):
 
 - **Testing Kimi K2.6 and DeepSeek V4.1-Flash** needs a Moonshot (platform.kimi.ai) API key and a DeepSeek API key. Moonshot's notice says the K2 series is closed to newly registered users from 2026-10-31; whether that covers K2.6 isn't stated.
 - **Gemma 4 has Bedrock price rows but no Converse model ID.** It may need the OpenAI-compatible endpoint, which was not tried.
-- **The Kimi framing.** On this FAQ, the Kimi K2 line is not the best value. gpt-oss-120b and Gemma 3 27B scored 30/30 for under $4, against $18 for Kimi K2.5 at 29/30. The article says so.
+- **The Kimi framing.** On this FAQ, the Kimi K2 line is not the best value. Gemma 3 27B scored 30/30 and gpt-oss-120b 29/30 for under $4, against $18 for Kimi K2.5 at 29/30. The article says so.
