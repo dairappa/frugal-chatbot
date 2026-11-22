@@ -1,10 +1,10 @@
-// Stage 5: the same support bot, with the model running in the visitor's browser.
+// Stage 4: the same support bot, with the model running in the visitor's browser.
 // Same system prompt + FAQ as the Lambda version (faq.md), same history limit.
 import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm@0.2.89";
 
 const MODEL_OVERRIDE = new URLSearchParams(location.search).get("model"); // for testing
 // Llama 3.2 1B: ~705 MB download, ~879 MB VRAM, 4K context
-const FALLBACK_URL = "";   // your Stage 4 Lambda function URL; "" = no fallback
+const FALLBACK_URL = "";   // your Stage 1 Lambda function URL; "" = no fallback
 const MAX_MESSAGES = 7;    // same trimming rule as the server version
 const params = new URLSearchParams(location.search);
 const $ = (id) => document.getElementById(id);

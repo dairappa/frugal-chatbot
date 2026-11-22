@@ -96,7 +96,24 @@ def browser():
     return rows
 
 
-TABLES = {"shelf": shelf, "yardsticks": yardsticks, "external": external, "scale": scale, "worst": worst, "browser": browser}
+def summary():
+    """One row per way of running the bot: model bill, the rest of the AWS bill, worst month, floor test.
+    Only figures calc.py produced; '–' where it produced none (no hybrid total is made up)."""
+    rows = ["| Model | Where it runs | Model, budget / measured | Rest of the AWS bill | Worst month, 500-chat quota | Floor test |",
+            "|---|---|---|---|---|---|"]
+    for k, where in (("kimi_k3", "Stage 1: Lambda + Bedrock"), ("kimi_k25", "Stage 2: Lambda + Bedrock"),
+                     ("gpt_oss_20b", "Stage 2: Lambda + Bedrock")):
+        rows.append(f"| {S[k]['name']} | {where} | {usd(F[f'ladder.{k}'])} / {usd(F[f'measured_ladder.{k}'])} | "
+                    f"{usd(F[f'infra.{k}.total'])} | {usd(F[f'quota.capped.{k}'])} | {S[k]['pass']}/30 |")
+    for k, size in (("llama32_1b", "1b"), ("llama32_3b", "3b")):
+        rows.append(f"| {S[k]['name']} | Stage 4: browser, weights from Hugging Face | none | "
+                    f"{usd(F['static.10000_visits'])} | – | {S[k]['pass']}/30 |")
+        rows.append(f"| {S[k]['name']} | Stage 4: browser, weights on your CloudFront | none | "
+                    f"{usd(F[f'selfhost.{size}.2000'])} to {usd(F[f'selfhost.{size}.10000'])} | – | {S[k]['pass']}/30 |")
+    return rows
+
+
+TABLES = {"summary": summary, "shelf": shelf, "yardsticks": yardsticks, "external": external, "scale": scale, "worst": worst, "browser": browser}
 
 if __name__ == "__main__":
     text = ARTICLE.read_text()

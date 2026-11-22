@@ -1,4 +1,4 @@
-# Stage 5 smoke test (2026-11-19, this PC)
+# Stage 4 (browser page) smoke test (2026-11-19, this PC; the page was Stage 5 in earlier drafts)
 
 ## Setup
 

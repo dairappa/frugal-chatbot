@@ -19,10 +19,10 @@ code and data behind every number in the article.
 | `humanize-check.md` | How the English of the current edition was edited, and with which tools. |
 | `demo/faq.md` | The shared system prompt and FAQ that every stage and every eval uses. |
 | `demo/stage1/` | Stage 1 backend: a Lambda handler that calls Bedrock Converse, with offline tests. |
-| `demo/stage5/` | Stage 5: a static WebLLM page that runs the model in the browser, plus a smoke-test log. |
+| `demo/stage4/` | Stage 4: a static WebLLM page that runs the model in the browser, plus a smoke-test log. |
 | `demo/cost/` | The cost calculator that recomputes every dollar figure in the article. |
 | `demo/eval/` | The 30-question "floor" eval, its results and hand grades, and live Bedrock behaviour checks. |
-| `figures/` | The article's two figures, generated from the same data. |
+| `figures/` | The article's three figures (two charts and an architecture diagram), generated from the same data. |
 | `demo/pricing/` | AWS Price List API dumps and a filtered extract (us-east-1), plus the external prices and licenses read from provider pages. |
 
 ## Requirements
@@ -98,14 +98,14 @@ in `behavior_results.json`. `ledger.json` records what every live Bedrock call c
 python3 behavior_checks.py
 ```
 
-### Stage 5: model in the browser (`demo/stage5/`)
+### Stage 4: model in the browser (`demo/stage4/`)
 
 A static chat page that loads a small model with [WebLLM](https://github.com/mlc-ai/web-llm)
 and runs it on the visitor's GPU through WebGPU. `serve.py` serves the page and appends the
 page's progress events to `smoke.log`.
 
 ```sh
-cd demo/stage5
+cd demo/stage4
 python3 serve.py 8765
 # open http://127.0.0.1:8765/  (optional: ?model=<WebLLM model id>, ?autotest=<question>)
 ```
