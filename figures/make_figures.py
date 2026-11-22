@@ -97,12 +97,12 @@ def shelf():
     ax.tick_params(length=0)
     ax.grid(axis="x", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    fig.text(0.01, -0.08, "Bedrock on-demand list prices, us-east-1, log scale. Floor test = hand-graded run 1. "
+    fig.text(0.01, -0.08, "Bedrock on-demand list prices, us-east-1, log scale. Floor test = run 1, AI-graded, spot-checked by the author. "
              "Source: demo/cost/calc.py, demo/eval/score.py.", fontsize=8, color=INK_2)
     save(fig, "shelf")
 
 
-# --- Figure 2: every model, every question (hand grades) -----------------------
+# --- Figure 2: every model, every question (run-1 grades) -----------------------
 KINDS = [("pass", "Correct", GOOD, "✓"), ("wrong", "Confidently wrong", CRITICAL, "✗"),
          ("lang", "Wrong language", WARNING, "L"), ("other", "Other failure", NEUTRAL, "–")]
 
@@ -144,7 +144,7 @@ def eval30():
     handles = [Rectangle((0, 0), 1, 1, color=c) for _, _, c, _ in KINDS]
     grid.legend(handles, [f"{g} {n}" for _, n, _, g in KINDS], loc="lower left", bbox_to_anchor=(0, 1.04),
                 ncol=4, frameon=False, fontsize=9, handlelength=1.0, borderaxespad=0.2)
-    grid.set_title("30-question floor test, run 1, graded by hand against the FAQ", loc="left", fontsize=12,
+    grid.set_title("30-question floor test, run 1, AI-graded against the FAQ, spot-checked by the author", loc="left", fontsize=12,
                    fontweight="bold", pad=34)
     fig.text(0.01, -0.03, "Source: demo/eval/graded.json. Bedrock models in us-east-1; Llama 3.2 on Ollama (Q4_K_M). "
              "D01 = Japanese, D02 = angry customer.", fontsize=8, color=INK_2)
@@ -237,7 +237,7 @@ def architecture():
     ])
     box(80, 1, 29, 16, "Off the request path", [
         ("unpriced", "AWS Budgets alert (alarms only)"),
-        ("unpriced", "Grading answers by hand"),
+        ("unpriced", "AI grading, human spot-checks"),
         ("unpriced", "Visitor 501 turned away"),
         ("unpriced", "Humans behind the ticket"),
     ])
