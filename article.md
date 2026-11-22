@@ -30,7 +30,7 @@ Every dollar figure in this article comes from the same price model:
 - **The workload.** 10,000 chats per month. Each chat is budgeted at 1,000 input tokens and 400 output tokens: the system prompt with the FAQ, a trimmed slice of history, and the user's question.
 - **Measured output, next to the budget.** In the test runs a question used about 530 to 630 input tokens, and most models wrote 25 to 35 output tokens on average. The models that reason before they answer wrote far more. So the tables show two monthly figures: one at the 400-token budget, and one at the output each model actually wrote.
 
-The floor scores are measured: each model answered the same 30 questions three times (Llama 4 Maverick's third run was cut short, as Stage 2 explains), an AI grader scored the first run against one rubric, and I spot-checked the results. The cost script that recomputes every figure, the eval, and the code are in the [companion repository](https://github.com/dairappa/frugal-chatbot) (`demo/`).
+The floor scores are measured: each model answered the same 30 questions three times (Llama 4 Maverick's third run was cut short, as Stage 2 explains), an LLM graded the first run against one rubric, and where a grade looked doubtful, I made the call myself. The cost script that recomputes every figure, the eval, and the code are in the [companion repository](https://github.com/dairappa/frugal-chatbot) (`demo/`).
 
 ### The floor: what "minimum viable" means
 
@@ -114,7 +114,7 @@ Kimi K3 passed 30 of 30. It apologized to the angry customer before it pointed t
 
 ## Stage 2: Walk down the open-weight shelf
 
-Same code, same architecture. Only `MODEL_ID` changes. Here are the twelve models I tested, most expensive first, measured with the same 30 questions. Bedrock serves more open-weight models than these (GLM-5, MiniMax M2.5, NVIDIA Nemotron, and Mistral's, among others); I picked one or two per family. The floor test column is the first run, scored by the AI grader and spot-checked by me:
+Same code, same architecture. Only `MODEL_ID` changes. Here are the twelve models I tested, most expensive first, measured with the same 30 questions. Bedrock serves more open-weight models than these (GLM-5, MiniMax M2.5, NVIDIA Nemotron, and Mistral's, among others); I picked one or two per family. The floor test column is the first run, graded by the LLM, with the doubtful calls made by me:
 
 <!-- table:shelf -->
 | Model | $/month at the budget (1,000 in / 400 out) | $/month with measured output | Floor test | Confidently wrong | What went wrong |
