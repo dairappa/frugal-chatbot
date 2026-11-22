@@ -186,7 +186,7 @@ For comparison, here is what the proprietary models on Bedrock cost at the same 
 | Amazon Nova Micro | $0.035 / $0.14 | $0.91 |
 <!-- /table -->
 
-At the budget, Gemma 3 27B and gpt-oss-120b cost a little more than Claude Haiku 5.5, and only Gemma 3 4B costs less than Nova Micro. They are price yardsticks here, so the measured column has no counterpart for them.
+At the budget, Gemma 3 27B and gpt-oss-120b cost a little more than Claude Haiku 5.5, and only Gemma 3 4B costs less than Nova Micro. (I couldn't measure the proprietary models' real output, so the measured column has no counterpart for them. I'm an AWS Community Builder, and AWS treats me exactly like everyone else. Very fair!)
 
 The ratios hold at any scale, but the absolute numbers decide whether the rest of this article matters to you:
 
