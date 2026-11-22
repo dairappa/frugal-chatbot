@@ -200,7 +200,7 @@ The ratios hold at any scale, but the absolute numbers decide whether the rest o
 
 ### The same weights, at other prices
 
-Open weights mean the price depends on the host. Two models I could not test show how much it varies:
+Open weights mean the price depends on the host. Two models I could not test show how much it varies. The table shows the list price on each maker's own API. I left OpenRouter's prices out of the calculations, for the reason under the table:
 
 <!-- table:external -->
 | Model, where | $ per 1M tokens in / out | $/month at the budget | What you need |
