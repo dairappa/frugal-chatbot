@@ -19,7 +19,7 @@ I started at the most expensive open-weight model on the shelf, because I wanted
 3. Stage 3: the same architecture, with the cost levers that are pure configuration.
 4. Stage 4: one more step down, where the question stops being "which model?"
 
-After that, I add up what the token price leaves out: the rest of the AWS bill, the worst month, and the costs that land on someone other than the model.
+After that, I add up what the token price leaves out: the rest of the AWS bill, the worst month, and the costs that land on someone other than you.
 
 ### How the bill is calculated
 
@@ -315,7 +315,7 @@ So the token meter reads zero. There is no model charge at all. The bill, unfort
 
 Both versions of the bot need things around the model, and those things are billed too.
 
-### The server path
+### With a backend
 
 Per chat, the Lambda version makes one Lambda invocation at 256 MB that lasts as long as the model call, one DynamoDB write for the quota counter, and four CloudFront requests (page, script, FAQ, API call). A function URL has no per-request charge of its own. At 10,000 chats, with Kimi K3's measured 2.0-second average:
 
@@ -325,7 +325,7 @@ Per chat, the Lambda version makes one Lambda invocation at 256 MB that lasts as
 
 That is $0.22 a month. Next to Kimi K3's $90 it disappears. Next to Gemma 3 4B's $0.72 it is about a quarter of the bill, so at the bottom of the shelf the infrastructure starts to show. CloudFront sits in front of the function URL with origin access control, so the raw endpoint stays hidden; the page pays for that with a SHA-256 hash of every POST body.
 
-### The browser path
+### Without one
 
 Without a backend, what remains on your AWS bill is the delivery of a static site: an HTML file, a script, and the FAQ, from S3 behind CloudFront. At 10,000 visits a month that is three HTTPS requests and about 0.1 MB per visit: $0.11 a month, with S3 storage for a few files rounding to zero.
 
@@ -345,7 +345,7 @@ In practice you would run both paths: try the local model, and if WebGPU is miss
 
 A public chatbot has no bad clients to filter out. Anyone who opens the chat page can send as many messages as they like, and every one of them is a legitimate request. So the month to plan for is not 10,000 average chats. It is the largest body the handler accepts, a reasoning model writing to its output cap, around the clock, for 30 days.
 
-The obvious brake is Lambda's reserved concurrency, and it brakes the wrong thing. Two concurrent executions busy around the clock for 30 days at 256 MB cost $21.95 in Lambda charges. That bounds the compute, not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
+The obvious brake is Lambda's reserved concurrency, and it brakes the wrong thing. Set it to 2, and two executions busy around the clock for 30 days at 256 MB cost $21.95 in Lambda charges. That bounds the compute, not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
 
 <!-- table:worst -->
 | Concurrency 2, one call every 3 s per slot, all month | gpt-oss-20b | Kimi K2.5 | Kimi K3 |
@@ -374,13 +374,14 @@ What you give up: on a busy day, user number 501 gets "try again tomorrow." Whet
 
 ## The whole bill, including the parts nobody invoices
 
-Here is every way of running the bot side by side, at 10,000 chats a month. For the self-hosted rows, the rest of the bill is the transfer of the weights to 2,000 to 10,000 new visitors:
+Here are the main ways of running the bot side by side, at 10,000 chats (or, in the browser, 10,000 visits) a month. For the self-hosted rows, the rest of the bill is the transfer of the weights to 2,000 to 10,000 new visitors. A dash means I didn't compute that figure, not that it is zero: with a fallback, the browser rows inherit the worst month of whichever model the fallback calls.
 
 <!-- table:summary -->
 | Model | Where it runs | Model, budget / measured | Rest of the AWS bill | Worst month, 500-chat quota | Floor test |
 |---|---|---|---|---|---|
 | Kimi K3 | Stage 1: Lambda + Bedrock | $90.00 / $52.23 | $0.22 | $441.90 | 30/30 |
 | Kimi K2.5 | Stage 2: Lambda + Bedrock | $18.00 / $6.87 | $0.18 | $88.38 | 29/30 |
+| Gemma 3 27B | Stage 2: Lambda + Bedrock | $3.82 / $2.43 | – | – | 30/30 |
 | gpt-oss-20b | Stage 2: Lambda + Bedrock | $1.90 / $1.06 | $0.22 | $9.54 | 29/30 |
 | Llama 3.2 1B | Stage 4: browser, weights from Hugging Face | none | $0.11 | – | 13/30 |
 | Llama 3.2 1B | Stage 4: browser, weights on your CloudFront | none | $119.85 to $599.25 | – | 13/30 |
@@ -394,8 +395,8 @@ And here is the same system as one diagram, with each part colored by who pays f
 
 The token price is one box in that diagram. The other costs fall into four groups:
 
-- **You, with a number.** The model, Lambda, DynamoDB, CloudFront, self-hosted weights, and the worst month under the quota. These are the figures above, and they are the easy part.
-- **You, without a number.** The logs you need to read `usage` and the cache fields. The Budgets alert, which only watches. The 30 questions, run three times on every model, which came to about $0.87 at list price by my logs, plus the time it takes to read every answer. Re-running them when a host marks your model Legacy, as Bedrock did to Llama 4 Maverick mid-test. The refund a confidently wrong bot promises, and the humans who answer the tickets it opens. User number 501. On the browser path, add the server-side view you lose: no central logs of what users asked (unless you add analytics, carefully and with consent), no instant model upgrades, no server-side guardrails, and a system prompt anyone can read in DevTools.
+- **You, with a number.** The model, Lambda, DynamoDB, CloudFront, self-hosted weights, and the worst month under the quota. These are the figures above, and they are the easy part. The testing has a number too: the Bedrock calls behind this article came to about $0.87 at list price, by my logs.
+- **You, without a number.** The logs you need to read `usage` and the cache fields. The Budgets alert, which only watches. The time it takes to read every answer of every run. Re-running the questions when a host stops serving your model, as Bedrock did with Llama 4 Maverick mid-test. The refund a confidently wrong bot promises, and the humans who answer the tickets it opens. For support triage with a human behind it, a 3B model may be acceptable; for refunds, billing, medical, legal, or financial answers, a 1B model is not. User number 501. On the browser path, add the server-side view you lose: no central logs of what users asked (unless you add analytics, carefully and with consent), no instant model upgrades, no server-side guardrails, and a system prompt anyone can read in DevTools.
 - **The visitor.** The first visit is 705 MB for the 1B model and 1.8 GB for the 3B model, cached afterwards, and a drive-by visitor may never finish loading it. The visitor's battery is now your compute budget: on a plugged-in laptop that's a fine trade, and on a phone at 12% battery it's rude, so use small models, short answers, and no warm GPU when the tab is idle. Browser support is broad, not universal: WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows, while older devices, many phones, GPUs without `shader-f16`, and browsers with hardware acceleration turned off will fail or crawl. My own test machine was in that last group.
 - **Someone else.** Hugging Face and GitHub serve the weights and the GPU code for free, for now.
 

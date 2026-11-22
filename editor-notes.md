@@ -7,7 +7,7 @@ These notes are not part of the article.
 - The article centres on open-weight models; proprietary models appear only as price yardsticks.
 - No Claude measurements. Claude 5.5 appears as a list-price yardstick only, and the article does not discuss access to it (author's instruction, 2026-11-22).
 - All costs are at list price, with no free tier.
-- Structure (author's instruction, 2026-11-22): the browser (WebLLM) rung is Stage 4, right after the model stages, as the punchline. It is followed by the rest of the bill (server path, browser path, the worst-case ceiling) and a closing part with the architecture diagram and the costs the token price leaves out. The title, subtitle, and the introduction's stage list must still not reveal the browser rung.
+- Structure (author's instruction, 2026-11-22): the browser (WebLLM) rung is Stage 4, right after the model stages, as the punchline. It is followed by the rest of the bill (server path, browser path, the worst-case ceiling) and a closing part with the architecture diagram and the costs the token price leaves out. The title, subtitle, headings, and the introduction's stage list must still not reveal the browser rung.
 - Tone (author, 2026-11-22): half a joke, played straight. No false statements and real tests, but trivial details may go. The aim is to show how wide the architecture space is, not to maximise practicality.
 
 ## Headline options

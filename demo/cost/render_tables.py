@@ -105,6 +105,9 @@ def summary():
                      ("gpt_oss_20b", "Stage 2: Lambda + Bedrock")):
         rows.append(f"| {S[k]['name']} | {where} | {usd(F[f'ladder.{k}'])} / {usd(F[f'measured_ladder.{k}'])} | "
                     f"{usd(F[f'infra.{k}.total'])} | {usd(F[f'quota.capped.{k}'])} | {S[k]['pass']}/30 |")
+    k = "gemma3_27b"   # no infra or quota figures in calc.py for this model
+    rows.insert(4, f"| {S[k]['name']} | Stage 2: Lambda + Bedrock | {usd(F[f'ladder.{k}'])} / "
+                   f"{usd(F[f'measured_ladder.{k}'])} | – | – | {S[k]['pass']}/30 |")
     for k, size in (("llama32_1b", "1b"), ("llama32_3b", "3b")):
         rows.append(f"| {S[k]['name']} | Stage 4: browser, weights from Hugging Face | none | "
                     f"{usd(F['static.10000_visits'])} | – | {S[k]['pass']}/30 |")

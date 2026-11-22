@@ -196,9 +196,9 @@ def architecture():
         ("visitor", "  on the visitor's GPU"),
         ("visitor", f"First load: {WEIGHTS_1B_MB} MB (Llama 3.2 1B)"),
         ("visitor", "Battery, GPU memory, waiting"),
-        ("visitor", "Old devices, no shader-f16: fails"),
+        ("visitor", "Older devices: fail or crawl"),
         ("unpriced", "No server-side logs or guardrails"),
-        ("unpriced", "System prompt readable in DevTools"),
+        ("unpriced", "System prompt is public"),
         ("unpriced", f"Confidently wrong: {SCORES['llama32_1b']['wrong']} of 30 (1B)"),
     ])
     # Static delivery
@@ -253,7 +253,7 @@ def architecture():
     ax.legend(handles, [n for _, n, _ in PAYERS], title="Who pays", loc="lower left", bbox_to_anchor=(0.0, 0.0),
               ncol=1, frameon=False, fontsize=9, title_fontsize=9, handlelength=1.0, alignment="left")
     ax.set_title("The architecture, and who pays for each part", loc="left", fontsize=12, fontweight="bold", pad=6)
-    fig.text(0.01, 0.0, "List prices, us-east-1, no free tier. Browser path and server path are alternatives, "
+    fig.text(0.01, 0.0, "10,000 chats (or visits) a month, 1,000 in / 400 out. List prices, us-east-1, no free tier. Browser path and server path are alternatives, "
              "not a sum. Source: demo/cost/calc.py.", fontsize=8, color=INK_2)
     save(fig, "architecture")
 
