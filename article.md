@@ -222,11 +222,11 @@ The 400-token budget hides the biggest difference between these models. Most of 
 
 ### Lever 2: Stop paying full price for the prompt you send every time
 
-Your system prompt and FAQ are identical on every request. Of the twelve models, Kimi K3 is the only one with a cache-read rate in the Bedrock price list, $0.30 per 1M tokens against $3.00 for fresh input. It also turned out to cache without being asked.
+Your system prompt and FAQ are identical on every request. Of the twelve models, Kimi K3 is the only one with a cache-read rate in the Bedrock price list, $0.30 per 1M tokens against $3.00 for fresh input, and it caches without being asked. Whether a request actually hits that cache depends on how you build the prompt.
 
-I found that by mistake. My harness priced every call as `inputTokens × input price`, and the first Kimi K3 runs reported 25 input tokens for a 600-token prompt. The rest was in `cacheReadInputTokens`, which I wasn't logging. I threw those runs away, added the cache fields, and ran Kimi K3 again through the `global` profile. In all 90 calls, about 614 tokens came from the cache, and no cache write was reported. The calls were seconds apart, so that is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month. With no hits it stays at $90. Read `usage.cacheReadInputTokens` in your own logs to see where you land.
+Keep the cached prefix byte-for-byte static. The system prompt and FAQ go first, in the same order every time, with no timestamp, request ID, or version string mixed in. Per-user data, such as the customer's name or plan, goes after the FAQ, never inside it. Change one byte early in the prompt and everything after it is billed as fresh input again.
 
-The trade-off is design discipline: a cached prefix has to be byte-for-byte static, so per-user data goes after the FAQ, never inside it.
+Then check that it works. Cached tokens are reported in `usage.cacheReadInputTokens`, not in `inputTokens`, so read that field in your own logs. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month. With no hits it stays at $90. My calls were seconds apart, so my measurement is the best case. At 10,000 chats a month the calls are minutes apart, and I don't know how long Bedrock keeps an automatic cache entry.
 
 ### Lever 3: Trim the history, summarize the rest
 
