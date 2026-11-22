@@ -1,4 +1,4 @@
-# Humanize check for article-final.md (2026-11-20)
+# Humanize check for article.md (2026-11-20)
 
 ## Tools
 

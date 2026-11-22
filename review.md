@@ -1,3 +1,5 @@
+> 注（2026-11-22）: このレビューでいう `article.md` は初版の早期ドラフトです（コミット `1da2204` 時点の `article.md`、git 履歴を参照）。現在の `article.md` は open-weight 版の正本で、別物です。
+
 # Review: "The Frugal Chatbot"（Claude 版ドラフト、2026-11-19）
 
 対象は会話に貼り付けられた Claude 版ドラフトです。

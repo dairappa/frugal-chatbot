@@ -7,7 +7,7 @@
 import json, pathlib, re, sys
 
 HERE = pathlib.Path(__file__).parent
-ARTICLE = HERE.parent.parent / "article-final.md"
+ARTICLE = HERE.parent.parent / "article.md"
 P = json.loads((HERE / "prices.json").read_text())
 F = json.loads((HERE / "figures.json").read_text())["usd"]
 S = json.loads((HERE.parent / "eval" / "scores.json").read_text())["models"]
@@ -48,7 +48,7 @@ def shelf():
 
 
 def yardsticks():
-    rows = ["| Proprietary model (price only, not measured) | $ per 1M tokens in / out | $/month at the budget |",
+    rows = ["| Proprietary model (list price) | $ per 1M tokens in / out | $/month at the budget |",
             "|---|---|---|"]
     for k, m in P["yardsticks"].items():
         if not k.startswith("_"):

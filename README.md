@@ -1,7 +1,7 @@
 # frugal-chatbot
 
 Companion repository for the article **"The Frugal Chatbot"**
-(current title in `article-final.md`: *"$90, $18, $3.90… Where Does the Chatbot Bill Stop?"*).
+(current title in `article.md`: *"$90, $18, $3.90… Where Does the Chatbot Bill Stop?"*).
 
 The article walks an AWS support chatbot down the open-weight model shelf on Amazon Bedrock,
 from Kimi K3 to Gemma 3 4B, and then to a small model running in the visitor's browser with
@@ -13,10 +13,9 @@ code and data behind every number in the article.
 
 | Path | What it is |
 |---|---|
-| `article-final.md` | The article as it stands now (open-weight edition, 2026-11-20). Earlier editions are in git history. |
-| `editor-notes.md` | Editing notes for `article-final.md`: headline options, method notes, and verification status. Not part of the article. |
-| `article.md` | An early draft of the first (Claude) edition. Kept for reference. |
-| `review.md` | Review notes on that draft (Japanese). |
+| `article.md` | The article (open-weight edition). Earlier editions and drafts are in git history. |
+| `editor-notes.md` | Editing notes for `article.md`: headline options, method notes, and verification status. Not part of the article. |
+| `review.md` | Review notes on an early draft of the first (Claude) edition (Japanese). That draft is `article.md` at commit `1da2204`. |
 | `humanize-check.md` | How the English of the current edition was edited, and with which tools. |
 | `demo/faq.md` | The shared system prompt and FAQ that every stage and every eval uses. |
 | `demo/stage1/` | Stage 1 backend: a Lambda handler that calls Bedrock Converse, with offline tests. |

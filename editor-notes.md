@@ -1,11 +1,11 @@
-# Editor's notes for article-final.md (open-weight edition, 2026-11-20)
+# Editor's notes for article.md (open-weight edition, 2026-11-20)
 
 These notes are not part of the article.
 
 ## Direction (decided 2026-11-20)
 
 - The article centres on open-weight models; proprietary models appear only as price yardsticks.
-- No Claude 4 measurements. Claude 5.5 was probed once, was not available, and appears as a price only.
+- No Claude measurements. Claude 5.5 appears as a list-price yardstick only, and the article does not discuss access to it (author's instruction, 2026-11-22).
 - All costs are at list price, with no free tier.
 - The browser (WebLLM) rung stays as the ending. The title, subtitle, and headings must not reveal it.
 

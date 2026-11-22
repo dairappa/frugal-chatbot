@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mechanical checks on article-final.md. Exits 1 on any failure.
+"""Mechanical checks on article.md. Exits 1 on any failure.
 
 1. Every $ amount is either a list price from prices.json or a figure calc.py produced.
 2. Every "N/30" and "N of 30" is a score in ../eval/scores.json.
@@ -15,7 +15,7 @@ ROOT = HERE.parent.parent
 figs = list(json.loads((HERE / "figures.json").read_text())["usd"].values())
 prices = json.loads((HERE / "prices.json").read_text())
 scores = json.loads((HERE.parent / "eval" / "scores.json").read_text())
-text = (ROOT / "article-final.md").read_text()
+text = (ROOT / "article.md").read_text()
 lines = text.splitlines()
 fail = []
 
