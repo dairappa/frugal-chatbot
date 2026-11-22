@@ -101,7 +101,7 @@ def handler(event, context):
 
 Four details in this snippet do quiet financial or correctness work:
 
-- **The history is trimmed so that it starts with a user turn.** From the fourth turn on, a plain `history[-6:]` starts with an assistant message. Gemma 3 27B rejected that with a `ValidationException`: "Conversation roles must alternate user/assistant/user/assistant/..."; Kimi K3, Kimi K2.5, and both gpt-oss models answered it. A bug that hits some models on turn four is the worst kind, so the handler never sends one, and a unit test reproduces the bad slice.
+- **The history is trimmed so that it starts with a user turn.** From the fourth turn on, a plain `history[-6:]` starts with an assistant message. Gemma 3 27B rejected that with a `ValidationException`: "Conversation roles must alternate user/assistant/user/assistant/..."; Kimi K3, Kimi K2.5, and both gpt-oss models answered it. A bug that hits some models on turn four is the worst kind, so the handler never sends such a slice, and a unit test reproduces it.
 - **Size is checked before any token is spent.** The 3 a.m. wiki paste gets a 413 and costs nothing.
 - **There is no `temperature`.** Kimi K3 rejects the whole request with `This model doesn't support the temperature field`; the other four models I checked accepted `temperature: 0.7`. A FAQ bot doesn't need it.
 - **There is no `outputConfig.effort`, and `maxTokens` is 1,024, not 400.** Only Kimi K3 accepted `effort: low`; Kimi K2.5, both gpt-oss models, and Gemma 3 27B rejected it with `This model doesn't support the effort field`, so the handler's `EFFORT` setting is off by default. The cap is generous because reasoning tokens count toward it.
@@ -145,7 +145,7 @@ Kimi K2.5 ($0.60/$3.00 per 1M tokens) writes 29 output tokens on average, so its
 
 Kimi K2 Thinking ($0.60/$2.50) thinks out loud: 401 output tokens per answer on average. Its content was fine; its delivery failed in two ways:
 
-- On the four follow-ups, the reply text started with `<think>` and a paragraph of reasoning. Without history, Bedrock returned the reasoning in a separate `reasoningContent` block, which the handler drops; with history, it came inside the text block.
+- On the four follow-ups, the reply text started with `<think>` and a paragraph of reasoning. Without history, Bedrock returned the reasoning in a separate `reasoningContent` block, which the handler drops; with history, it came inside the text block, in all three runs.
 - It hit the 1,024-token cap three times in 90 answers: twice empty, once a cut-off monologue.
 
 If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." On Bedrock, both models still report `ACTIVE`.
@@ -350,7 +350,7 @@ ddb.update_item(
 )   # ConditionalCheckFailedException -> return 429 "try again tomorrow"
 ```
 
-With 500 chats a day, the worst month on Kimi K3 is $441.90. Rejected calls add about $1.79 a month in Lambda and DynamoDB under the same abuse. On Kimi K3 that is a reason to lower the quota or the caps. Then add an AWS Budgets alert at an amount that would make you raise an eyebrow; it arrives hours late and stops nothing by itself.
+With 500 chats a day, the worst month on Kimi K3 is $441.90, a reason to lower the quota or the caps. Rejected calls add about $1.79 a month in Lambda and DynamoDB. Then add an AWS Budgets alert at an amount that would make you raise an eyebrow; billing data can arrive hours late, and an alert stops nothing by itself.
 
 What you give up: on a busy day, user number 501 gets "try again tomorrow." Whether 500 is the right number is a business decision.
 
@@ -386,7 +386,7 @@ Several of these never show up on an AWS invoice at all.
 
 ## Conclusion: the bill moves, it doesn't vanish
 
-The token price fell from $90 a month to nothing over four stages, and price didn't predict quality on the way down: a model under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. On this FAQ, $2 to $4 a month bought a model that answered all 30 questions correctly, with logs and the option to switch hosts, and most products can stop there. The browser rung is for when money isn't the constraint: no API key in the client, data that must not leave the device, offline use. Even then, choose the model by the floor, not by the download size.
+The token price fell from $90 a month to nothing over four stages, and price didn't predict quality on the way down: a model under $4 a month passed 30 of 30, and a $13.60 model told a customer they could get a refund they couldn't. On this FAQ, $2 to $4 a month bought a model that answered all 30 questions correctly, with logs and the option to switch hosts, and most products can stop there. The browser rung is for when something other than money is the constraint: no API key in the client, data that must not leave the device, offline use. Even then, choose the model by the floor, not by the download size.
 
 Every step that cut the token bill moved cost somewhere else: to delivery, to a quota, to the visitor's battery, to someone else's CDN. Frugal, in the sense of the first law, is knowing where it went.
 
