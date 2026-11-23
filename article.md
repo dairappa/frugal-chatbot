@@ -291,13 +291,7 @@ The 1B model does not hold the floor: it doesn't know what it doesn't know. The 
 
 An automatic keyword grader, by the way, scored the 1B model at 19 to 22 out of 30, passing answers that put the right keyword next to an invented claim. Read your outputs.
 
-### Running it on my machine
-
-I loaded the page in headless Chrome on a Linux PC with an Intel integrated GPU ("gen-7"), hardware acceleration off for an unstable driver, and WebGPU forced on with `--enable-unsafe-webgpu` and Vulkan flags. The GPU lacks `shader-f16`, so the feature check picked the q4f32 build. The first load took 93 seconds, a repeat load 4 seconds, and on an otherwise idle machine it produced no answer within nine minutes.
-
-That is this machine's problem, not a limit of WebLLM. But "WebGPU is available" is not the same as "the model answers." Visitors with machines like that exist, so the fallback needs a timeout, not only a feature check. I did not test a machine with GPU acceleration on, Safari, Firefox, or a phone, so I have no speed numbers for them.
-
-So the token meter reads zero. The bill, unfortunately, is not only the token meter.
+The token meter reads zero. The bill, unfortunately, is not only the token meter.
 
 ## It's not that simple: the rest of the bill
 
@@ -379,7 +373,7 @@ The token price is one box. The other costs fall into four groups:
 
 - **You, with a number.** The figures above, the easy part. The testing has a number too: the Bedrock calls behind this article came to about $0.87 at list price, by my logs.
 - **You, without a number.** The logs for `usage` and the cache fields. Reading every answer of every run. Re-running the questions when a host stops serving your model, as Bedrock did with Llama 4 Maverick mid-test. The refund a confidently wrong bot promises, and the humans behind its tickets. A 3B model may be acceptable for triage with a human behind it; for refunds, billing, medical, legal, or financial answers, a 1B model is not. User number 501. On the browser path: no central logs, no instant model upgrades, no server-side guardrails, and a system prompt anyone can read in DevTools.
-- **The visitor.** The first visit is 705 MB or 1.8 GB, which a drive-by visitor may never finish. The visitor's battery is now your compute budget: on a plugged-in laptop that's a fine trade, and on a phone at 12% battery it's rude. WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows; older devices, many phones, and machines like mine will fail or crawl.
+- **The visitor.** The first visit is 705 MB or 1.8 GB, which a drive-by visitor may never finish. The visitor's battery is now your compute budget: on a plugged-in laptop that's a fine trade, and on a phone at 12% battery it's rude. WebGPU ships in Chrome and Edge, in Safari 26, and in Firefox on Windows; older devices and many phones will fail or crawl, so the fallback needs a timeout, not only a feature check.
 - **Someone else.** Hugging Face and GitHub serve the weights and the GPU code for free, for now.
 
 Several of these never show up on an AWS invoice at all.
