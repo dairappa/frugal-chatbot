@@ -34,6 +34,8 @@ The floor scores are measured: each model answered the same 30 questions three t
 
 ### The floor: what "minimum viable" means
 
+The bot answers for Example Notes, a made-up note-taking app. Its FAQ (`demo/faq.md`, about 600 tokens with the instructions) has twelve entries. The ones that come up below: the password reset email's link expires after 30 minutes; refunds are in full within 14 days; Plus is $4 a month, and annual billing saves 20%; Settings > Export emails all notes as a ZIP; and deleted notes stay in Trash for 30 days, where they can be restored.
+
 First, the least a support chatbot must do to deserve the name:
 
 - Answer questions from the context you give it (your FAQ, your docs), accurately and in the user's language.
@@ -101,7 +103,7 @@ def handler(event, context):
 
 Four details in this snippet do quiet financial or correctness work:
 
-- **The history is trimmed so that it starts with a user turn.** From the fourth turn on, a plain `history[-6:]` starts with an assistant message. Gemma 3 27B rejected that with a `ValidationException`: "Conversation roles must alternate user/assistant/user/assistant/..."; Kimi K3, Kimi K2.5, and both gpt-oss models answered it. A bug that hits some models on turn four is the worst kind, so the handler never sends such a slice, and a unit test reproduces it.
+- **The history is trimmed so that it starts with a user turn.** The client always sends an odd number of messages, because the list ends with the user's new question, so from the fourth turn on a plain `history[-6:]` starts with an assistant message; hence `MAX_MESSAGES = 7`, plus the check. Gemma 3 27B rejected that with a `ValidationException`: "Conversation roles must alternate user/assistant/user/assistant/..."; Kimi K3, Kimi K2.5, and both gpt-oss models answered it. A bug that hits some models on turn four is the worst kind, so the handler never sends such a slice, and a unit test reproduces it.
 - **Size is checked before any token is spent.** The 3 a.m. wiki paste gets a 413 and costs nothing.
 - **There is no `temperature`.** Kimi K3 rejects the whole request with `This model doesn't support the temperature field`; the other four models I checked accepted `temperature: 0.7`. A FAQ bot doesn't need it.
 - **There is no `outputConfig.effort`, and `maxTokens` is 1,024, not 400.** Only Kimi K3 accepted `effort: low`; Kimi K2.5, both gpt-oss models, and Gemma 3 27B rejected it with `This model doesn't support the effort field`, so the handler's `EFFORT` setting is off by default. The cap is generous because reasoning tokens count toward it.
@@ -148,13 +150,13 @@ Kimi K2 Thinking ($0.60/$2.50) thinks out loud: 401 output tokens per answer on 
 - On the four follow-ups, the reply text started with `<think>` and a paragraph of reasoning. Without history, Bedrock returned the reasoning in a separate `reasoningContent` block, which the handler drops; with history, it came inside the text block, in all three runs.
 - It hit the 1,024-token cap three times in 90 answers: twice empty, once a cut-off monologue.
 
-If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." On Bedrock, both models still report `ACTIVE`.
+If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." K2.5 and K2 Thinking are no longer on that page; Kimi K2.6, priced below, still is, and the notice doesn't say whether it counts as K2 series. On Bedrock, both tested models still report `ACTIVE`.
 
 ### DeepSeek V3.2 ($13.60) and Qwen3-Next ($6.20)
 
 DeepSeek V3.2 is where my expectations broke. It answered a customer who bought three weeks ago with "Yes, you can get a full refund", then quoted the 14-day rule. And it switched language on English questions: two, three, and three answers in the three runs, across Spanish, French, German, Italian, and Portuguese.
 
-Qwen3-Next 80B A3B failed most dangerously. It told a customer "We do not currently offer student discounts", a policy the FAQ never states, and promised the angry customer help "immediately", against the FAQ's "within one business day". All four of its failures were fluent and confident, so a reader has no reason to doubt them.
+Qwen3-Next 80B A3B failed most dangerously. It told a customer "We do not currently offer student discounts", a policy the FAQ never states, and promised the angry customer help "immediately", against the FAQ's "within one business day". Like gpt-oss-120b, it said in Japanese that the reset link arrives within 30 minutes; the FAQ only says the link expires after 30 minutes and promises no delivery time. All four of its failures were fluent and confident, so a reader has no reason to doubt them.
 
 ### Llama 4 Maverick ($6.28)
 
@@ -162,9 +164,9 @@ Llama 4 Maverick passed 30 of 30 in its graded run. Then, during the third run, 
 
 ### Under $4: gpt-oss-120b, Gemma 3 27B, GLM-4.7-Flash, gpt-oss-20b, Gemma 3 4B
 
-This is where I would deploy from. **gpt-oss-120b ($3.90)** passed 29 of 30; it reasons, at 99 output tokens per answer on average, which makes its measured bill $2.09. **Gemma 3 27B ($3.82)** passed 30 of 30 with short answers and a measured bill of $2.43; it is the model that needs the trimming rule from Stage 1. **GLM-4.7-Flash ($2.30)** told a user who deleted a note yesterday, "Since 30 days have passed, you will not see it there anymore."
+This is where I would deploy from. **gpt-oss-120b ($3.90)** passed 29 of 30, failing only the Japanese reset-link question described above; it reasons, at 99 output tokens per answer on average, which makes its measured bill $2.09. **Gemma 3 27B ($3.82)** passed 30 of 30 with short answers and a measured bill of $2.43; it is the model that needs the trimming rule from Stage 1. **GLM-4.7-Flash ($2.30)** told a user who deleted a note yesterday, "Since 30 days have passed, you will not see it there anymore."
 
-**gpt-oss-20b ($1.90)** passed 29 of 30, but outside the test, in a behavior check, it answered "How much is Plus?" with "$4 per month (or $48 if you choose annual billing, which saves 20%)". A year at 20% off is $38.40. **Gemma 3 4B ($0.72)** gave four false refusals, including "I don't know" for a Team price it could have multiplied.
+**gpt-oss-20b ($1.90)** passed 29 of 30, but outside the test, in a behavior check, it answered "How much is Plus?" with "$4 per month (or $48 if you choose annual billing, which saves 20%)". A year at 20% off is $38.40. One of the 30 questions asks about the annual discount, and it got that one right; the wrong yearly price only showed up outside the test. **Gemma 3 4B ($0.72)** gave four false refusals, including "I don't know" for a Team price it could have multiplied.
 
 For comparison, proprietary models on Bedrock at the same budget:
 
@@ -189,9 +191,9 @@ The absolute numbers decide whether the rest of this article matters to you:
 | 1,000,000 | $9,000 | $1,800 | $390.00 | $190.00 | $72.00 |
 <!-- /table -->
 
-### The same weights, at other prices
+### Off Bedrock: the makers' own APIs
 
-Two models I could not test show how much the price varies by host, at the list price on each maker's own API:
+Two newer models I could not test, with no Bedrock price, at the list price on each maker's own API:
 
 <!-- table:external -->
 | Model, where | $ per 1M tokens in / out | $/month at the budget | What you need |
@@ -201,7 +203,7 @@ Two models I could not test show how much the price varies by host, at the list 
 | DeepSeek V4.1-Flash, DeepSeek API, off-peak | $0.15 / $0.60 | $3.90 | DeepSeek API key |
 <!-- /table -->
 
-OpenRouter lists Kimi K2.6 from more than ten providers, from $0.39/$1.80 to $1.125/$5.25 per 1M tokens, mostly quantized at the cheap end. A router's price is one provider's endpoint, not a list price, so I left those out of the calculations.
+The same weights do sell at other prices: OpenRouter lists Kimi K2.6 from more than ten providers, from $0.39/$1.80 to $1.125/$5.25 per 1M tokens, mostly quantized at the cheap end. A router's price is one provider's endpoint, not a list price, so I left those out of the calculations.
 
 ## Stage 3: Levers that cost nothing to pull
 
@@ -309,7 +311,7 @@ That is $0.22 a month. Next to Kimi K3's $90 it disappears; next to Gemma 3 4B's
 
 Without a backend, your AWS bill is a static site from S3 behind CloudFront: three HTTPS requests and about 0.1 MB per visit, $0.11 a month at 10,000 visits.
 
-That depends on WebLLM's defaults: it fetches the weights from Hugging Face and the compiled GPU code from GitHub. By the definition at the top, that is close to cheap: someone else pays for the transfer. If you host the weights yourself, the delivery bill follows new visitors, not chats. At $0.085 per GB:
+That depends on WebLLM's defaults: it fetches the weights from Hugging Face and the compiled GPU code from GitHub. By the definition at the top, that is close to cheap: someone else pays for the transfer. If you host the weights yourself, the delivery bill follows new visitors, not chats. At CloudFront's $0.085 per GB for the first 10 TB a month, and $0.080 per GB beyond that:
 
 - 2,000 first-time visitors × 705 MB for the 1B model is about 1.4 TB: $119.85 a month.
 - 10,000 first-time visitors is about 7 TB: $599.25.
@@ -319,7 +321,7 @@ At 10,000 new visitors a month, self-hosted 1B weights cost more than Kimi K3 se
 
 ### Put a ceiling on the worst case
 
-In practice you would run both paths, falling back to the Lambda function URL when the local model fails. That metered path on a public page needs a ceiling. On a public chatbot every request is legitimate, so the month to plan for is the largest body the handler accepts, a reasoning model writing to its output cap, around the clock, for 30 days.
+In practice you would run both paths, falling back to the Lambda function URL when the local model fails. That metered path on a public page needs a ceiling. A public chatbot has no bad clients to filter out: anyone who opens the page can send as many messages as they like, and every one of them is a legitimate request. So the month to plan for is the largest body the handler accepts, a reasoning model writing to its output cap, around the clock, for 30 days.
 
 Lambda's reserved concurrency brakes the wrong thing. Set to 2, it caps Lambda charges at $21.95 a month, but not the tokens. Two slots that each answer one chat every 3 seconds make 1.73 million calls a month:
 
@@ -362,7 +364,7 @@ Here are the main options at 10,000 chats (or, in the browser, 10,000 visits) a 
 | Llama 3.2 1B | Stage 4: browser, weights from Hugging Face | none | $0.11 | – | 13/30 |
 | Llama 3.2 1B | Stage 4: browser, weights on your CloudFront | none | $119.85 to $599.25 | – | 13/30 |
 | Llama 3.2 3B | Stage 4: browser, weights from Hugging Face | none | $0.11 | – | 23/30 |
-| Llama 3.2 3B | Stage 4: browser, weights on your CloudFront | none | $306.00 to $1,491 | – | 23/30 |
+| Llama 3.2 3B | Stage 4: browser, weights on your CloudFront | none | $306.00 to $1,491.20 | – | 23/30 |
 <!-- /table -->
 
 Here is the same system as one diagram, colored by who pays:

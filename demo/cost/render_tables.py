@@ -112,7 +112,7 @@ def summary():
         rows.append(f"| {S[k]['name']} | Stage 4: browser, weights from Hugging Face | none | "
                     f"{usd(F['static.10000_visits'])} | – | {S[k]['pass']}/30 |")
         rows.append(f"| {S[k]['name']} | Stage 4: browser, weights on your CloudFront | none | "
-                    f"{usd(F[f'selfhost.{size}.2000'])} to {usd(F[f'selfhost.{size}.10000'])} | – | {S[k]['pass']}/30 |")
+                    f"${F[f'selfhost.{size}.2000']:,.2f} to ${F[f'selfhost.{size}.10000']:,.2f} | – | {S[k]['pass']}/30 |")
     return rows
 
 
