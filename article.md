@@ -49,7 +49,7 @@ The 30 questions in `demo/eval/questions.json` map to this list:
 - 6 out of scope: a student discount, HIPAA, Evernote import, a Linux release date, a Python script, the weather
 - 4 follow-ups that need history
 - 1 question in Japanese
-- 1 angry customer
+- 1 angry customer, whose lost notes are in Trash
 
 A pass means the answer is correct per the FAQ, in the user's language, and invents no policy, feature, step, URL, or number. A confidently wrong answer is a fluent one that contradicts the FAQ or invents something. Thirty questions is a smoke test, not a benchmark, so run the harness against your own FAQ before you trust mine.
 
@@ -311,11 +311,11 @@ That is $0.22 a month. Next to Kimi K3's $90 it disappears; next to Gemma 3 4B's
 
 Without a backend, your AWS bill is a static site from S3 behind CloudFront: three HTTPS requests and about 0.1 MB per visit, $0.11 a month at 10,000 visits.
 
-That depends on WebLLM's defaults: it fetches the weights from Hugging Face and the compiled GPU code from GitHub. By the definition at the top, that is close to cheap: someone else pays for the transfer. If you host the weights yourself, the delivery bill follows new visitors, not chats. At CloudFront's $0.085 per GB for the first 10 TB a month, and $0.080 per GB beyond that:
+That depends on WebLLM's defaults: it fetches the weights from Hugging Face and the compiled GPU code from GitHub. By the definition at the top, that is close to cheap: someone else pays for the transfer. If you host the weights yourself, the delivery bill follows new visitors, not chats. At CloudFront's $0.085 per GB for the first 10 TB (10,240 GB) a month, and $0.080 per GB beyond that:
 
 - 2,000 first-time visitors × 705 MB for the 1B model is about 1.4 TB: $119.85 a month.
 - 10,000 first-time visitors is about 7 TB: $599.25.
-- For the 3B model, the one that comes closer to the floor, those become $306 and $1,491.20.
+- For the 3B model, the one that comes closer to the floor, those become $306 and, at 18,000 GB, $1,491.20.
 
 At 10,000 new visitors a month, self-hosted 1B weights cost more than Kimi K3 serving every chat.
 
