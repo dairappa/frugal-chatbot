@@ -150,7 +150,7 @@ Kimi K2 Thinking ($0.60/$2.50) thinks out loud: 401 output tokens per answer on 
 - On the four follow-ups, the reply text started with `<think>` and a paragraph of reasoning. Without history, Bedrock returned the reasoning in a separate `reasoningContent` block, which the handler drops; with history, it came inside the text block, in all three runs.
 - It hit the 1,024-token cap three times in 90 answers: twice empty, once a cut-off monologue.
 
-If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." K2.5 and K2 Thinking are no longer on that page; Kimi K2.6, priced below, still is, and the notice doesn't say whether it counts as K2 series. On Bedrock, both tested models still report `ACTIVE`.
+If you buy the Kimi K2 line outside Bedrock, check availability first. Moonshot's pricing page now says: "starting October 31, 2026, K2 series models will no longer be available to newly registered users; existing users are not affected. We plan to retire all K2 series models by the end of December 2026." K2.5 and K2 Thinking are no longer on that page. Kimi K2.6, priced below, is still listed, but price trackers that cite the page report that the notice covers it too. On Bedrock, both tested models still report `ACTIVE`.
 
 ### DeepSeek V3.2 ($13.60) and Qwen3-Next ($6.20)
 
@@ -202,6 +202,8 @@ Two newer models I could not test, with no Bedrock price, at the list price on e
 | DeepSeek V4.1-Flash, DeepSeek API, peak | $0.30 / $1.20 | $7.80 | DeepSeek API key |
 | DeepSeek V4.1-Flash, DeepSeek API, off-peak | $0.15 / $0.60 | $3.90 | DeepSeek API key |
 <!-- /table -->
+
+Being listed doesn't mean you can sign up for it: Kimi K2.6 falls under the K2 series notice quoted in Stage 2, so new Moonshot accounts can't use it, and existing accounts keep it only until the planned retirement at the end of December 2026.
 
 The same weights do sell at other prices: OpenRouter lists Kimi K2.6 from more than ten providers, from $0.39/$1.80 to $1.125/$5.25 per 1M tokens, mostly quantized at the cheap end. A router's price is one provider's endpoint, not a list price, so I left those out of the calculations.
 
