@@ -221,7 +221,7 @@ Your system prompt and FAQ are identical on every request. Of the twelve models,
 
 Keep the cached prefix byte-for-byte static: system prompt and FAQ first, with no timestamp, request ID, or version string mixed in, and per-user data after the FAQ. Change one byte early and everything after it is billed as fresh input.
 
-Then check `usage.cacheReadInputTokens` (not `inputTokens`) in your logs. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month; with no hits it stays at $90. My calls were seconds apart, so that is the best case; I don't know how long Bedrock keeps an automatic cache entry.
+Then check `usage.cacheReadInputTokens` (not `inputTokens`) in your logs. With 600 of the 1,000 budgeted input tokens cached on every chat, Kimi K3 drops from $90 to $73.80 a month; with no hits it stays at $90. Kimi K3's model card says a cache entry lasts at least 30 minutes, and a Builder Center test ("Measuring prompt caching on Bedrock agent sessions", November 22, 2026) still got hits with calls 7 minutes apart, so at 10,000 chats a month $73.80 is a realistic figure, not a best case. My own calls were seconds apart, so they show the hits, not how long an entry lasts.
 
 ### Lever 3: Trim the history, summarize the rest
 
